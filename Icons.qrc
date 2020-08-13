@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/automation_96.png</file>
+        <file>Icons/chicken_100.png</file>
+        <file>Icons/cloud_96.png</file>
+        <file>Icons/irrigation_96.png</file>
+    </qresource>
+</RCC>
