@@ -8,7 +8,8 @@ int main(int argc, char *argv[])
     ChooseWindow w;
     w.show();
 
-    Chickencoop c;
-    c.show();
+
+
+
     return a.exec();
 }

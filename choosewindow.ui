@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Chickens</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="garden_button">
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Garden</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="weather_button">
@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Weather</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="lights_button">
@@ -63,20 +63,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Lights</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>330</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
+     <string/>
     </property>
    </widget>
   </widget>

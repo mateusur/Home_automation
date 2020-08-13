@@ -4,5 +4,10 @@
         <file>Icons/chicken_100.png</file>
         <file>Icons/cloud_96.png</file>
         <file>Icons/irrigation_96.png</file>
+        <file>Icons/return_96.png</file>
+        <file>Icons/thick_arrow_pointing_down_96.png</file>
+        <file>Icons/thick_arrow_pointing_up_96.png</file>
+        <file>Icons/left_96.png</file>
+        <file>Icons/left_48.png</file>
     </qresource>
 </RCC>
