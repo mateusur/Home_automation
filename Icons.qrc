@@ -9,5 +9,9 @@
         <file>Icons/thick_arrow_pointing_up_96.png</file>
         <file>Icons/left_96.png</file>
         <file>Icons/left_48.png</file>
+        <file>Icons/humidity_80.png</file>
+        <file>Icons/thermometer_64.png</file>
+        <file>Icons/door_closed_96.png</file>
+        <file>Icons/open_door_96.png</file>
     </qresource>
 </RCC>
