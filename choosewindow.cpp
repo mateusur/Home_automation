@@ -7,7 +7,9 @@ ChooseWindow::ChooseWindow(QWidget *parent)
 {
     ui->setupUi(this);
     chickencoop_window = new Chickencoop(this);
+    weather_window = new Weather(this);
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
+    connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     set_icons();
 
     //MQTT
@@ -29,6 +31,7 @@ ChooseWindow::ChooseWindow(QWidget *parent)
            ui->editLog->insertPlainText(content);
        });
     QTimer::singleShot(5000, this, &ChooseWindow::set_subscription);
+
 
 }
 
@@ -55,7 +58,7 @@ void ChooseWindow::on_chickencoop_button_clicked()
 {
     chickencoop_window->show();
     this->hide();
-    qDebug() << "Hello";
+    qDebug() << "Otwarto okno chickencoop";
 
 }
 
@@ -137,4 +140,11 @@ void ChooseWindow::on_buttonSubscribe_clicked()
 {
     auto subscription = m_client->subscribe(ui->lineEditTopic->text());
     qDebug() << subscription->state();
+}
+
+void ChooseWindow::on_weather_button_clicked()
+{
+    weather_window->show();
+    this->hide();
+    qDebug() << "Otwarto okno weather";
 }

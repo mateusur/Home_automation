@@ -13,5 +13,14 @@
         <file>Icons/thermometer_64.png</file>
         <file>Icons/door_closed_96.png</file>
         <file>Icons/open_door_96.png</file>
+        <file>Icons/home_64.png</file>
+        <file>Icons/Weather/clouds_96.png</file>
+        <file>Icons/Weather/haze_96.png</file>
+        <file>Icons/Weather/heavy_rain_96.png</file>
+        <file>Icons/Weather/light_rain_96.png</file>
+        <file>Icons/Weather/partly_cloudy_day_96.png</file>
+        <file>Icons/Weather/snow_96.png</file>
+        <file>Icons/Weather/storm_96.png</file>
+        <file>Icons/Weather/summer_96.png</file>
     </qresource>
 </RCC>

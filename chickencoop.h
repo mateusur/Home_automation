@@ -2,7 +2,6 @@
 #define CHICKENCOOP_H
 
 #include <QDialog>
-
 #include <QDebug>
 
 namespace Ui {

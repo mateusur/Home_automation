@@ -7,6 +7,7 @@
 #include <QDebug>
 
 #include "chickencoop.h"
+#include "weather.h"
 
 #include <QMqttClient>
 #include <QMqttSubscription>
@@ -36,12 +37,14 @@ private slots:
     void message_handler(QByteArray message,  QMqttTopicName topic);
     void on_buttonSubscribe_clicked();
 
+    void on_weather_button_clicked();
+
 private:
     Ui::ChooseWindow *ui;
     Chickencoop *chickencoop_window;
     QMqttClient *m_client;
 
     void set_icons();
-
+    Weather *weather_window;
 };
 #endif // CHOOSEWINDOW_H

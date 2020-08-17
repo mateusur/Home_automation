@@ -18,15 +18,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     chickencoop.cpp \
     main.cpp \
-    choosewindow.cpp
+    choosewindow.cpp \
+    weather.cpp
 
 HEADERS += \
     chickencoop.h \
-    choosewindow.h
+    choosewindow.h \
+    weather.h
 
 FORMS += \
     chickencoop.ui \
-    choosewindow.ui
+    choosewindow.ui \
+    weather.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
