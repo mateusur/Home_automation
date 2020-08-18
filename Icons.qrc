@@ -22,5 +22,6 @@
         <file>Icons/Weather/snow_96.png</file>
         <file>Icons/Weather/storm_96.png</file>
         <file>Icons/Weather/summer_96.png</file>
+        <file>Icons/Weather/refresh_30.png</file>
     </qresource>
 </RCC>

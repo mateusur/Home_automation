@@ -8,8 +8,8 @@ Weather::Weather(QWidget *parent) :
     ui(new Ui::Weather)
 {
     ui->setupUi(this);
-    manager = new QNetworkAccessManager;
-    QNetworkRequest request(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    manager = new QNetworkAccessManager(this);
+    request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
     //QNetworkRequest request(QUrl(QString("http://api.openweathermap.org/data/2.5/weather?lat=50.907066&lon=16.653226&appid=66a44116b5639646b420fff27e0fb57b&units=metric")));
 
     //request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
@@ -22,6 +22,11 @@ Weather::Weather(QWidget *parent) :
     QIcon ButtonIcon_return(pixmap_return);
     ui->return_button->setIcon(ButtonIcon_return);
     ui->return_button->setIconSize(pixmap_return.rect().size());
+
+    QPixmap pixmap_refresh(":/Icons/Weather/refresh_30.png");
+    QIcon ButtonIcon_refresh(pixmap_refresh);
+    ui->pushButton_refresh->setIcon(ButtonIcon_refresh);
+    ui->pushButton_refresh->setIconSize(pixmap_refresh.rect().size());
 
 }
 
@@ -39,7 +44,14 @@ void Weather::managerFinished(QNetworkReply *reply)
         qDebug() << reply->errorString();
         return;
     }
-
+    v_feels_like.clear();
+    v_rain.clear();
+    v_pressure.clear();
+    v_temp.clear();
+    v_description.clear();
+    v_icon.clear();
+    v_time.clear();
+    v_clouds.clear();
     QString answer = reply->readAll();
     QJsonDocument jsonDoc = QJsonDocument::fromJson(answer.toUtf8());
     QJsonObject jo = jsonDoc.object();
@@ -60,11 +72,6 @@ void Weather::managerFinished(QNetworkReply *reply)
         v_time.push_back(myDateTime.toString("dd.MM"));
         v_clouds.push_back(object["clouds"].toInt());
     }
-
-
-    for(auto b: v_time)
-        qDebug() << b;
-
     set_icon(ui->label_icon_day00,v_icon[0]);
     set_icon(ui->label_icon_day01,v_icon[1]);
     set_icon(ui->label_icon_day02,v_icon[2]);
@@ -204,4 +211,10 @@ void Weather::set_time(QLabel *label, QString time)
     label->setStyleSheet("font-weight: bold; font: 16pt");
     label->setAlignment(Qt::AlignCenter);
     label->setText(time);
+}
+
+void Weather::on_pushButton_refresh_clicked()
+{
+    //QNetworkRequest request(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    manager->get(request);
 }

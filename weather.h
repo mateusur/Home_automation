@@ -28,9 +28,12 @@ private slots:
     void managerFinished(QNetworkReply *reply);
     void on_return_button_clicked();
 
+    void on_pushButton_refresh_clicked();
+
 private:
     Ui::Weather *ui;
     QNetworkAccessManager *manager;
+    QNetworkRequest request;
     QVector<double> v_feels_like;
     QVector<double> v_rain;
     QVector<int> v_pressure;
