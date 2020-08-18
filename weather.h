@@ -8,8 +8,8 @@
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QJsonObject>
-
 #include <QtNetwork>
+#include <QLabel>
 
 
 namespace Ui {
@@ -23,20 +23,7 @@ class Weather : public QDialog
 public:
     explicit Weather(QWidget *parent = nullptr);
     ~Weather();
-//    double Temperatura() const;
-//    double TemperaturaOdczuwalna() const;
-//    double TemperaturaMax() const;
-//    double TemperaturaMin() const;
-//    double PredkoscWiatru() const;
-//    unsigned int Wilgotnosc() const;
-//    unsigned int Cisnienie() const;
-//    unsigned int KatWiatru() const;
-//    QTime CzasWschod() const;
-//    QTime CzasZachod() const;
-//    QString NazwaMiasta() const;
-//    QString OpisPogody() const;
-//    QString IkonaPogody(uint8_t flag) const;
-//    QString Wyswietl();
+
 private slots:
     void managerFinished(QNetworkReply *reply);
     void on_return_button_clicked();
@@ -44,26 +31,24 @@ private slots:
 private:
     Ui::Weather *ui;
     QNetworkAccessManager *manager;
-    double feels_like;
-    unsigned int humidity;
-    unsigned int pressure;
-    double temp;
-    double temp_max;
-    double temp_min;
-//    QTime sunrise;
-//    QTime sunset;
-//    unsigned int deg;
-//    double speed;
-//    QString name;
-//    QString description;
-//    QString icon;
-
     QVector<double> v_feels_like;
     QVector<double> v_rain;
     QVector<int> v_pressure;
     QVector<double> v_temp;
-    QVector<QString> v_descrption;
+    QVector<QString> v_description;
     QVector<QString> v_icon;
+    QVector<QString> v_time;
+    QVector<int> v_clouds;
+    void set_icon(QLabel *label, QString icon);
+    void set_temp(QLabel *label, double temp);
+    void set_feels(QLabel *label, double feels_like);
+    void set_rain(QLabel *label, double rain);
+    void set_clouds(QLabel *label,int cloudines);
+    void set_pressure(QLabel *label,int pressure);
+    void set_description(QLabel *label, QString description);
+    void set_time(QLabel *label, QString time);
+
+
 signals:
     void daneZmienione(QJsonDocument dane);
     void change_window();
