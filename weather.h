@@ -50,6 +50,7 @@ private:
     void set_pressure(QLabel *label,int pressure);
     void set_description(QLabel *label, QString description);
     void set_time(QLabel *label, QString time);
+    void set_all_icons();
 
 
 signals:

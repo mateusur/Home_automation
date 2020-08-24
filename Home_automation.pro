@@ -19,16 +19,19 @@ SOURCES += \
     chickencoop.cpp \
     main.cpp \
     choosewindow.cpp \
+    watering.cpp \
     weather.cpp
 
 HEADERS += \
     chickencoop.h \
     choosewindow.h \
+    watering.h \
     weather.h
 
 FORMS += \
     chickencoop.ui \
     choosewindow.ui \
+    watering.ui \
     weather.ui
 
 # Default rules for deployment.

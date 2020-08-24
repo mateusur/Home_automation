@@ -10,10 +10,6 @@ Weather::Weather(QWidget *parent) :
     ui->setupUi(this);
     manager = new QNetworkAccessManager(this);
     request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-    //QNetworkRequest request(QUrl(QString("http://api.openweathermap.org/data/2.5/weather?lat=50.907066&lon=16.653226&appid=66a44116b5639646b420fff27e0fb57b&units=metric")));
-
-    //request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-    //QNetworkReply *netReply =
     manager->get(request);
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(managerFinished(QNetworkReply*)));
@@ -69,9 +65,85 @@ void Weather::managerFinished(QNetworkReply *reply)
         v_icon.push_back( object["weather"].toArray()[0].toObject()["icon"].toString());
         unixtimestamp = object["dt"].toInt();
         myDateTime.setTime_t(unixtimestamp);
-        v_time.push_back(myDateTime.toString("dd.MM"));
+        v_time.push_back(myDateTime.toString("dd.MM (ddd)"));
         v_clouds.push_back(object["clouds"].toInt());
     }
+    set_all_icons();
+}
+
+void Weather::on_return_button_clicked()
+{
+    this->hide();
+    emit change_window();
+}
+
+void Weather::set_icon(QLabel *label, QString icon)
+{
+    QPixmap weather_pixmap;
+    if(icon == "01d"  || icon == "01n")
+        weather_pixmap.load(":/Icons/Weather/summer_96.png");
+    else if (icon == "02d"  || icon == "02n")
+        weather_pixmap.load(":/Icons/Weather/partly_cloudy_day_96.png");
+    else if (icon == "03d"  || icon == "03n" || icon == "04d"  || icon == "04n")
+        weather_pixmap.load(":/Icons/Weather/clouds_96.png");
+    else if (icon == "09d"  || icon == "09n")
+        weather_pixmap.load(":/Icons/Weather/light_rain_96.png");
+    else if (icon == "10d"  || icon == "10n")
+        weather_pixmap.load(":/Icons/Weather/heavy_rain_96.png");
+    else if (icon == "11d"  || icon == "11n")
+        weather_pixmap.load(":/Icons/Weather/storm_96.png");
+    else if (icon == "13d"  || icon == "13n")
+        weather_pixmap.load(":/Icons/Weather/snow_96.png");
+    else if (icon == "50d"  || icon == "50n")
+        weather_pixmap.load(":/Icons/Weather/haze_96.png");
+
+    int w = label->width();
+    int h = label->height();
+    label->setAlignment(Qt::AlignCenter);
+    label->setPixmap(weather_pixmap.scaled(w,h,Qt::KeepAspectRatioByExpanding));
+}
+
+void Weather::set_temp(QLabel *label, double temp)
+{
+
+    label->setText("Temp: "+ QString::number(temp) + " °C");
+}
+
+void Weather::set_feels(QLabel *label, double feels_like)
+{
+    label->setText("Odczuwalna: "+ QString::number(feels_like) + " °C");
+}
+
+void Weather::set_rain(QLabel *label, double rain)
+{
+    label->setText("Opady: "+ QString::number(rain) + " mm");
+}
+
+void Weather::set_clouds(QLabel *label, int cloudines)
+{
+    label->setText("Chmury: "+ QString::number(cloudines) + " %");
+}
+
+void Weather::set_pressure(QLabel *label, int pressure)
+{
+    label->setText("Ciśnienie: "+ QString::number(pressure) + " hPa");
+}
+
+void Weather::set_description(QLabel *label, QString description)
+{
+    label->setText(description);
+    label->setWordWrap(true);
+}
+
+void Weather::set_time(QLabel *label, QString time)
+{
+    label->setStyleSheet("font-weight: bold; font: 16pt");
+    label->setAlignment(Qt::AlignCenter);
+    label->setText(time);
+}
+
+void Weather::set_all_icons()
+{
     set_icon(ui->label_icon_day00,v_icon[0]);
     set_icon(ui->label_icon_day01,v_icon[1]);
     set_icon(ui->label_icon_day02,v_icon[2]);
@@ -143,78 +215,7 @@ void Weather::managerFinished(QNetworkReply *reply)
 
 }
 
-void Weather::on_return_button_clicked()
-{
-    this->hide();
-    emit change_window();
-}
-
-void Weather::set_icon(QLabel *label, QString icon)
-{
-    QPixmap weather_pixmap;
-    if(icon == "01d"  || icon == "01n")
-        weather_pixmap.load(":/Icons/Weather/summer_96.png");
-    else if (icon == "02d"  || icon == "02n")
-        weather_pixmap.load(":/Icons/Weather/partly_cloudy_day_96.png");
-    else if (icon == "03d"  || icon == "03n" || icon == "04d"  || icon == "04n")
-        weather_pixmap.load(":/Icons/Weather/clouds_96.png");
-    else if (icon == "09d"  || icon == "09n")
-        weather_pixmap.load(":/Icons/Weather/light_rain_96.png");
-    else if (icon == "10d"  || icon == "10n")
-        weather_pixmap.load(":/Icons/Weather/heavy_rain_96.png");
-    else if (icon == "11d"  || icon == "11n")
-        weather_pixmap.load(":/Icons/Weather/storm_96.png");
-    else if (icon == "13d"  || icon == "13n")
-        weather_pixmap.load(":/Icons/Weather/snow_96.png");
-    else if (icon == "50d"  || icon == "50n")
-        weather_pixmap.load(":/Icons/Weather/haze_96.png");
-
-    int w = label->width();
-    int h = label->height();
-    label->setPixmap(weather_pixmap.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-}
-
-void Weather::set_temp(QLabel *label, double temp)
-{
-
-    label->setText("Temp: "+ QString::number(temp) + " °C");
-}
-
-void Weather::set_feels(QLabel *label, double feels_like)
-{
-    label->setText("Odczuwalna: "+ QString::number(feels_like) + " °C");
-}
-
-void Weather::set_rain(QLabel *label, double rain)
-{
-    label->setText("Opady: "+ QString::number(rain) + " mm");
-}
-
-void Weather::set_clouds(QLabel *label, int cloudines)
-{
-    label->setText("Chmury: "+ QString::number(cloudines) + " %");
-}
-
-void Weather::set_pressure(QLabel *label, int pressure)
-{
-    label->setText("Ciśnienie: "+ QString::number(pressure) + " hPa");
-}
-
-void Weather::set_description(QLabel *label, QString description)
-{
-    label->setText(description);
-    label->setWordWrap(true);
-}
-
-void Weather::set_time(QLabel *label, QString time)
-{
-    label->setStyleSheet("font-weight: bold; font: 16pt");
-    label->setAlignment(Qt::AlignCenter);
-    label->setText(time);
-}
-
 void Weather::on_pushButton_refresh_clicked()
 {
-    //QNetworkRequest request(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
     manager->get(request);
 }
