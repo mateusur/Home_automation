@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     chickencoop.cpp \
+    droplet.cpp \
     main.cpp \
     choosewindow.cpp \
     watering.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     chickencoop.h \
     choosewindow.h \
+    droplet.h \
     watering.h \
     weather.h
 
