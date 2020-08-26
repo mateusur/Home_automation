@@ -8,12 +8,11 @@
 
 #include "chickencoop.h"
 #include "weather.h"
-
+#include "watering.h"
 #include <QMqttClient>
 #include <QMqttSubscription>
 #include <QThread>
 #include <QTimer>
-
 #include <QString>
 //::fromlatin1
 
@@ -39,6 +38,8 @@ private slots:
 
     void on_weather_button_clicked();
 
+    void on_water_button_clicked();
+
 private:
     Ui::ChooseWindow *ui;
     Chickencoop *chickencoop_window;
@@ -46,5 +47,7 @@ private:
 
     void set_icons();
     Weather *weather_window;
+    Watering *watering_window;
+
 };
 #endif // CHOOSEWINDOW_H

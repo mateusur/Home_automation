@@ -8,8 +8,10 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     ui->setupUi(this);
     chickencoop_window = new Chickencoop(this);
     weather_window = new Weather(this);
+    watering_window = new Watering(this);
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
+    connect(watering_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     set_icons();
 
     //MQTT
@@ -39,6 +41,7 @@ ChooseWindow::~ChooseWindow()
 {
     qDebug() << "Destruktor choose_window";
     delete ui;
+
 }
 
 void ChooseWindow::show_window()
@@ -102,8 +105,8 @@ void ChooseWindow::set_icons()
 
     QPixmap pixmap_garden(":/Icons/irrigation_96.png");
     QIcon ButtonIcon_garden(pixmap_garden);
-    ui->garden_button->setIcon(ButtonIcon_garden);
-    ui->garden_button->setIconSize(pixmap_garden.rect().size());
+    ui->water_button->setIcon(ButtonIcon_garden);
+    ui->water_button->setIconSize(pixmap_garden.rect().size());
 
     QPixmap pixmap_weather(":/Icons/cloud_96.png");
     QIcon ButtonIcon_weather(pixmap_weather);
@@ -147,4 +150,11 @@ void ChooseWindow::on_weather_button_clicked()
     weather_window->show();
     this->hide();
     qDebug() << "Otwarto okno weather";
+}
+
+void ChooseWindow::on_water_button_clicked()
+{
+    watering_window->show();
+    this->hide();
+    qDebug() << "Otwarto okno watering";
 }
