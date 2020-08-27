@@ -27,10 +27,11 @@ class ChooseWindow : public QMainWindow
 public:
     ChooseWindow(QWidget *parent = nullptr);
     ~ChooseWindow();
-
+public slots:
+    void publish_message(const QString &topic,const QByteArray &msg);
 private slots:
     void show_window();
-    void publish_message(QString topic, QByteArray msg);
+
     void on_chickencoop_button_clicked();
     void set_subscription();
     void message_handler(QByteArray message,  QMqttTopicName topic);

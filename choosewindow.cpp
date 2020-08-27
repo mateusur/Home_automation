@@ -15,7 +15,11 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     set_icons();
 
     //MQTT
-    connect(chickencoop_window,SIGNAL(publish_message(QString, QByteArray)),this,SLOT(publish_message(QString, QByteArray))); // Send "UP", "DOWN" from chickencoop window
+    //connect(chickencoop_window,SIGNAL(publish_message(QString, QByteArray)),
+    //        this,SLOT(publish_message(QString, QByteArray))); // Send "UP", "DOWN" from chickencoop window
+    //connect(watering_window,SIGNAL(publish_message(QString &, QByteArray &)),
+    //        this,SLOT(publish_message(QString, QByteArray))); // Send minutes from watering window
+    //connect(watering_window,&Watering::publish_msg(QString, QByteArray),this,&ChooseWindow::publish_message(QString, QByteArray));
     m_client = new QMqttClient(this);
     m_client->setHostname("192.168.1.8");
     m_client->setPort(1883);
@@ -34,7 +38,8 @@ ChooseWindow::ChooseWindow(QWidget *parent)
        });
     QTimer::singleShot(5000, this, &ChooseWindow::set_subscription);
 
-
+    connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
+    connect(watering_window,&Watering::publish_msg,this, &ChooseWindow::publish_message);
 }
 
 ChooseWindow::~ChooseWindow()
@@ -49,7 +54,7 @@ void ChooseWindow::show_window()
     this->show();
 }
 
-void ChooseWindow::publish_message(QString topic, QByteArray msg)
+void ChooseWindow::publish_message(const QString &topic,const QByteArray &msg)
 {
     qDebug() << topic;
     qDebug() << msg;

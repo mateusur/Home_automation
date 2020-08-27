@@ -42,7 +42,6 @@ void Chickencoop::set_icons()
 
 void Chickencoop::on_up_button_clicked()
 {
-    const QString topic = "chickencoop/door";
     //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "UP";
     emit publish_msg(topic,msg);
@@ -50,7 +49,6 @@ void Chickencoop::on_up_button_clicked()
 
 void Chickencoop::on_down_button_clicked()
 {
-    const QString topic = "chickencoop/door";
     //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "DOWN";
     emit publish_msg(topic,msg);

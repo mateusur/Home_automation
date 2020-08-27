@@ -24,10 +24,11 @@ private slots:
 
 signals:
     void change_window();
-    void publish_msg(QString topic, QByteArray msg);
+    void publish_msg(const QString &topic,const QByteArray &msg);
 private:
     Ui::Chickencoop *ui;
     void set_icons();
+    const QString topic = "chickencoop/door";
 
 };
 
