@@ -10,22 +10,293 @@
     <height>480</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="return_button">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Return</string>
-   </property>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QPushButton" name="return_button">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>71</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>71</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>71</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Minimum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>99</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>Jednorazowo</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_monday">
+       <property name="text">
+        <string>Poniedziałek</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_tuesday">
+       <property name="text">
+        <string>Wtorek</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_wednesday">
+       <property name="text">
+        <string>Środa</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_thursday">
+       <property name="text">
+        <string>Czwartek</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_friday">
+       <property name="text">
+        <string>Piątek</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_saturday">
+       <property name="text">
+        <string>Sobota</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_sunday">
+       <property name="text">
+        <string>Niedziela</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Włącz nawadnianie o</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTimeEdit" name="timeEdit">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="currentSection">
+        <enum>QDateTimeEdit::HourSection</enum>
+       </property>
+       <property name="time">
+        <time>
+         <hour>12</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>10</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>na</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_interval">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::UpDownArrows</enum>
+       </property>
+       <property name="prefix">
+        <string/>
+       </property>
+       <property name="suffix">
+        <string> min</string>
+       </property>
+       <property name="decimals">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>5.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>45.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>70</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_accept">
+       <property name="text">
+        <string>Akceptuj</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>90</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

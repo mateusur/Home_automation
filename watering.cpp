@@ -17,7 +17,7 @@ Watering::Watering(QWidget *parent) :
 
 Watering::~Watering()
 {
-    qDebug() << "Destruktor garden windows";
+    qDebug() << "Destruktor garden window";
     delete ui;
     for(auto i=0; i<drop_count; i++){
         delete droplets[i];
