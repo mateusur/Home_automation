@@ -70,51 +70,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="editLog">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>300</y>
-      <width>291</width>
-      <height>121</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditTopic">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>300</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test10</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="buttonSubscribe">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>330</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Subscribe</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_hum">
     <property name="geometry">
      <rect>
@@ -224,20 +179,6 @@ background-color: rgb(229, 229, 229);
      <string/>
     </property>
    </widget>
-   <zorder>lineEditTopic</zorder>
-   <zorder>chickencoop_button</zorder>
-   <zorder>water_button</zorder>
-   <zorder>weather_button</zorder>
-   <zorder>lights_button</zorder>
-   <zorder>editLog</zorder>
-   <zorder>buttonSubscribe</zorder>
-   <zorder>label_hum</zorder>
-   <zorder>label_temp</zorder>
-   <zorder>lineEdit_temp</zorder>
-   <zorder>lineEdit_hum</zorder>
-   <zorder>label_temp_2</zorder>
-   <zorder>label_hum_2</zorder>
-   <zorder>label_doors</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

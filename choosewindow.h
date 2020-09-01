@@ -30,16 +30,12 @@ public:
 public slots:
     void publish_message(const QString &topic,const QByteArray &msg);
 private slots:
-    void show_window();
-
     void on_chickencoop_button_clicked();
+    void on_weather_button_clicked();
+    void on_water_button_clicked();
+    void show_window();
     void set_subscription();
     void message_handler(QByteArray message,  QMqttTopicName topic);
-    void on_buttonSubscribe_clicked();
-
-    void on_weather_button_clicked();
-
-    void on_water_button_clicked();
 
 private:
     Ui::ChooseWindow *ui;

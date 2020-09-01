@@ -27,15 +27,15 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     m_client->connectToHost();
 
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
-    connect(m_client, &QMqttClient::messageReceived, this, [this](const QByteArray &message, const QMqttTopicName &topic) {
-           const QString content = QDateTime::currentDateTime().toString()
-                       + QLatin1String(" Received Topic: ")
-                       + topic.name()
-                       + QLatin1String(" Message: ")
-                       + message
-                       + QLatin1Char('\n');
-           ui->editLog->insertPlainText(content);
-       });
+//    connect(m_client, &QMqttClient::messageReceived, this, [this](const QByteArray &message, const QMqttTopicName &topic) {
+//           const QString content = QDateTime::currentDateTime().toString()
+//                       + QLatin1String(" Received Topic: ")
+//                       + topic.name()
+//                       + QLatin1String(" Message: ")
+//                       + message
+//                       + QLatin1Char('\n');
+//           ui->editLog->insertPlainText(content);
+//       });
     QTimer::singleShot(5000, this, &ChooseWindow::set_subscription);
 
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
@@ -142,12 +142,6 @@ void ChooseWindow::set_subscription()
     m_client->subscribe(hum);
     m_client->subscribe(doors);
 
-}
-
-void ChooseWindow::on_buttonSubscribe_clicked()
-{
-    auto subscription = m_client->subscribe(ui->lineEditTopic->text());
-    qDebug() << subscription->state();
 }
 
 void ChooseWindow::on_weather_button_clicked()
