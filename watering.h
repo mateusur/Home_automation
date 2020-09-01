@@ -5,6 +5,8 @@
 #include "droplet.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <QTimer>
+#include <QTime>
 
 namespace Ui {
 class Watering;
@@ -21,8 +23,9 @@ public:
 private slots:
     void on_return_button_clicked();
     void on_radioButton_once_clicked();
-
     void on_pushButton_accept_clicked();
+    void updateCountdown();
+
 
 signals:
     void change_window();
@@ -34,6 +37,10 @@ private:
     QLabel *labels[drop_count];
     Droplet *droplets[drop_count];
     const QString topic = "garden/watering/solenoid";
+    QTimer *timer;
+    QTimer *timer2;
+    QTime countdown;
+
 };
 
 #endif // WATERING_H

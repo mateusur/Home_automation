@@ -13,16 +13,22 @@ Watering::Watering(QWidget *parent) :
     for(auto i=0; i<drop_count; i++){
         droplets[i] = new Droplet(labels[i]);
     }
+    timer = new QTimer(this);
+    timer2 = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
+    connect(timer2, SIGNAL(timeout()), this, SLOT(updateCountdown()));
+
 
 }
 
 Watering::~Watering()
 {
     qDebug() << "Destruktor garden window";
-    delete ui;
+
     for(auto i=0; i<drop_count; i++){
         delete droplets[i];
     }
+    delete ui;
 }
 
 void Watering::on_return_button_clicked()
@@ -63,9 +69,43 @@ void Watering::on_pushButton_accept_clicked()
             || ui->checkBox_thursday->isChecked() || ui->checkBox_friday->isChecked() || ui->checkBox_saturday->isChecked() || ui->checkBox_sunday->isChecked()){
     qDebug() << ui->doubleSpinBox_interval->value();
     double minutes = ui->doubleSpinBox_interval->value();
-    QByteArray array(reinterpret_cast<const char*>(&minutes), sizeof(minutes));
-    emit publish_msg(topic,array);
+    //QByteArray array(reinterpret_cast<const char*>(&minutes), sizeof(minutes));
+    QByteArray ba = QByteArray::number(minutes, 'f', 0);
+    emit publish_msg(topic,ba);
 
+    timer->start(1000);
+    countdown.setHMS(0,minutes,0);
+    ui->pushButton_accept->setEnabled(false);
     }else
         msgBox.exec();
+}
+
+
+
+void Watering::updateCountdown()
+{
+    if(QObject::sender() == timer){
+    countdown = countdown.addSecs(-1);
+    ui->label_3->setText("Pozostały czas nawadniania:");
+    ui->label_countdown->setText( countdown.toString("mm:ss"));
+    if(countdown <= QTime(0,0,0,0)){
+      timer->stop();
+      ui->label_countdown->setText("-- --");
+      countdown.setHMS(0,15,0);
+      timer2->start(1000);
+        }
+    }
+
+    else{
+        countdown = countdown.addSecs(-1);
+        ui->label_3->setText("Pozostały czas schładzania:");
+        ui->label_countdown->setText( countdown.toString("mm:ss"));
+        if(countdown <= QTime(0,0,0,0)){
+          timer2->stop();
+          ui->label_countdown->setText("-- --");
+          ui->pushButton_accept->setEnabled(true);
+        }
+    }
+
+
 }
