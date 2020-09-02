@@ -34,7 +34,7 @@ Watering::~Watering()
 void Watering::on_return_button_clicked()
 {
     this->hide();
-      emit change_window();
+    emit change_window();
 }
 
 void Watering::on_radioButton_once_clicked()
@@ -67,15 +67,15 @@ void Watering::on_pushButton_accept_clicked()
 
     if(ui->radioButton_once->isChecked() || ui->checkBox_monday->isChecked() || ui->checkBox_tuesday->isChecked() || ui->checkBox_wednesday->isChecked()
             || ui->checkBox_thursday->isChecked() || ui->checkBox_friday->isChecked() || ui->checkBox_saturday->isChecked() || ui->checkBox_sunday->isChecked()){
-    qDebug() << ui->doubleSpinBox_interval->value();
-    double minutes = ui->doubleSpinBox_interval->value();
-    //QByteArray array(reinterpret_cast<const char*>(&minutes), sizeof(minutes));
-    QByteArray ba = QByteArray::number(minutes, 'f', 0);
-    emit publish_msg(topic,ba);
+        qDebug() << ui->doubleSpinBox_interval->value();
+        double minutes = ui->doubleSpinBox_interval->value();
+        //QByteArray array(reinterpret_cast<const char*>(&minutes), sizeof(minutes));
+        QByteArray ba = QByteArray::number(minutes, 'f', 0);
+        emit publish_msg(topic,ba);
 
-    timer->start(1000);
-    countdown.setHMS(0,minutes,0);
-    ui->pushButton_accept->setEnabled(false);
+        timer->start(1000);
+        countdown.setHMS(0,minutes,0);
+        ui->pushButton_accept->setEnabled(false);
     }else
         msgBox.exec();
 }
@@ -85,27 +85,25 @@ void Watering::on_pushButton_accept_clicked()
 void Watering::updateCountdown()
 {
     if(QObject::sender() == timer){
-    countdown = countdown.addSecs(-1);
-    ui->label_3->setText("Pozostały czas nawadniania:");
-    ui->label_countdown->setText( countdown.toString("mm:ss"));
-    if(countdown <= QTime(0,0,0,0)){
-      timer->stop();
-      ui->label_countdown->setText("-- --");
-      countdown.setHMS(0,15,0);
-      timer2->start(1000);
+        countdown = countdown.addSecs(-1);
+        ui->label_3->setText("Pozostały czas nawadniania:");
+        ui->label_countdown->setText( countdown.toString("mm:ss"));
+        if(countdown <= QTime(0,0,0,0)){
+            timer->stop();
+            ui->label_countdown->setText("-- --");
+            countdown.setHMS(0,15,0);
+            timer2->start(1000);
         }
     }
-
     else{
         countdown = countdown.addSecs(-1);
         ui->label_3->setText("Pozostały czas schładzania:");
         ui->label_countdown->setText( countdown.toString("mm:ss"));
         if(countdown <= QTime(0,0,0,0)){
-          timer2->stop();
-          ui->label_countdown->setText("-- --");
-          ui->pushButton_accept->setEnabled(true);
+            timer2->stop();
+            ui->label_countdown->setText("-- --");
+            ui->pushButton_accept->setEnabled(true);
         }
     }
-
 
 }
