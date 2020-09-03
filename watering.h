@@ -33,7 +33,7 @@ signals:
 
 private:
     Ui::Watering *ui;
-    static const int drop_count = 15;
+    static const int drop_count = 20;
     QLabel *labels[drop_count];
     Droplet *droplets[drop_count];
     const QString topic = "garden/watering/solenoid";

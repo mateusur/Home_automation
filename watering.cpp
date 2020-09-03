@@ -17,7 +17,12 @@ Watering::Watering(QWidget *parent) :
     timer2 = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateCountdown()));
     connect(timer2, SIGNAL(timeout()), this, SLOT(updateCountdown()));
-
+    for(auto i=0; i<drop_count; i++){
+        droplets[i]->pause();
+    }
+    for(auto i=0; i<drop_count; i++){
+        labels[i]->hide();
+    }
 
 }
 
@@ -76,6 +81,12 @@ void Watering::on_pushButton_accept_clicked()
         timer->start(1000);
         countdown.setHMS(0,minutes,0);
         ui->pushButton_accept->setEnabled(false);
+        for(auto i=0; i<drop_count; i++){
+            droplets[i]->resume();
+        }
+        for(auto i=0; i<drop_count; i++){
+            labels[i]->show();
+        }
     }else
         msgBox.exec();
 }
@@ -93,6 +104,12 @@ void Watering::updateCountdown()
             ui->label_countdown->setText("-- --");
             countdown.setHMS(0,15,0);
             timer2->start(1000);
+            for(auto i=0; i<drop_count; i++){
+                droplets[i]->pause();
+            }
+            for(auto i=0; i<drop_count; i++){
+                labels[i]->hide();
+            }
         }
     }
     else{
@@ -103,6 +120,7 @@ void Watering::updateCountdown()
             timer2->stop();
             ui->label_countdown->setText("-- --");
             ui->pushButton_accept->setEnabled(true);
+
         }
     }
 
