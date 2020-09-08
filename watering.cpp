@@ -24,6 +24,11 @@ Watering::Watering(QWidget *parent) :
         labels[i]->hide();
     }
 
+    QPixmap pixmap_return(":/Icons/left_48.png");
+    QIcon ButtonIcon_return(pixmap_return);
+    ui->return_button->setIcon(ButtonIcon_return);
+    ui->return_button->setIconSize(pixmap_return.rect().size());
+
 }
 
 Watering::~Watering()

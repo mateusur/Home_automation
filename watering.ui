@@ -50,7 +50,7 @@
        </size>
       </property>
       <property name="text">
-       <string>Return</string>
+       <string/>
       </property>
      </widget>
     </widget>
@@ -72,17 +72,17 @@
     </spacer>
    </item>
    <item>
+    <widget class="QRadioButton" name="radioButton_once">
+     <property name="text">
+      <string>Jednorazowo</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QRadioButton" name="radioButton_once">
-       <property name="text">
-        <string>Jednorazowo</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QCheckBox" name="checkBox_monday">
        <property name="enabled">
@@ -256,13 +256,13 @@
         <number>0</number>
        </property>
        <property name="minimum">
-        <double>5.000000000000000</double>
+        <double>1.000000000000000</double>
        </property>
        <property name="maximum">
         <double>45.000000000000000</double>
        </property>
        <property name="singleStep">
-        <double>5.000000000000000</double>
+        <double>1.000000000000000</double>
        </property>
       </widget>
      </item>
