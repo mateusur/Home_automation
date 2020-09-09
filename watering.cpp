@@ -41,6 +41,60 @@ Watering::~Watering()
     delete ui;
 }
 
+void Watering::message_handler(QByteArray message, QMqttTopicName topic)
+{
+    char msg[5] = "0000";
+    for(int i=0; i<message.size(); ++i)
+        msg[i]=(char)message[i];
+    int op =(int)msg[0];
+    int hh=(int)msg[1];
+    int mm=(int)msg[2];
+    int m=(int)msg[3];
+
+    if(topic == topics_watering[0]){ //sunday
+        if(op==1)
+            ui->label_sunday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m) +" min");
+        else
+            ui->label_sunday->setText("");
+    }
+    else if(topic == topics_watering[1]){
+        if(op==1)
+            ui->label_monday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_monday->setText("");
+    }
+    else if(topic == topics_watering[2]){
+        if(op==1)
+            ui->label_tuesday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_tuesday->setText("");
+    }
+    else if(topic == topics_watering[3]){
+        if(op==1)
+            ui->label_wednesday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_wednesday->setText("");
+    }
+    else if(topic == topics_watering[4]){
+        if(op==1)
+            ui->label_thursday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_thursday->setText("");
+    }
+    else if(topic == topics_watering[5]){
+        if(op==1)
+            ui->label_friday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_friday->setText("");
+    }
+    else if(topic == topics_watering[6]){
+        if(op==1)
+            ui->label_saturday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+        else
+            ui->label_saturday->setText("");
+    }
+}
+
 void Watering::on_return_button_clicked()
 {
     this->hide();
