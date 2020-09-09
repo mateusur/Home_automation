@@ -27,16 +27,9 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     m_client->connectToHost();
 
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
-//    connect(m_client, &QMqttClient::messageReceived, this, [this](const QByteArray &message, const QMqttTopicName &topic) {
-//           const QString content = QDateTime::currentDateTime().toString()
-//                       + QLatin1String(" Received Topic: ")
-//                       + topic.name()
-//                       + QLatin1String(" Message: ")
-//                       + message
-//                       + QLatin1Char('\n');
-//           ui->editLog->insertPlainText(content);
-//       });
-    QTimer::singleShot(5000, this, &ChooseWindow::set_subscription);
+    connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
+
+    QTimer::singleShot(1500, this, &ChooseWindow::set_subscription);
 
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_msg,this, &ChooseWindow::publish_message);
@@ -72,9 +65,6 @@ void ChooseWindow::on_chickencoop_button_clicked()
 
 void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
 {
-    const QMqttTopicName temp("chickencoop/temperature");
-    const QMqttTopicName hum("chickencoop/humidity");
-    const QMqttTopicName doors("chickencoop/doors/status");
     const QString doors_opened("opened");
     const QString doors_closed("closed");
     int w = ui->label_hum->width();
@@ -83,22 +73,22 @@ void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
     const QPixmap pixmap_doors_closed(":/Icons/door_closed_96.png");
     ui->label_doors->setPixmap(pixmap_doors_opened.scaled(w,h,Qt::KeepAspectRatioByExpanding));
 
-   qDebug() <<"Odebralem info";
-   qDebug() << message;
-   qDebug() << topic;
-   if(topic == temp)
-       ui->lineEdit_temp->setText(message);
-   else if (topic == hum) {
-       ui->lineEdit_hum->setText(message);
-   }
-   else if (topic == doors) {
-       if(message == doors_opened){
+    qDebug() <<"Odebrana wiadomosc: "<< message << " ,topic: "<< topic;
+
+    if(topic ==sub_topics_chickencoop[0])
+        ui->lineEdit_temp->setText(message);
+    else if (topic ==sub_topics_chickencoop[1]) {
+        ui->lineEdit_hum->setText(message);
+    }
+    else if (topic ==sub_topics_chickencoop[2]) {
+        if(message == doors_opened){
             ui->label_doors->setPixmap(pixmap_doors_opened.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-       }
-       else if(message == doors_closed){
+        }
+        else if(message == doors_closed){
             ui->label_doors->setPixmap(pixmap_doors_closed.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-       }
-   }
+        }
+    }
+
 }
 
 void ChooseWindow::set_icons()
@@ -135,12 +125,11 @@ void ChooseWindow::set_icons()
 
 void ChooseWindow::set_subscription()
 {
-    const QString temp("chickencoop/temperature");
-    const QString hum("chickencoop/humidity");
-    const QString doors("chickencoop/doors/status");
-    m_client->subscribe(temp);
-    m_client->subscribe(hum);
-    m_client->subscribe(doors);
+
+    for(unsigned i=0; i < sub_topics_chickencoop.size();++i)
+        m_client->subscribe(sub_topics_chickencoop[i]);
+    for(unsigned i=0; i<sub_topics_watering.size();++i)
+        m_client->subscribe(sub_topics_watering[i]);
 
 }
 
