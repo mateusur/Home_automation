@@ -18,8 +18,8 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -55,7 +55,7 @@
      </widget>
     </widget>
    </item>
-   <item>
+   <item row="1" column="2">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -71,7 +71,7 @@
      </property>
     </spacer>
    </item>
-   <item>
+   <item row="2" column="0">
     <widget class="QRadioButton" name="radioButton_once">
      <property name="text">
       <string>Jednorazowo</string>
@@ -81,81 +81,277 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="3" column="0" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QCheckBox" name="checkBox_monday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Poniedziałek</string>
+       <widget class="QCheckBox" name="checkBox_monday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Poniedziałek</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_monday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_tuesday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Wtorek</string>
+       <widget class="QCheckBox" name="checkBox_tuesday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Wtorek</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_tuesday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_wednesday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Środa</string>
+       <widget class="QCheckBox" name="checkBox_wednesday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Środa</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_wednesday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_thursday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Czwartek</string>
+       <widget class="QCheckBox" name="checkBox_thursday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Czwartek</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_thursday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_friday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Piątek</string>
+       <widget class="QCheckBox" name="checkBox_friday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Piątek</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_friday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_saturday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Sobota</string>
+       <widget class="QCheckBox" name="checkBox_saturday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Sobota</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_saturday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_sunday">
-       <property name="enabled">
-        <bool>false</bool>
+      <widget class="QSplitter" name="splitter_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-       <property name="text">
-        <string>Niedziela</string>
-       </property>
+       <widget class="QCheckBox" name="checkBox_sunday">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Niedziela</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_sunday">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
    </item>
-   <item>
+   <item row="4" column="0" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label">
@@ -165,7 +361,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Włącz nawadnianie o</string>
+        <string>Włącz nawadnianie</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -193,8 +389,8 @@
        </property>
        <property name="time">
         <time>
-         <hour>12</hour>
-         <minute>0</minute>
+         <hour>18</hour>
+         <minute>30</minute>
          <second>0</second>
         </time>
        </property>
@@ -256,13 +452,16 @@
         <number>0</number>
        </property>
        <property name="minimum">
-        <double>1.000000000000000</double>
+        <double>5.000000000000000</double>
        </property>
        <property name="maximum">
         <double>45.000000000000000</double>
        </property>
        <property name="singleStep">
-        <double>1.000000000000000</double>
+        <double>5.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>20.000000000000000</double>
        </property>
       </widget>
      </item>
@@ -290,6 +489,26 @@
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_turn_off">
+       <property name="text">
+        <string>Wyłącz</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -304,7 +523,20 @@
      </item>
     </layout>
    </item>
-   <item>
+   <item row="5" column="0">
+    <spacer name="horizontalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>222</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="5" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_3">
@@ -338,7 +570,20 @@
      </item>
     </layout>
    </item>
-   <item>
+   <item row="5" column="3">
+    <spacer name="horizontalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>221</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="6" column="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -348,8 +593,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>90</height>
+       <width>17</width>
+       <height>87</height>
       </size>
      </property>
     </spacer>

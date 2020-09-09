@@ -29,6 +29,8 @@ Watering::Watering(QWidget *parent) :
     ui->return_button->setIcon(ButtonIcon_return);
     ui->return_button->setIconSize(pixmap_return.rect().size());
 
+    ui->timeEdit->hide();
+
 }
 
 Watering::~Watering()
@@ -111,6 +113,13 @@ void Watering::on_radioButton_once_clicked()
         ui->checkBox_friday->setEnabled(false);
         ui->checkBox_saturday->setEnabled(false);
         ui->checkBox_sunday->setEnabled(false);
+        ui->timeEdit->hide();
+        ui->pushButton_turn_off->hide();
+        ui->label_3->show();
+        //ui->label_countdown->show();
+        ui->label_countdown->setText("--:--");
+        ui->label->setText("Włącz nawodnienie");
+        ui->label_2->setText("na");
     }
     else{
         ui->checkBox_monday->setEnabled(true);
@@ -120,6 +129,13 @@ void Watering::on_radioButton_once_clicked()
         ui->checkBox_friday->setEnabled(true);
         ui->checkBox_saturday->setEnabled(true);
         ui->checkBox_sunday->setEnabled(true);
+        ui->timeEdit->show();
+        ui->pushButton_turn_off->show();
+        ui->label_3->hide();
+        //ui->label_countdown->hide();
+        ui->label_countdown->setText("");
+        ui->label->setText("Włącz nawodnienie o");
+        ui->label_2->setText("na");
     }
 
 }
@@ -129,14 +145,11 @@ void Watering::on_pushButton_accept_clicked()
     QMessageBox msgBox(this);
     msgBox.setText("Musisz zaznaczyc regularność nawadniania.");
 
-    if(ui->radioButton_once->isChecked() || ui->checkBox_monday->isChecked() || ui->checkBox_tuesday->isChecked() || ui->checkBox_wednesday->isChecked()
-            || ui->checkBox_thursday->isChecked() || ui->checkBox_friday->isChecked() || ui->checkBox_saturday->isChecked() || ui->checkBox_sunday->isChecked()){
-        qDebug() << ui->doubleSpinBox_interval->value();
+    if(ui->radioButton_once->isChecked()){
+        //qDebug() << ui->doubleSpinBox_interval->value();
         double minutes = ui->doubleSpinBox_interval->value();
-        //QByteArray array(reinterpret_cast<const char*>(&minutes), sizeof(minutes));
-        QByteArray ba = QByteArray::number(minutes, 'f', 0);
-        emit publish_msg(topic,ba);
-
+        QByteArray databuf = QByteArray::number(minutes, 'f', 0);
+        emit publish_msg(topics_watering[7],databuf);
         timer->start(1000);
         countdown.setHMS(0,minutes,0);
         ui->pushButton_accept->setEnabled(false);
@@ -146,7 +159,38 @@ void Watering::on_pushButton_accept_clicked()
         for(auto i=0; i<drop_count; i++){
             labels[i]->show();
         }
-    }else
+        ui->radioButton_once->setEnabled(false);
+
+    }else if( ui->checkBox_monday->isChecked() || ui->checkBox_tuesday->isChecked() || ui->checkBox_wednesday->isChecked()
+              || ui->checkBox_thursday->isChecked() || ui->checkBox_friday->isChecked() || ui->checkBox_saturday->isChecked() || ui->checkBox_sunday->isChecked()){
+        char op = 1;
+        char hh = ui->timeEdit->time().hour();
+        char mm = ui->timeEdit->time().minute();
+        char tt = ui->doubleSpinBox_interval->value();
+        char dd[] = "0000";
+        dd[0] = op;
+        dd[1] = hh;
+        dd[2] = mm;
+        dd[3] = tt;
+
+        QByteArray databuf;
+        databuf = QByteArray((char*)dd, 4);
+        if(ui->checkBox_sunday->isChecked())
+            emit publish_msg(topics_watering[0],databuf);
+        if(ui->checkBox_monday->isChecked())
+            emit publish_msg(topics_watering[1],databuf);
+        if(ui->checkBox_tuesday->isChecked())
+            emit publish_msg(topics_watering[2],databuf);
+        if(ui->checkBox_wednesday->isChecked())
+            emit publish_msg(topics_watering[3],databuf);
+        if(ui->checkBox_thursday->isChecked())
+            emit publish_msg(topics_watering[4],databuf);
+        if(ui->checkBox_friday->isChecked())
+            emit publish_msg(topics_watering[5],databuf);
+        if(ui->checkBox_saturday->isChecked())
+            emit publish_msg(topics_watering[6],databuf);
+    }
+    else
         msgBox.exec();
 }
 
@@ -161,7 +205,7 @@ void Watering::updateCountdown()
         if(countdown <= QTime(0,0,0,0)){
             timer->stop();
             ui->label_countdown->setText("-- --");
-            countdown.setHMS(0,15,0);
+            countdown.setHMS(0,cooldown_time,0);
             timer2->start(1000);
             for(auto i=0; i<drop_count; i++){
                 droplets[i]->pause();
@@ -169,6 +213,7 @@ void Watering::updateCountdown()
             for(auto i=0; i<drop_count; i++){
                 labels[i]->hide();
             }
+            ui->radioButton_once->setEnabled(false);
         }
     }
     else{
@@ -183,4 +228,25 @@ void Watering::updateCountdown()
         }
     }
 
+}
+
+void Watering::on_pushButton_turn_off_clicked()
+{
+    char dd[] = "0000";
+    QByteArray databuf;
+    databuf = QByteArray((char*)dd, 4);
+    if(ui->checkBox_sunday->isChecked())
+        emit publish_msg(topics_watering[0],databuf);
+    if(ui->checkBox_monday->isChecked())
+        emit publish_msg(topics_watering[1],databuf);
+    if(ui->checkBox_tuesday->isChecked())
+        emit publish_msg(topics_watering[2],databuf);
+    if(ui->checkBox_wednesday->isChecked())
+        emit publish_msg(topics_watering[3],databuf);
+    if(ui->checkBox_thursday->isChecked())
+        emit publish_msg(topics_watering[4],databuf);
+    if(ui->checkBox_friday->isChecked())
+        emit publish_msg(topics_watering[5],databuf);
+    if(ui->checkBox_saturday->isChecked())
+        emit publish_msg(topics_watering[6],databuf);
 }

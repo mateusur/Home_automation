@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <QTime>
+#include <QMqttClient>
 
 namespace Ui {
 class Watering;
@@ -19,13 +20,14 @@ class Watering : public QDialog
 public:
     explicit Watering(QWidget *parent = nullptr);
     ~Watering();
-
+public slots:
+    void message_handler(QByteArray message,  QMqttTopicName topic);
 private slots:
     void on_return_button_clicked();
     void on_radioButton_once_clicked();
     void on_pushButton_accept_clicked();
     void updateCountdown();
-
+    void on_pushButton_turn_off_clicked();
 
 signals:
     void change_window();
@@ -36,10 +38,12 @@ private:
     static const int drop_count = 20;
     QLabel *labels[drop_count];
     Droplet *droplets[drop_count];
-    const QString topic = "garden/watering/solenoid";
+    const QString topics_watering[8] = { "garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
+                                , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday", "garden/watering/solenoid" };
     QTimer *timer;
     QTimer *timer2;
     QTime countdown;
+    const unsigned short cooldown_time = 15;
 
 };
 
