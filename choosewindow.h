@@ -29,6 +29,7 @@ public:
     ~ChooseWindow();
 public slots:
     void publish_message(const QString &topic,const QByteArray &msg);
+    void publish_message_retain(const QString &topic,const QByteArray &msg,quint8 qos = 0,bool retain = false);
 private slots:
     void on_chickencoop_button_clicked();
     void on_weather_button_clicked();

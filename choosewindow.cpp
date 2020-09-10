@@ -29,10 +29,11 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
 
-    QTimer::singleShot(1500, this, &ChooseWindow::set_subscription);
+    QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
 
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_msg,this, &ChooseWindow::publish_message);
+    connect(watering_window,&Watering::publish_message_retain,this, &ChooseWindow::publish_message_retain);
 }
 
 ChooseWindow::~ChooseWindow()
@@ -53,6 +54,12 @@ void ChooseWindow::publish_message(const QString &topic,const QByteArray &msg)
     qDebug() << msg;
     const QMqttTopicName topic2(topic);
     m_client->publish(topic2,msg);
+}
+
+void ChooseWindow::publish_message_retain(const QString &topic, const QByteArray &msg, quint8 qos, bool retain)
+{
+    const QMqttTopicName topic2(topic);
+    m_client->publish(topic2,msg,qos,retain);
 }
 
 void ChooseWindow::on_chickencoop_button_clicked()
