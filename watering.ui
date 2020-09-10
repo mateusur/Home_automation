@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Nawadnianie</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -73,6 +73,11 @@
    </item>
    <item row="2" column="0">
     <widget class="QRadioButton" name="radioButton_once">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Jednorazowo</string>
      </property>
@@ -91,6 +96,11 @@
        <widget class="QCheckBox" name="checkBox_monday">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Poniedziałek</string>
@@ -131,6 +141,11 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Wtorek</string>
         </property>
@@ -169,6 +184,11 @@
        <widget class="QCheckBox" name="checkBox_wednesday">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Środa</string>
@@ -209,6 +229,11 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Czwartek</string>
         </property>
@@ -247,6 +272,11 @@
        <widget class="QCheckBox" name="checkBox_friday">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Piątek</string>
@@ -287,6 +317,11 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Sobota</string>
         </property>
@@ -325,6 +360,11 @@
        <widget class="QCheckBox" name="checkBox_sunday">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>Niedziela</string>
