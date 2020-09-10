@@ -176,19 +176,19 @@ void Watering::on_pushButton_accept_clicked()
         QByteArray databuf;
         databuf = QByteArray((char*)dd, 4);
         if(ui->checkBox_sunday->isChecked())
-            emit publish_msg(topics_watering[0],databuf);
+            emit publish_message_retain(topics_watering[0],databuf,0,true);
         if(ui->checkBox_monday->isChecked())
-            emit publish_msg(topics_watering[1],databuf);
+            emit publish_message_retain(topics_watering[1],databuf,0,true);
         if(ui->checkBox_tuesday->isChecked())
-            emit publish_msg(topics_watering[2],databuf);
+            emit publish_message_retain(topics_watering[2],databuf,0,true);
         if(ui->checkBox_wednesday->isChecked())
-            emit publish_msg(topics_watering[3],databuf);
+            emit publish_message_retain(topics_watering[3],databuf,0,true);
         if(ui->checkBox_thursday->isChecked())
-            emit publish_msg(topics_watering[4],databuf);
+            emit publish_message_retain(topics_watering[4],databuf,0,true);
         if(ui->checkBox_friday->isChecked())
-            emit publish_msg(topics_watering[5],databuf);
+            emit publish_message_retain(topics_watering[5],databuf,0,true);
         if(ui->checkBox_saturday->isChecked())
-            emit publish_msg(topics_watering[6],databuf);
+            emit publish_message_retain(topics_watering[6],databuf,0,true);
     }
     else
         msgBox.exec();
@@ -236,17 +236,17 @@ void Watering::on_pushButton_turn_off_clicked()
     QByteArray databuf;
     databuf = QByteArray((char*)dd, 4);
     if(ui->checkBox_sunday->isChecked())
-        emit publish_msg(topics_watering[0],databuf);
+        emit publish_message_retain(topics_watering[0],databuf,0,true);
     if(ui->checkBox_monday->isChecked())
-        emit publish_msg(topics_watering[1],databuf);
+        emit publish_message_retain(topics_watering[1],databuf,0,true);
     if(ui->checkBox_tuesday->isChecked())
-        emit publish_msg(topics_watering[2],databuf);
+        emit publish_message_retain(topics_watering[2],databuf,0,true);
     if(ui->checkBox_wednesday->isChecked())
-        emit publish_msg(topics_watering[3],databuf);
+        emit publish_message_retain(topics_watering[3],databuf,0,true);
     if(ui->checkBox_thursday->isChecked())
-        emit publish_msg(topics_watering[4],databuf);
+        emit publish_message_retain(topics_watering[4],databuf,0,true);
     if(ui->checkBox_friday->isChecked())
-        emit publish_msg(topics_watering[5],databuf);
+        emit publish_message_retain(topics_watering[5],databuf,0,true);
     if(ui->checkBox_saturday->isChecked())
-        emit publish_msg(topics_watering[6],databuf);
+        emit publish_message_retain(topics_watering[6],databuf,0,true);
 }

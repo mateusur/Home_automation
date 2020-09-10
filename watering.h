@@ -32,7 +32,7 @@ private slots:
 signals:
     void change_window();
     void publish_msg(const QString &topic,const QByteArray &msg);
-
+    void publish_message_retain(const QString &topic,const QByteArray &msg,quint8 qos = 0,bool retain = false);
 private:
     Ui::Watering *ui;
     static const int drop_count = 20;
