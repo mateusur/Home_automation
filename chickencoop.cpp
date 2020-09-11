@@ -8,6 +8,14 @@ Chickencoop::Chickencoop(QWidget *parent) :
     ui->setupUi(this);
     //connect(ui->pushButton,SIGNAL(on_pushButton_clicked()),)
     set_icons();
+
+    player= new QMediaPlayer(this);
+    videoWidget= new QVideoWidget(ui->widget);
+    player->setVideoOutput(videoWidget);
+    videoWidget->setGeometry(-20,-40,640,480);
+    videoWidget->show();
+    player->setMedia(link);
+    player->play();
 }
 
 Chickencoop::~Chickencoop()
@@ -44,12 +52,17 @@ void Chickencoop::on_up_button_clicked()
 {
     //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "UP";
-    emit publish_msg(topic,msg);
+    emit publish_msg(pub_topic,msg);
 }
 
 void Chickencoop::on_down_button_clicked()
 {
     //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "DOWN";
-    emit publish_msg(topic,msg);
+    emit publish_msg(pub_topic,msg);
+}
+
+void Chickencoop::on_pushButton_clicked()
+{
+    player->play();
 }
