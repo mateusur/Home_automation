@@ -5,3 +5,4 @@ Home automation project for controlling chickencoop and sprinklers. It also offe
 - [Sourcetree](https://www.sourcetreeapp.com/)
 ## Icons from  
 - [Icons8] (https://icons8.com)
+- [Icons8](https://icons8.com/)
