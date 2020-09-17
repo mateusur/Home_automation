@@ -21,7 +21,7 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     //        this,SLOT(publish_message(QString, QByteArray))); // Send minutes from watering window
     //connect(watering_window,&Watering::publish_msg(QString, QByteArray),this,&ChooseWindow::publish_message(QString, QByteArray));
     m_client = new QMqttClient(this);
-    m_client->setHostname("192.168.1.8");
+    m_client->setHostname("192.168.0.21");
     m_client->setPort(1883);
     m_client->setClientId("Qt_app");
     m_client->connectToHost();
