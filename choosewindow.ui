@@ -189,8 +189,37 @@ background-color: rgb(229, 229, 229);
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_options">
+    <property name="title">
+     <string>Opcje</string>
+    </property>
+    <addaction name="action_optionsMQTT_2"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>Pomoc</string>
+    </property>
+    <addaction name="action_about_author"/>
+   </widget>
+   <addaction name="menu_options"/>
+   <addaction name="menu_help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_optionsMQTT_2">
+   <property name="text">
+    <string>Ustawienia MQTT</string>
+   </property>
+  </action>
+  <action name="action_optionsMQTT">
+   <property name="text">
+    <string>Ustawienia MQTT</string>
+   </property>
+  </action>
+  <action name="action_about_author">
+   <property name="text">
+    <string>O autorze</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="Icons.qrc"/>
