@@ -9,11 +9,14 @@
 #include "chickencoop.h"
 #include "weather.h"
 #include "watering.h"
+#include "settingsmqtt.h"
+#include "author.h"
 #include <QMqttClient>
 #include <QMqttSubscription>
 #include <QThread>
 #include <QTimer>
 #include <QString>
+
 
 
 QT_BEGIN_NAMESPACE
@@ -37,6 +40,9 @@ private slots:
     void show_window();
     void set_subscription();
     void message_handler(QByteArray message,  QMqttTopicName topic);
+    void on_action_optionsMQTT_2_triggered();
+    void on_action_about_author_triggered();
+    void set_Mqtt();
 signals:
 
 private:
@@ -44,8 +50,11 @@ private:
     Chickencoop *chickencoop_window;
     Weather *weather_window;
     Watering *watering_window;
+    SettingsMQTT *mqtt_settings_window;
+    Author *about_author_window;
     QMqttClient *m_client;
-
+//    QString server_ip;
+//    int port;
     void set_icons();
 
     const std::array<QString,3> sub_topics_chickencoop = {"chickencoop/temperature","chickencoop/humidity","chickencoop/doors/status"};

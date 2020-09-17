@@ -9,38 +9,31 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     chickencoop_window = new Chickencoop(this);
     weather_window = new Weather(this);
     watering_window = new Watering(this);
+    mqtt_settings_window = new SettingsMQTT(this);
+    about_author_window = new Author(this);
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(watering_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     set_icons();
 
     //MQTT
-    //connect(chickencoop_window,SIGNAL(publish_message(QString, QByteArray)),
-    //        this,SLOT(publish_message(QString, QByteArray))); // Send "UP", "DOWN" from chickencoop window
-    //connect(watering_window,SIGNAL(publish_message(QString &, QByteArray &)),
-    //        this,SLOT(publish_message(QString, QByteArray))); // Send minutes from watering window
-    //connect(watering_window,&Watering::publish_msg(QString, QByteArray),this,&ChooseWindow::publish_message(QString, QByteArray));
     m_client = new QMqttClient(this);
-    m_client->setHostname("192.168.1.8");
-    m_client->setPort(1883);
-    m_client->setClientId("Qt_app");
-    m_client->connectToHost();
+    set_Mqtt();
 
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
 
-    QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
-
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_message_retain,this, &ChooseWindow::publish_message_retain);
+
+    connect(mqtt_settings_window,&SettingsMQTT::on_data_changed,this,&ChooseWindow::set_Mqtt);
 }
 
 ChooseWindow::~ChooseWindow()
 {
     qDebug() << "Destruktor choose_window";
     delete ui;
-
 }
 
 void ChooseWindow::show_window()
@@ -98,6 +91,16 @@ void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
 
 }
 
+void ChooseWindow::on_action_optionsMQTT_2_triggered()
+{
+    mqtt_settings_window -> show();
+}
+
+void ChooseWindow::on_action_about_author_triggered()
+{
+    about_author_window->show();
+}
+
 void ChooseWindow::set_icons()
 {
     QPixmap pixmap_chicken(":/Icons/chicken_100.png");
@@ -128,6 +131,18 @@ void ChooseWindow::set_icons()
     ui->label_hum->setPixmap(pixmap_humidity.scaled(w,h,Qt::KeepAspectRatioByExpanding));
     ui->label_temp_2->setText(" °C");
     ui->label_hum_2->setText(" %");
+}
+
+void ChooseWindow::set_Mqtt()
+{
+    QSettings settings("PrivateApp", "Home_automation");
+    QString server_ip = settings.value("server", "").toString();
+    int port = settings.value("port", "").toInt();
+    m_client->setClientId("Home_automation_app");
+    m_client->setHostname(server_ip);
+    m_client->setPort(port);
+    m_client->connectToHost();
+    QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
 }
 
 void ChooseWindow::set_subscription()
