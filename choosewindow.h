@@ -10,6 +10,7 @@
 #include "weather.h"
 #include "watering.h"
 #include "settingsmqtt.h"
+#include "settingsweather.h"
 #include "author.h"
 #include <QMqttClient>
 #include <QMqttSubscription>
@@ -41,6 +42,7 @@ private slots:
     void set_subscription();
     void message_handler(QByteArray message,  QMqttTopicName topic);
     void on_action_optionsMQTT_2_triggered();
+    void on_action_options_weather_triggered();
     void on_action_about_author_triggered();
     void set_Mqtt();
 signals:
@@ -51,6 +53,7 @@ private:
     Weather *weather_window;
     Watering *watering_window;
     SettingsMQTT *mqtt_settings_window;
+    SettingsWeather *weather_settings_window;
     Author *about_author_window;
     QMqttClient *m_client;
 //    QString server_ip;

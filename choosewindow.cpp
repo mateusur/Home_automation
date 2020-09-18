@@ -11,6 +11,7 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     watering_window = new Watering(this);
     mqtt_settings_window = new SettingsMQTT(this);
     about_author_window = new Author(this);
+    weather_settings_window = new SettingsWeather(this);
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(watering_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
@@ -28,6 +29,7 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     connect(watering_window,&Watering::publish_message_retain,this, &ChooseWindow::publish_message_retain);
 
     connect(mqtt_settings_window,&SettingsMQTT::on_data_changed,this,&ChooseWindow::set_Mqtt);
+    connect(weather_settings_window,&SettingsWeather::on_data_changed,weather_window,&Weather::on_data_changed);
 }
 
 ChooseWindow::~ChooseWindow()
@@ -94,6 +96,11 @@ void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
 void ChooseWindow::on_action_optionsMQTT_2_triggered()
 {
     mqtt_settings_window -> show();
+}
+
+void ChooseWindow::on_action_options_weather_triggered()
+{
+    weather_settings_window -> show();
 }
 
 void ChooseWindow::on_action_about_author_triggered()

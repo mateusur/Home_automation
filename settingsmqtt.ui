@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
-    <height>474</height>
+    <width>500</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MQTT settings</string>
+   <string>Ustawienia MQTT</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
@@ -145,6 +145,12 @@
    </item>
    <item row="3" column="1">
     <widget class="QPushButton" name="pushButton_save">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>32</height>
+      </size>
+     </property>
      <property name="text">
       <string>Zapisz i wyjdź</string>
      </property>

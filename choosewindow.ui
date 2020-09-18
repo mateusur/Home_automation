@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Home automation</string>
+   <string>Inteligentny dom</string>
   </property>
   <property name="windowIcon">
    <iconset resource="Icons.qrc">
@@ -425,6 +425,7 @@ background-color: rgb(229, 229, 229);
      <string>Opcje</string>
     </property>
     <addaction name="action_optionsMQTT_2"/>
+    <addaction name="action_options_weather"/>
    </widget>
    <widget class="QMenu" name="menu_help">
     <property name="title">
@@ -454,6 +455,11 @@ background-color: rgb(229, 229, 229);
   <action name="action_options_watering">
    <property name="text">
     <string>Ustawienia nawadniania</string>
+   </property>
+  </action>
+  <action name="action_options_weather">
+   <property name="text">
+    <string>Ustawienia pogody</string>
    </property>
   </action>
  </widget>
