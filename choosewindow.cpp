@@ -19,14 +19,14 @@ ChooseWindow::ChooseWindow(QWidget *parent)
 
     //MQTT
     m_client = new QMqttClient(this);
-<<<<<<< HEAD
-    m_client->setHostname("192.168.0.21");
-    m_client->setPort(1883);
-    m_client->setClientId("Qt_app");
-    m_client->connectToHost();
-=======
+//<<<<<<< HEAD
+//    m_client->setHostname("192.168.0.21");
+//    m_client->setPort(1883);
+//    m_client->setClientId("Qt_app");
+//    m_client->connectToHost();
+//=======
     set_Mqtt();
->>>>>>> master
+
 
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
