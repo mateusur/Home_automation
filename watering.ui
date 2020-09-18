@@ -446,7 +446,7 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>10</width>
+         <width>15</width>
          <height>0</height>
         </size>
        </property>
@@ -523,6 +523,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_accept">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>35</height>
+        </size>
+       </property>
        <property name="text">
         <string>Akceptuj</string>
        </property>
@@ -543,6 +549,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_turn_off">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>35</height>
+        </size>
+       </property>
        <property name="text">
         <string>Wyłącz</string>
        </property>
