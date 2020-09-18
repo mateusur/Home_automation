@@ -11,6 +11,14 @@ SettingsWeather::SettingsWeather(QWidget *parent) :
     QString longitude = settings->value("longitude", "").toString();
     ui->lineEdit_latitude->setText(latitude);
     ui->lineEdit_longitude->setText(longitude);
+
+    QRegExp lat("([-]?[1-9]\\d{0,1}\\.\\d{0,6})");
+    QRegExpValidator *validator = new QRegExpValidator(lat, this);
+    ui->lineEdit_latitude->setValidator(validator);
+
+    QRegExp longi("([-]{0,1}[1-9]\\d{0,2}\\.\\d{0,6})");
+    QRegExpValidator *validator2 = new QRegExpValidator(longi, this);
+    ui->lineEdit_longitude->setValidator(validator2);
 }
 
 SettingsWeather::~SettingsWeather()

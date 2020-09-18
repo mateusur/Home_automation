@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QSettings>
+#include <QRegExpValidator>
+#include <QRegExp>
 namespace Ui {
 class SettingsWeather;
 }
