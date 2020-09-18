@@ -9,8 +9,7 @@ Weather::Weather(QWidget *parent) :
 {
     ui->setupUi(this);
     manager = new QNetworkAccessManager(this);
-    request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-    manager->get(request);
+    on_data_changed();
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(managerFinished(QNetworkReply*)));
 
@@ -24,12 +23,25 @@ Weather::Weather(QWidget *parent) :
     ui->pushButton_refresh->setIcon(ButtonIcon_refresh);
     ui->pushButton_refresh->setIconSize(pixmap_refresh.rect().size());
 
+
 }
 
 Weather::~Weather()
 {
     qDebug() << "Destruktor weahter window";
     delete ui;
+}
+
+void Weather::on_data_changed()
+{
+    QSettings settings("PrivateApp", "Home_automation");
+    QString latitude  = settings.value("latitude", "").toString();
+    QString longitude = settings.value("longitude", "").toString();
+    if(longitude=="" || latitude=="")
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    else
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    manager->get(request);
 }
 
 void Weather::managerFinished(QNetworkReply *reply)
