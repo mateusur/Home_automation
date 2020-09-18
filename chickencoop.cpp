@@ -62,7 +62,3 @@ void Chickencoop::on_down_button_clicked()
     emit publish_msg(pub_topic,msg);
 }
 
-void Chickencoop::on_pushButton_clicked()
-{
-    player->play();
-}

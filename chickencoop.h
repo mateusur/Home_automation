@@ -21,11 +21,7 @@ public:
 private slots:
     void on_return_button_clicked();
     void on_up_button_clicked();
-
     void on_down_button_clicked();
-
-    void on_pushButton_clicked();
-
 signals:
     void change_window();
     void publish_msg(const QString &pub_topic,const QByteArray &msg);
