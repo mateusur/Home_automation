@@ -14,8 +14,16 @@ Chickencoop::Chickencoop(QWidget *parent) :
     player->setVideoOutput(videoWidget);
     videoWidget->setGeometry(-20,-40,640,480);
     videoWidget->show();
+
+    settings = new QSettings("PrivateApp", "Home_automation",this);
+    QString stream_ip  = settings->value("stream_ip", "").toString();
+    QString stream_port = settings->value("stream_port", "").toString();
+    link = "http://"+stream_ip+":"+stream_port+"/stream/video.h264";
+    ui->lineEdit_ip->setText(stream_ip);
+    ui->lineEdit_port->setText(stream_port);
     player->setMedia(link);
     player->play();
+
 }
 
 Chickencoop::~Chickencoop()
@@ -62,3 +70,20 @@ void Chickencoop::on_down_button_clicked()
     emit publish_msg(pub_topic,msg);
 }
 
+void Chickencoop::on_pushButton_stream_clicked()
+{
+    QMessageBox msgBox(this);
+    msgBox.setStyleSheet("QPushButton{ width:125; font-size: 18px; }");
+    msgBox.setWindowTitle("Kurnik");
+    QString stream_ip  = ui->lineEdit_ip->text();
+    QString stream_port = ui->lineEdit_port->text();
+
+    if(stream_ip =="" || stream_port =="")
+        msgBox.setText("Wszystkie pola muszą być uzupełnione.");
+    else{
+        msgBox.setText("Zmiany zostaną wprowadzone po restarcie aplikacji.");
+        settings->setValue("stream_ip", stream_ip);
+        settings->setValue("stream_port", stream_port);
+    }
+    msgBox.exec();
+}

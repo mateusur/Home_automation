@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QDebug>
+#include <QMessageBox>
+#include <QSettings>
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QTimer>
@@ -22,6 +24,9 @@ private slots:
     void on_return_button_clicked();
     void on_up_button_clicked();
     void on_down_button_clicked();
+
+    void on_pushButton_stream_clicked();
+
 signals:
     void change_window();
     void publish_msg(const QString &pub_topic,const QByteArray &msg);
@@ -31,7 +36,9 @@ private:
     const QString pub_topic = "chickencoop/door";
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
-    const QUrl link = QUrl("http://0.0.0.0:8080/stream/video.h264");
+    QSettings *settings;
+    QUrl link;
+
 };
 
 #endif // CHICKENCOOP_H
