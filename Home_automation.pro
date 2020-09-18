@@ -19,23 +19,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    author.cpp \
     chickencoop.cpp \
     droplet.cpp \
     main.cpp \
     choosewindow.cpp \
+    settingsmqtt.cpp \
+    settingsweather.cpp \
     watering.cpp \
     weather.cpp
 
 HEADERS += \
+    author.h \
     chickencoop.h \
     choosewindow.h \
     droplet.h \
+    settingsmqtt.h \
+    settingsweather.h \
     watering.h \
     weather.h
 
 FORMS += \
+    author.ui \
     chickencoop.ui \
     choosewindow.ui \
+    settingsmqtt.ui \
+    settingsweather.ui \
     watering.ui \
     weather.ui
 

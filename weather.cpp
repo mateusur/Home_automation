@@ -9,8 +9,7 @@ Weather::Weather(QWidget *parent) :
 {
     ui->setupUi(this);
     manager = new QNetworkAccessManager(this);
-    request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-    manager->get(request);
+    on_data_changed();
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(managerFinished(QNetworkReply*)));
 
@@ -24,12 +23,25 @@ Weather::Weather(QWidget *parent) :
     ui->pushButton_refresh->setIcon(ButtonIcon_refresh);
     ui->pushButton_refresh->setIconSize(pixmap_refresh.rect().size());
 
+
 }
 
 Weather::~Weather()
 {
     qDebug() << "Destruktor weahter window";
     delete ui;
+}
+
+void Weather::on_data_changed()
+{
+    QSettings settings("PrivateApp", "Home_automation");
+    QString latitude  = settings.value("latitude", "").toString();
+    QString longitude = settings.value("longitude", "").toString();
+    if(longitude=="" || latitude=="")
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    else
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+    manager->get(request);
 }
 
 void Weather::managerFinished(QNetworkReply *reply)
@@ -106,12 +118,12 @@ void Weather::set_icon(QLabel *label, QString icon)
 void Weather::set_temp(QLabel *label, double temp)
 {
 
-    label->setText("Temp: "+ QString::number(temp) + " °C");
+    label->setText("Temp.: "+ QString::number(temp) + " °C");
 }
 
 void Weather::set_feels(QLabel *label, double feels_like)
 {
-    label->setText("Odczuwalna: "+ QString::number(feels_like) + " °C");
+    label->setText("Odcz.: "+ QString::number(feels_like) + " °C");
 }
 
 void Weather::set_rain(QLabel *label, double rain)
@@ -137,7 +149,7 @@ void Weather::set_description(QLabel *label, QString description)
 
 void Weather::set_time(QLabel *label, QString time)
 {
-    label->setStyleSheet("font-weight: bold; font: 16pt");
+    label->setStyleSheet("font-weight: bold; font: 12pt");
     label->setAlignment(Qt::AlignCenter);
     label->setText(time);
 }

@@ -23,11 +23,11 @@ class Weather : public QDialog
 public:
     explicit Weather(QWidget *parent = nullptr);
     ~Weather();
-
+public slots:
+    void on_data_changed();
 private slots:
     void managerFinished(QNetworkReply *reply);
     void on_return_button_clicked();
-
     void on_pushButton_refresh_clicked();
 
 private:
