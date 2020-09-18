@@ -4,6 +4,9 @@
 #include <QDialog>
 #include <QSettings>
 #include <QDebug>
+#include <QRegExpValidator>
+#include <QRegExp>
+
 namespace Ui {
 class SettingsMQTT;
 }

@@ -11,6 +11,13 @@ SettingsMQTT::SettingsMQTT(QWidget *parent) :
     QString password = settings->value("port", "").toString();
     ui->lineEdit_ssid->setText(ssid);
     ui->lineEdit_password->setText(password);
+    QRegExp ip("([1-9]\\d{0,2}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})");
+    QRegExpValidator *validator = new QRegExpValidator(ip, this);
+    ui->lineEdit_ssid->setValidator(validator);
+
+    QRegExp port("([1-9]\\d?\\d?\\d?\\d?)");
+    QRegExpValidator *validator2 = new QRegExpValidator(port, this);
+    ui->lineEdit_password->setValidator(validator2);
 }
 
 SettingsMQTT::~SettingsMQTT()

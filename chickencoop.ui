@@ -14,14 +14,7 @@
    <string>Kurnik</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMessageBox { 
-QPushButton{ 
-height: 300px;
-width:250px;
- font-size: 18px;
- }
-}
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -70,7 +63,7 @@ width:250px;
     <widget class="QLineEdit" name="lineEdit_ip">
      <property name="minimumSize">
       <size>
-       <width>100</width>
+       <width>105</width>
        <height>28</height>
       </size>
      </property>

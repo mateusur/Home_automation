@@ -8,6 +8,8 @@
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QTimer>
+#include <QRegExpValidator>
+#include <QRegExp>
 namespace Ui {
 class Chickencoop;
 }
