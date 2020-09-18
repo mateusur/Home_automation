@@ -118,12 +118,12 @@ void Weather::set_icon(QLabel *label, QString icon)
 void Weather::set_temp(QLabel *label, double temp)
 {
 
-    label->setText("Temp: "+ QString::number(temp) + " °C");
+    label->setText("Temp.: "+ QString::number(temp) + " °C");
 }
 
 void Weather::set_feels(QLabel *label, double feels_like)
 {
-    label->setText("Odczuwalna: "+ QString::number(feels_like) + " °C");
+    label->setText("Odcz.: "+ QString::number(feels_like) + " °C");
 }
 
 void Weather::set_rain(QLabel *label, double rain)
@@ -149,7 +149,7 @@ void Weather::set_description(QLabel *label, QString description)
 
 void Weather::set_time(QLabel *label, QString time)
 {
-    label->setStyleSheet("font-weight: bold; font: 16pt");
+    label->setStyleSheet("font-weight: bold; font: 12pt");
     label->setAlignment(Qt::AlignCenter);
     label->setText(time);
 }
