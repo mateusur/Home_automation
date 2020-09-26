@@ -37,10 +37,13 @@ void Weather::on_data_changed()
     QSettings settings("PrivateApp", "Home_automation");
     QString latitude  = settings.value("latitude", "").toString();
     QString longitude = settings.value("longitude", "").toString();
-    if(longitude=="" || latitude=="")
+    QString API_key = settings.value("API_key","").toString();
+
+    if(longitude=="" || latitude==""|| API_key=="")
+    //NOTE: W koncowej wersji usun to i zamien na jakas informacje, ze nie podano danych
         request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
     else
-        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
     manager->get(request);
 }
 
