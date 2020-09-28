@@ -2,7 +2,6 @@
 #include "ui_weather.h"
 
 
-
 Weather::Weather(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Weather)
@@ -53,6 +52,7 @@ void Weather::managerFinished(QNetworkReply *reply)
     if (reply->error())
     {
         qDebug() << reply->errorString();
+        ui->label_day00->setText(reply->errorString());
         return;
     }
     v_feels_like.clear();

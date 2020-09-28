@@ -1,6 +1,7 @@
 #include "choosewindow.h"
 #include "ui_choosewindow.h"
 
+//TODO:poczyscic z qDebug
 ChooseWindow::ChooseWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ChooseWindow)
@@ -19,12 +20,6 @@ ChooseWindow::ChooseWindow(QWidget *parent)
 
     //MQTT
     m_client = new QMqttClient(this);
-//<<<<<<< HEAD
-//    m_client->setHostname("192.168.0.21");
-//    m_client->setPort(1883);
-//    m_client->setClientId("Qt_app");
-//    m_client->connectToHost();
-//=======
     set_Mqtt();
 
 
@@ -156,12 +151,12 @@ void ChooseWindow::set_Mqtt()
     m_client->setHostname(server_ip);
     m_client->setPort(port);
     m_client->connectToHost();
+    //TODO: sprawdzic czy zostalo polaczone, jesli nie to error i polaczyc jeszcze raz
     QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
 }
 
 void ChooseWindow::set_subscription()
 {
-
     for(unsigned i=0; i < sub_topics_chickencoop.size();++i)
         m_client->subscribe(sub_topics_chickencoop[i]);
     for(unsigned i=0; i<sub_topics_watering.size();++i)

@@ -88,7 +88,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -138,42 +138,42 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels00">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain00">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure00">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_clouds00">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description00">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -205,7 +205,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -255,42 +255,42 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels01">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain01">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure01">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_clouds01">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description01">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -322,7 +322,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -372,42 +372,42 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels02">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain02">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure02">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_clouds02">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description02">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -433,7 +433,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -483,7 +483,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -496,7 +496,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -509,7 +509,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -522,7 +522,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -535,7 +535,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -548,7 +548,7 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -574,7 +574,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -624,42 +624,42 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels04">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain04">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure04">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_clouds04">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description04">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
@@ -685,7 +685,7 @@
           </size>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string>Error</string>
          </property>
         </widget>
        </item>
@@ -735,42 +735,42 @@
             </size>
            </property>
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels05">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain05">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure05">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_clouds05">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description05">
            <property name="text">
-            <string>TextLabel</string>
+            <string>Error</string>
            </property>
           </widget>
          </item>
