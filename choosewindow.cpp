@@ -166,10 +166,16 @@ void ChooseWindow::set_Mqtt()
     QSettings settings("PrivateApp", "Home_automation");
     QString server_ip = settings.value("server", "").toString();
     int port = settings.value("port", "").toInt();
+    QString ssid = settings.value("ssid", "").toString();
+    QString password = settings.value("password", "").toString();
     m_client->setClientId("Home_automation_app");
     m_client->setHostname(server_ip);
     m_client->setPort(port);
     m_client->connectToHost();
+    if(ssid !="")
+        m_client->setUsername(ssid);
+    if(password!="")
+        m_client->setPassword(password);
     //TODO: sprawdzic czy zostalo polaczone, jesli nie to error i polaczyc jeszcze raz
     QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
 }
