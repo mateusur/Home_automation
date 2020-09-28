@@ -1,6 +1,5 @@
 #include "settingsweather.h"
 #include "ui_settingsweather.h"
-//TODO: Dodać weather token
 
 SettingsWeather::SettingsWeather(QWidget *parent) :
     QDialog(parent),

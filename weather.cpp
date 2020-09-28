@@ -37,13 +37,20 @@ void Weather::on_data_changed()
     QString latitude  = settings.value("latitude", "").toString();
     QString longitude = settings.value("longitude", "").toString();
     QString API_key = settings.value("API_key","").toString();
-
-    if(longitude=="" || latitude==""|| API_key=="")
+    QString language = settings.value("language","").toString();
+    qDebug() << "jezyk: " << language;
+    if(longitude=="" || latitude==""|| API_key==""){
     //NOTE: W koncowej wersji usun to i zamien na jakas informacje, ze nie podano danych
-        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-    else
-        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
-    manager->get(request);
+        if(language == "Polish")
+            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
+        else
+            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=en")));
+    }else{
+        if(language == "Polish")
+            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
+        else
+            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=en")));
+    }manager->get(request);
 }
 
 void Weather::managerFinished(QNetworkReply *reply)
@@ -70,6 +77,8 @@ void Weather::managerFinished(QNetworkReply *reply)
     QJsonArray array = val.toArray();
     uint unixtimestamp;
     QDateTime myDateTime;
+    QSettings settings("PrivateApp", "Home_automation");
+    QString language = settings.value("language","").toString();
     for(auto day : array){
         auto object = day.toObject();
         v_feels_like.push_back(object["feels_like"].toObject()["day"].toDouble());
@@ -80,7 +89,10 @@ void Weather::managerFinished(QNetworkReply *reply)
         v_icon.push_back( object["weather"].toArray()[0].toObject()["icon"].toString());
         unixtimestamp = object["dt"].toInt();
         myDateTime.setTime_t(unixtimestamp);
-        v_time.push_back(myDateTime.toString("dd.MM (ddd)"));
+        if(language == "Polish")
+            v_time.push_back(myDateTime.toString("dd.MM (ddd)"));
+        else
+            v_time.push_back(myDateTime.toString("dd.MM"));
         v_clouds.push_back(object["clouds"].toInt());
     }
     set_all_icons();
@@ -121,27 +133,27 @@ void Weather::set_icon(QLabel *label, QString icon)
 void Weather::set_temp(QLabel *label, double temp)
 {
 
-    label->setText("Temp.: "+ QString::number(temp) + " °C");
+    label->setText(tr("Temp.: ")+ QString::number(temp) + " °C");
 }
 
 void Weather::set_feels(QLabel *label, double feels_like)
 {
-    label->setText("Odcz.: "+ QString::number(feels_like) + " °C");
+    label->setText(tr("Odcz.: ")+ QString::number(feels_like) + " °C");
 }
 
 void Weather::set_rain(QLabel *label, double rain)
 {
-    label->setText("Opady: "+ QString::number(rain) + " mm");
+    label->setText(tr("Opady: ")+ QString::number(rain) + " mm");
 }
 
 void Weather::set_clouds(QLabel *label, int cloudines)
 {
-    label->setText("Chmury: "+ QString::number(cloudines) + " %");
+    label->setText(tr("Chmury: ")+ QString::number(cloudines) + " %");
 }
 
 void Weather::set_pressure(QLabel *label, int pressure)
 {
-    label->setText("Ciśnienie: "+ QString::number(pressure) + " hPa");
+    label->setText(tr("Ciśnienie: ")+ QString::number(pressure) + " hPa");
 }
 
 void Weather::set_description(QLabel *label, QString description)
@@ -220,8 +232,8 @@ void Weather::set_all_icons()
     set_clouds(ui->label_clouds04,v_clouds[4]);
     set_clouds(ui->label_clouds05,v_clouds[5]);
 
-    set_time(ui->label_day00,"Dzisiaj");
-    set_time(ui->label_day01,"Jutro");
+    set_time(ui->label_day00,tr("Dzisiaj"));
+    set_time(ui->label_day01,tr("Jutro"));
     set_time(ui->label_day02,v_time[2]);
     set_time(ui->label_day03,v_time[3]);
     set_time(ui->label_day04,v_time[4]);

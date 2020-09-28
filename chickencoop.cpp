@@ -81,14 +81,14 @@ void Chickencoop::on_pushButton_stream_clicked()
 {
     QMessageBox msgBox(this);
     msgBox.setStyleSheet("QPushButton{ width:125; font-size: 18px; }");
-    msgBox.setWindowTitle("Kurnik");
+    msgBox.setWindowTitle(tr("Kurnik"));
     QString stream_ip  = ui->lineEdit_ip->text();
     QString stream_port = ui->lineEdit_port->text();
 
     if(stream_ip =="" || stream_port =="")
-        msgBox.setText("Wszystkie pola muszą być uzupełnione.");
+        msgBox.setText(tr("Wszystkie pola muszą być uzupełnione."));
     else{
-        msgBox.setText("Zmiany zostaną wprowadzone po restarcie aplikacji.");
+        msgBox.setText(tr("Zmiany zostaną wprowadzone po restarcie aplikacji."));
         settings->setValue("stream_ip", stream_ip);
         settings->setValue("stream_port", stream_port);
     }

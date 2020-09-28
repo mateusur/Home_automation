@@ -13,16 +13,12 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     mqtt_settings_window = new SettingsMQTT(this);
     about_author_window = new Author(this);
     weather_settings_window = new SettingsWeather(this);
+    m_client = new QMqttClient(this);
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(watering_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     set_icons();
-
-    //MQTT
-    m_client = new QMqttClient(this);
     set_Mqtt();
-
-
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
 
@@ -108,6 +104,29 @@ void ChooseWindow::on_action_options_weather_triggered()
 void ChooseWindow::on_action_about_author_triggered()
 {
     about_author_window->show();
+}
+
+void ChooseWindow::on_action_English_triggered()
+{
+     QSettings settings("PrivateApp", "Home_automation");
+     settings.setValue("Language", "English");
+
+     QMessageBox msgBox(this);
+     msgBox.setStyleSheet("QPushButton{ width:125; font-size: 18px; }");
+     msgBox.setWindowTitle(tr("Inteligentny dom"));
+     msgBox.setText(tr("Zmiany zostaną wprowadzone po restarcie aplikacji."));
+     msgBox.exec();
+}
+
+void ChooseWindow::on_action_Polish_triggered()
+{
+    QSettings settings("PrivateApp", "Home_automation");
+    settings.setValue("Language", "Polish");
+    QMessageBox msgBox(this);
+    msgBox.setStyleSheet("QPushButton{ width:125; font-size: 18px; }");
+    msgBox.setWindowTitle(tr("Inteligentny dom"));
+    msgBox.setText(tr("Zmiany zostaną wprowadzone po restarcie aplikacji."));
+    msgBox.exec();
 }
 
 void ChooseWindow::set_icons()

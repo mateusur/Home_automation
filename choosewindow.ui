@@ -439,7 +439,15 @@ background-color: rgb(229, 229, 229);
     </property>
     <addaction name="action_about_author"/>
    </widget>
+   <widget class="QMenu" name="menuJ_zyk">
+    <property name="title">
+     <string>Język</string>
+    </property>
+    <addaction name="action_Polish"/>
+    <addaction name="action_English"/>
+   </widget>
    <addaction name="menu_options"/>
+   <addaction name="menuJ_zyk"/>
    <addaction name="menu_help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -466,6 +474,16 @@ background-color: rgb(229, 229, 229);
   <action name="action_options_weather">
    <property name="text">
     <string>Ustawienia pogody</string>
+   </property>
+  </action>
+  <action name="action_Polish">
+   <property name="text">
+    <string>Polski</string>
+   </property>
+  </action>
+  <action name="action_English">
+   <property name="text">
+    <string>Angielski</string>
    </property>
   </action>
  </widget>

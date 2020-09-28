@@ -30,7 +30,7 @@ Watering::Watering(QWidget *parent) :
     ui->return_button->setIconSize(pixmap_return.rect().size());
 
     ui->timeEdit->hide();
-
+    ui->pushButton_turn_off->hide();
 }
 
 Watering::~Watering()
@@ -55,43 +55,43 @@ void Watering::message_handler(QByteArray message, QMqttTopicName topic)
 
     if(topic == topics_watering[0]){ //sunday
         if(op==1)
-            ui->label_sunday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m) +" min");
+            ui->label_sunday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m) +" min");
         else
             ui->label_sunday->setText("");
     }
     else if(topic == topics_watering[1]){
         if(op==1)
-            ui->label_monday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_monday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_monday->setText("");
     }
     else if(topic == topics_watering[2]){
         if(op==1)
-            ui->label_tuesday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_tuesday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_tuesday->setText("");
     }
     else if(topic == topics_watering[3]){
         if(op==1)
-            ui->label_wednesday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_wednesday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_wednesday->setText("");
     }
     else if(topic == topics_watering[4]){
         if(op==1)
-            ui->label_thursday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_thursday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_thursday->setText("");
     }
     else if(topic == topics_watering[5]){
         if(op==1)
-            ui->label_friday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_friday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_friday->setText("");
     }
     else if(topic == topics_watering[6]){
         if(op==1)
-            ui->label_saturday->setText("Włącz o "+QString::number(hh)+":"+QString::number(mm)+"\nna " +QString::number(m)+" min");
+            ui->label_saturday->setText(tr("Włącz o ")+QString::number(hh)+":"+QString::number(mm)+tr("\nna ") +QString::number(m)+" min");
         else
             ui->label_saturday->setText("");
     }
@@ -118,8 +118,8 @@ void Watering::on_radioButton_once_clicked()
         ui->label_3->show();
         //ui->label_countdown->show();
         ui->label_countdown->setText("--:--");
-        ui->label->setText("Włącz nawodnienie");
-        ui->label_2->setText("na");
+        ui->label->setText(tr("Włącz nawodnienie"));
+        ui->label_2->setText(tr("na"));
     }
     else{
         ui->checkBox_monday->setEnabled(true);
@@ -134,8 +134,8 @@ void Watering::on_radioButton_once_clicked()
         ui->label_3->hide();
         //ui->label_countdown->hide();
         ui->label_countdown->setText("");
-        ui->label->setText("Włącz nawodnienie o");
-        ui->label_2->setText("na");
+        ui->label->setText(tr("Włącz nawodnienie o"));
+        ui->label_2->setText(tr("na"));
     }
 
 }
@@ -143,7 +143,7 @@ void Watering::on_radioButton_once_clicked()
 void Watering::on_pushButton_accept_clicked()
 {
     QMessageBox msgBox(this);
-    msgBox.setText("Musisz zaznaczyc regularność nawadniania.");
+    msgBox.setText(tr("Musisz zaznaczyc regularność nawadniania."));
 
     if(ui->radioButton_once->isChecked()){
         //qDebug() << ui->doubleSpinBox_interval->value();
@@ -200,7 +200,7 @@ void Watering::updateCountdown()
 {
     if(QObject::sender() == timer){
         countdown = countdown.addSecs(-1);
-        ui->label_3->setText("Pozostały czas nawadniania:");
+        ui->label_3->setText(tr("Pozostały czas nawadniania:"));
         ui->label_countdown->setText( countdown.toString("mm:ss"));
         if(countdown <= QTime(0,0,0,0)){
             timer->stop();
@@ -218,7 +218,7 @@ void Watering::updateCountdown()
     }
     else{
         countdown = countdown.addSecs(-1);
-        ui->label_3->setText("Pozostały czas schładzania:");
+        ui->label_3->setText(tr("Pozostały czas schładzania:"));
         ui->label_countdown->setText( countdown.toString("mm:ss"));
         if(countdown <= QTime(0,0,0,0)){
             timer2->stop();

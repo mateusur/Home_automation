@@ -1,6 +1,9 @@
 #include "choosewindow.h"
 #include "chickencoop.h"
 #include <QApplication>
+#include <QSettings>
+#include <QInputDialog>
+
 //TODO: Wprowadzic poprawki do ponizszego opisu
 
 /*! \mainpage Dokumentacja aplikacji Home automation
@@ -18,6 +21,17 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QSettings settings("PrivateApp", "Home_automation");
+    QString langugage  = settings.value("Language", "").toString();
+    QTranslator t;// = new QTranslator(&a);
+    if(langugage == "English"){
+        t.load(":/english.qm");
+    }
+    if(langugage != "Polish"){
+       // a.removeTranslator(&t);
+        a.installTranslator(&t);
+    }
+
     ChooseWindow w;
     w.show();
 

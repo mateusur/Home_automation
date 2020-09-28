@@ -88,6 +88,14 @@ private slots:
     */
     void on_action_about_author_triggered();
     /*!
+    * \brief Metoda pozwalająca zmienić język interfejsu na język angielski.
+    */
+    void on_action_English_triggered();
+    /*!
+    * \brief Metoda pozwalająca zmienić język interfejsu na język polski.
+    */
+    void on_action_Polish_triggered();
+    /*!
     * \brief Metoda ustawiająca opcje związane z klientem MQTT.
     */
     void set_Mqtt();
