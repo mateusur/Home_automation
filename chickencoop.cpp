@@ -18,12 +18,15 @@ Chickencoop::Chickencoop(QWidget *parent) :
     settings = new QSettings("PrivateApp", "Home_automation",this);
     QString stream_ip  = settings->value("stream_ip", "").toString();
     QString stream_port = settings->value("stream_port", "").toString();
-    link = "http://"+stream_ip+":"+stream_port+"/stream/video.h264";
+    QString format = settings->value("format","").toString();
+    if(format=="")
+        format="h264";
+    ui->comboBox_format->setCurrentText(format);
+    link = "http://"+stream_ip+":"+stream_port+"/stream/video."+format;
     ui->lineEdit_ip->setText(stream_ip);
     ui->lineEdit_port->setText(stream_port);
     player->setMedia(link);
     player->play();
-
     QRegExp ip("([1-9]\\d{0,2}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})");
     QRegExpValidator *validator = new QRegExpValidator(ip, this);
     ui->lineEdit_ip->setValidator(validator);
@@ -91,6 +94,7 @@ void Chickencoop::on_pushButton_stream_clicked()
         msgBox.setText(tr("Zmiany zostaną wprowadzone po restarcie aplikacji."));
         settings->setValue("stream_ip", stream_ip);
         settings->setValue("stream_port", stream_port);
+        settings->setValue("format",ui->comboBox_format->currentText());
     }
     msgBox.exec();
 }
