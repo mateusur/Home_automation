@@ -37,32 +37,47 @@ p, li { white-space: pre-wrap; }
     <name>Chickencoop</name>
     <message>
         <location filename="chickencoop.ui" line="14"/>
-        <location filename="chickencoop.cpp" line="84"/>
+        <location filename="chickencoop.cpp" line="86"/>
         <source>Kurnik</source>
         <translation>Chcickencoop</translation>
     </message>
     <message>
-        <location filename="chickencoop.ui" line="55"/>
+        <location filename="chickencoop.ui" line="117"/>
+        <source>Format</source>
+        <translation>Format</translation>
+    </message>
+    <message>
+        <location filename="chickencoop.ui" line="143"/>
         <source>Adres ip:</source>
         <translation>IP address:</translation>
     </message>
     <message>
-        <location filename="chickencoop.ui" line="78"/>
+        <location filename="chickencoop.ui" line="186"/>
+        <source>h264</source>
+        <translation>h264</translation>
+    </message>
+    <message>
+        <location filename="chickencoop.ui" line="191"/>
+        <source>mjpeg</source>
+        <translation>mjpeg</translation>
+    </message>
+    <message>
+        <location filename="chickencoop.ui" line="94"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="chickencoop.ui" line="107"/>
+        <location filename="chickencoop.ui" line="159"/>
         <source>Zmień stream</source>
         <translation>Change stream</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="89"/>
+        <location filename="chickencoop.cpp" line="91"/>
         <source>Wszystkie pola muszą być uzupełnione.</source>
         <translation>Fill all boxes.</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="91"/>
+        <location filename="chickencoop.cpp" line="93"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restrt application to update changes.</translation>
     </message>
@@ -71,8 +86,8 @@ p, li { white-space: pre-wrap; }
     <name>ChooseWindow</name>
     <message>
         <location filename="choosewindow.ui" line="14"/>
-        <location filename="choosewindow.cpp" line="120"/>
-        <location filename="choosewindow.cpp" line="131"/>
+        <location filename="choosewindow.cpp" line="116"/>
+        <location filename="choosewindow.cpp" line="127"/>
         <source>Inteligentny dom</source>
         <translation>Smart Home</translation>
     </message>
@@ -123,8 +138,8 @@ p, li { white-space: pre-wrap; }
         <translation>English</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="121"/>
-        <location filename="choosewindow.cpp" line="132"/>
+        <location filename="choosewindow.cpp" line="117"/>
+        <location filename="choosewindow.cpp" line="128"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restart application to update changes.</translation>
     </message>
@@ -137,19 +152,35 @@ p, li { white-space: pre-wrap; }
         <translation>MQTT settings</translation>
     </message>
     <message>
-        <location filename="settingsmqtt.ui" line="53"/>
+        <location filename="settingsmqtt.ui" line="59"/>
         <source>Adres ip:</source>
         <translation>IP address:</translation>
     </message>
     <message>
-        <location filename="settingsmqtt.ui" line="114"/>
+        <location filename="settingsmqtt.ui" line="120"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="settingsmqtt.ui" line="155"/>
+        <location filename="settingsmqtt.ui" line="181"/>
+        <source>Login:</source>
+        <translation>Login:</translation>
+    </message>
+    <message>
+        <location filename="settingsmqtt.ui" line="245"/>
+        <source>Hasło:</source>
+        <translation>Password:</translation>
+    </message>
+    <message>
+        <location filename="settingsmqtt.ui" line="286"/>
         <source>Zapisz i wyjdź</source>
         <translation>Save and close window</translation>
+    </message>
+    <message>
+        <location filename="settingsmqtt.cpp" line="26"/>
+        <location filename="settingsmqtt.cpp" line="28"/>
+        <source>Opcjonalnie</source>
+        <translation>Optional</translation>
     </message>
 </context>
 <context>
