@@ -4,18 +4,25 @@
 #include <QSettings>
 #include <QInputDialog>
 
-//TODO: Wprowadzic poprawki do ponizszego opisu
-
 /*! \mainpage Dokumentacja aplikacji Home automation
  * \section Wprowadzenie
  * Program kontrolujący nawodnienie ogrodu oraz działanie kurnika przy użyciu protokołu MQTT. Pozwala na wysyłanie oraz odbieranie danych
  *  z różnych czujników (nodeMCU, Raspberry pi) oraz pobieranie danych pogodowych z OpenWeather.
- * \section Interface_window Główne okno
- * Główne okno aplikacji, po lewej stronie zawiera aktualne dane o kącie, statusie silników oraz przyciski pozwalające na interakcje z robotem.
- * W środkowej części umieszczono wykresy. Po prawej stronie znajduję się wizualizacja odchylenia robota od pionu. Klasa implementująca okno:\ref InterfaceWindow
- * \section Connect_window Okno łączenia
- * W oknie connect window zawarta jest implementacja narzędzi potrzebnych do połączenia się z robotem. Klasa implementująca okno:\ref ConnectWindow
- * \section Dokumentacja Dokumentacja
+ * \section ChooseWindow Główne okno
+ * Główne okno aplikacji, z tego okna możemy przechodzić do wszystkich pozostałych okien oraz ustawień. Klasa implementująca okno:\ref ChooseWindow
+ * \section Chickencoop Okno kurnika
+ * Okno kurnika pozwala na odtwarzanie streamu z kamery podłączonej do Raspberry pi, otwieranie oraz zamykanie drzwiczek kurnika. Klasa implementująca okno:\ref Chickencoop
+ * \section Watering Okno nawadniania
+ * Okno nawadniania pozwala na właczenie pojedynczej sesji nawadniania oraz na ustawienie regularnych sesji poprzez wybranie godziny oraz czasu nawadniania. Klasa implementująca okno:\ref Watering
+ * \section Weather Okno pogody
+ * Okno pogody wyświetla aktualnie pobraną pogodę dla współrzędnych podanych w oknie ustawień \ref SettingsWeather. Klasa implementująca okno:\ref Weather
+ * \section SettingsWeather Okno ustawień pogody
+ * Okno ustawień pogody pozwala na wprowadzenie współrzędnych dla jakich ma być pobrana pogoda. Wymagany jest także OpenWeather klucz API. Klasa implementująca okno:\ref SettingsWeather
+ * \section SettingsMQTT Okno ustawień klienta MQTT
+ * Okno ustawień klienta MQTT pozwala na skonfigurowanie klienta MQTT. Klasa implementująca okno:\ref SettingsMQTT
+ * \section Author Okno informacji o autorze
+ * Okno o autorze wyświetla infomacje kontaktowe autora oraz wymaganą licencję. Klasa implementująca okno:\ref Author
+ *  \section Dokumentacja Dokumentacja
  * Dokumentacja została wygenerowana za pomocą aplikacji Doxygen.
  */
 int main(int argc, char *argv[])
