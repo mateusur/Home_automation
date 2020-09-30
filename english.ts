@@ -304,7 +304,7 @@ p, li { white-space: pre-wrap; }
         <location filename="watering.cpp" line="88"/>
         <location filename="watering.cpp" line="94"/>
         <source>Włącz o </source>
-        <translation>Turno on at </translation>
+        <translation>Turn on at </translation>
     </message>
     <message>
         <location filename="watering.cpp" line="58"/>
