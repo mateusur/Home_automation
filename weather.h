@@ -31,7 +31,7 @@ public slots:
     /*!
     * \brief Metoda pobierająca dane pogodowe z serwera.
     */
-    void on_data_changed();
+    void data_changed();
 private slots:
     /*!
     * \brief Metoda przewarzająca otrzymane informacje.

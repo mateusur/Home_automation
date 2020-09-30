@@ -36,6 +36,6 @@ void SettingsWeather::on_pushButton_save_clicked()
     settings->setValue("latitude", latitude);
     settings->setValue("longitude", longitude);
     settings->setValue("API_key", API_key);
-    emit on_data_changed();
+    emit data_changed();
     this->hide();
 }

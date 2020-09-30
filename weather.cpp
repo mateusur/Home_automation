@@ -8,7 +8,7 @@ Weather::Weather(QWidget *parent) :
 {
     ui->setupUi(this);
     manager = new QNetworkAccessManager(this);
-    on_data_changed();
+    data_changed();
 
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(managerFinished(QNetworkReply*)));
 
@@ -31,14 +31,14 @@ Weather::~Weather()
     delete ui;
 }
 
-void Weather::on_data_changed()
+void Weather::data_changed()
 {
     QSettings settings("PrivateApp", "Home_automation");
     QString latitude  = settings.value("latitude", "").toString();
     QString longitude = settings.value("longitude", "").toString();
     QString API_key = settings.value("API_key","").toString();
     QString language = settings.value("language","").toString();
-    qDebug() << "jezyk: " << language;
+    //qDebug() << "jezyk: " << language;
     if(longitude=="" || latitude==""|| API_key==""){
     //NOTE: W koncowej wersji usun to i zamien na jakas informacje, ze nie podano danych
         if(language == "Polish")

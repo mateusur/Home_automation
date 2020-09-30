@@ -30,7 +30,7 @@ signals:
     /*!
     * \brief Sygnał zmiany danych.
     */
-    void on_data_changed();
+    void data_changed();
 private:
     Ui::SettingsWeather *ui;
     /*!

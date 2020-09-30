@@ -44,7 +44,7 @@ void SettingsMQTT::on_pushButton_save_clicked()
     settings->setValue("port", port);
     settings->setValue("ssid",ssid);
     settings->setValue("password",password);
-    emit on_data_changed();
+    emit data_changed();
     this->hide();
 }
 
