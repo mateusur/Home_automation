@@ -51,6 +51,7 @@ public slots:
     */
     void publish_message_retain(const QString &topic,const QByteArray &msg,quint8 qos = 0,bool retain = false);
 private slots:
+    void connection_handler(QMqttClient::ClientState state);
     /*!
     * \brief Metoda otwierająca okno kurnika.
     */

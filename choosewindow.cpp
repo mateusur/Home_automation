@@ -21,13 +21,14 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     set_Mqtt();
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
+    connect(m_client,&QMqttClient::stateChanged,this,&ChooseWindow::connection_handler);
 
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_msg,this, &ChooseWindow::publish_message);
     connect(watering_window,&Watering::publish_message_retain,this, &ChooseWindow::publish_message_retain);
 
-    connect(mqtt_settings_window,&SettingsMQTT::on_data_changed,this,&ChooseWindow::set_Mqtt);
-    connect(weather_settings_window,&SettingsWeather::on_data_changed,weather_window,&Weather::on_data_changed);
+    connect(mqtt_settings_window,&SettingsMQTT::data_changed,this,&ChooseWindow::set_Mqtt);
+    connect(weather_settings_window,&SettingsWeather::data_changed,weather_window,&Weather::data_changed);
 }
 
 ChooseWindow::~ChooseWindow()
@@ -53,6 +54,14 @@ void ChooseWindow::publish_message_retain(const QString &topic, const QByteArray
 {
     const QMqttTopicName topic2(topic);
     m_client->publish(topic2,msg,qos,retain);
+}
+
+void ChooseWindow::connection_handler(QMqttClient::ClientState state)
+{
+    if(state == QMqttClient::Disconnected)
+        QTimer::singleShot(5000, this, &ChooseWindow::set_Mqtt);
+    else if(state == QMqttClient::Connected)
+        QTimer::singleShot(1500, this, &ChooseWindow::set_subscription);
 }
 
 void ChooseWindow::on_chickencoop_button_clicked()
@@ -176,8 +185,6 @@ void ChooseWindow::set_Mqtt()
         m_client->setUsername(ssid);
     if(password!="")
         m_client->setPassword(password);
-    //TODO: sprawdzic czy zostalo polaczone, jesli nie to error i polaczyc jeszcze raz
-    QTimer::singleShot(1000, this, &ChooseWindow::set_subscription);
 }
 
 void ChooseWindow::set_subscription()
