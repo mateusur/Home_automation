@@ -143,6 +143,8 @@ void Watering::on_radioButton_once_clicked()
 void Watering::on_pushButton_accept_clicked()
 {
     QMessageBox msgBox(this);
+    msgBox.setStyleSheet("QPushButton{ width:125; font-size: 18px; }");
+    msgBox.setWindowTitle(tr("Nawadnianie"));
     msgBox.setText(tr("Musisz zaznaczyc regularność nawadniania."));
 
     if(ui->radioButton_once->isChecked()){

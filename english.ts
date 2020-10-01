@@ -37,7 +37,7 @@ p, li { white-space: pre-wrap; }
     <name>Chickencoop</name>
     <message>
         <location filename="chickencoop.ui" line="14"/>
-        <location filename="chickencoop.cpp" line="86"/>
+        <location filename="chickencoop.cpp" line="87"/>
         <source>Kurnik</source>
         <translation>Chcickencoop</translation>
     </message>
@@ -52,12 +52,12 @@ p, li { white-space: pre-wrap; }
         <translation>IP address:</translation>
     </message>
     <message>
-        <location filename="chickencoop.ui" line="186"/>
+        <location filename="chickencoop.ui" line="192"/>
         <source>h264</source>
         <translation>h264</translation>
     </message>
     <message>
-        <location filename="chickencoop.ui" line="191"/>
+        <location filename="chickencoop.ui" line="197"/>
         <source>mjpeg</source>
         <translation>mjpeg</translation>
     </message>
@@ -72,12 +72,12 @@ p, li { white-space: pre-wrap; }
         <translation>Change stream</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="91"/>
+        <location filename="chickencoop.cpp" line="92"/>
         <source>Wszystkie pola muszą być uzupełnione.</source>
         <translation>Fill all boxes.</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="93"/>
+        <location filename="chickencoop.cpp" line="94"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restrt application to update changes.</translation>
     </message>
@@ -86,8 +86,8 @@ p, li { white-space: pre-wrap; }
     <name>ChooseWindow</name>
     <message>
         <location filename="choosewindow.ui" line="14"/>
-        <location filename="choosewindow.cpp" line="116"/>
-        <location filename="choosewindow.cpp" line="127"/>
+        <location filename="choosewindow.cpp" line="125"/>
+        <location filename="choosewindow.cpp" line="136"/>
         <source>Inteligentny dom</source>
         <translation>Smart Home</translation>
     </message>
@@ -138,8 +138,8 @@ p, li { white-space: pre-wrap; }
         <translation>English</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="117"/>
-        <location filename="choosewindow.cpp" line="128"/>
+        <location filename="choosewindow.cpp" line="126"/>
+        <location filename="choosewindow.cpp" line="137"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restart application to update changes.</translation>
     </message>
@@ -215,6 +215,7 @@ p, li { white-space: pre-wrap; }
     <name>Watering</name>
     <message>
         <location filename="watering.ui" line="19"/>
+        <location filename="watering.cpp" line="147"/>
         <source>Nawadnianie</source>
         <translation>Watering</translation>
     </message>
@@ -330,17 +331,17 @@ for </translation>
         <translation>Turn on watering at</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="146"/>
+        <location filename="watering.cpp" line="148"/>
         <source>Musisz zaznaczyc regularność nawadniania.</source>
         <translation>Select watering days.</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="203"/>
+        <location filename="watering.cpp" line="205"/>
         <source>Pozostały czas nawadniania:</source>
         <translation>Remaing time:</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="221"/>
+        <location filename="watering.cpp" line="223"/>
         <source>Pozostały czas schładzania:</source>
         <translation>Cooldown time:</translation>
     </message>
