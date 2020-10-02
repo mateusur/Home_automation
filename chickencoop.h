@@ -21,6 +21,8 @@ class Chickencoop : public QDialog
 public:
     /*!
     * \brief Konstruktor klasy Chickencoop.
+    *
+    * Konstruktor klasy Chickencoop.
     * \param[in] parent
     */
     explicit Chickencoop(QWidget *parent = nullptr);
@@ -29,28 +31,40 @@ public:
 private slots:
     /*!
     * \brief Metoda odpowiedzialna za powrót do okna głównego.
+    *
+    * Metoda odpowiedzialna za powrót do okna głównego.
     */
     void on_return_button_clicked();
     /*!
     * \brief Metoda odpowiedzialna za podniesienie drzwi kurnika.
+    *
+    * Metoda odpowiedzialna za podniesienie drzwi kurnika.
     */
     void on_up_button_clicked();
     /*!
     * \brief Metoda odpowiedzialna za opuszczenie drzwi kurnika.
+    *
+    * Metoda odpowiedzialna za opuszczenie drzwi kurnika.
     */
     void on_down_button_clicked();
     /*!
-    * \brief Metoda odpowiedzialna za zatwierdzenie zmiany ip oraz portu z którego jest nadawny stream.
+    * \brief Metoda odpowiedzialna za zaktualizowanie zmiany IP oraz portu z którego jest nadawny stream.
+    *
+    * Metoda odpowiedzialna za zaktualizowanie zmiany IP oraz portu z którego jest nadawny stream uv4l.
     */
     void on_pushButton_stream_clicked();
 
 signals:
     /*!
     * \brief Sygnał odpowiedzialny za przełączanie między oknem głównym a oknem Chickencoop.
+    *
+    * Sygnał odpowiedzialny za przełączanie między oknem głównym a oknem Chickencoop.
     */
     void change_window();
     /*!
     * \brief Sygnał odpowiedzialny za wysyłanie wiadomości przez MQTT.
+    *
+    * Sygnał odpowiedzialny za wysyłanie wiadomości przez MQTT.
     * \param[in] pub_topic - temat do, którego publikujemy.
     * \param[in] msg - wiadomość jaką publikujemy.
     */
@@ -59,26 +73,38 @@ private:
     Ui::Chickencoop *ui;
     /*!
     * \brief Metoda ustawiająca ikony strzałek na poszczególne przyciski.
+    *
+    * Metoda ustawiająca ikony strzałek na poszczególne przyciski.
     */
     void set_icons();
     /*!
-    * \brief Temat do którego są publikowane wiadomości MQTT.
+    * \brief Temat do którego są publikowane wiadomości związane z drzwiami kurnika.
+    *
+    * Temat do którego są publikowane wiadomości związane z drzwiczkami kurnika.
     */
     const QString pub_topic = "chickencoop/door";
     /*!
     * \brief Wskaźnik na player do streamu.
+    *
+    * Wskaźnik na player wymagany do odtwarzania streamu.
     */
     QMediaPlayer *player;
     /*!
     * \brief Wskaźnik na Video Widget potrzebny do odtworzenia streamu.
+    *
+    * Wskaźnik na Video Widget potrzebny do odtworzenia streamu.
     */
     QVideoWidget *videoWidget;
     /*!
-    * \brief Wskaźnik na ustawienia z których pobierane jest ip oraz port stremu.
+    * \brief Wskaźnik na ustawienia z których pobierane jest IP oraz port stremu.
+    *
+    * Wskaźnik na ustawienia dzięki, którym jest możliwość zapisywania oraz odczytywania raz wprowadzonego IP serwera oraz portu.
     */
     QSettings *settings;
     /*!
     * \brief Link do streamu.
+    *
+    * Link do streamu (testowane na uv4l działającym na Raspberry Pi).
     */
     QUrl link;
 

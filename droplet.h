@@ -6,35 +6,43 @@
 #include <QPropertyAnimation>
 
 /*!
- * \brief Klasa Droplet implementuje animacje kropli deszczu
+ * \brief Klasa Droplet implementuje animacje kropli deszczu.
  */
 class Droplet : public QLabel
 {
     Q_OBJECT
 public:
     /*!
-     * \brief Konstruktor klasy Droplet
-     * \param label - wskaźnik na etykiete
+     * \brief Konstruktor klasy Droplet.
+     *
+     * Konstruktor klasy Droplet.
+     * \param label - wskaźnik na etykiete.
      */
     Droplet(QLabel *label);
     ~Droplet();
     /*!
-     * \brief Pauza animacji
-     * Metoda odpowiedzialna za pauze animacji
+     * \brief Pauza animacji.
+     *
+     * Metoda odpowiedzialna za pauze animacji.
      */
     void pause();
     /*!
-     * \brief Wznawianie animacji
-     * Metoda odpowiedzialna za wznowienie animacji
+     * \brief Wznawianie animacji.
+     *
+     * Metoda odpowiedzialna za wznowienie animacji.
      */
     void resume();
 private:
     /*!
-     * \brief Pixmapa kropli deszczu
+     * \brief Pixmapa kropli deszczu.
+     *
+     * Pixmapa kropli deszczu.
      */
     QPixmap droplet_icon;
     /*!
-     * \brief Wskaźnik na animacje
+     * \brief Wskaźnik na animacje.
+     *
+     * Wskaźnik na animacje.
      */
     QPropertyAnimation *animation;
 };

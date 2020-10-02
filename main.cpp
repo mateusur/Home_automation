@@ -7,7 +7,7 @@
 /*! \mainpage Dokumentacja aplikacji Home automation
  * \section Wprowadzenie
  * Program kontrolujący nawodnienie ogrodu oraz działanie kurnika przy użyciu protokołu MQTT. Pozwala na wysyłanie oraz odbieranie danych
- *  z różnych czujników (nodeMCU, Raspberry pi) oraz pobieranie danych pogodowych z OpenWeather.
+ *  z różnych czujników (nodeMCU, Raspberry pi) oraz pobieranie danych pogodowych z OpenWeather. Użyte ikony: <a href=https://icons8.com>link</a>.
  * \section ChooseWindow Główne okno
  * Główne okno aplikacji, z tego okna możemy przechodzić do wszystkich pozostałych okien oraz ustawień. Klasa implementująca okno:\ref ChooseWindow
  * \section Chickencoop Okno kurnika
