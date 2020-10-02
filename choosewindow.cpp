@@ -80,7 +80,6 @@ void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
     int h = ui->label_hum->height();
     const QPixmap pixmap_doors_opened(":/Icons/open_door_96.png");
     const QPixmap pixmap_doors_closed(":/Icons/door_closed_96.png");
-    ui->label_doors->setPixmap(pixmap_doors_opened.scaled(w,h,Qt::KeepAspectRatioByExpanding));
 
     qDebug() <<"Odebrana wiadomosc: "<< message << " ,topic: "<< topic;
 
