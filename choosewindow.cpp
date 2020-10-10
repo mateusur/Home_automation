@@ -29,6 +29,8 @@ ChooseWindow::ChooseWindow(QWidget *parent)
 
     connect(mqtt_settings_window,&SettingsMQTT::data_changed,this,&ChooseWindow::set_Mqtt);
     connect(weather_settings_window,&SettingsWeather::data_changed,weather_window,&Weather::data_changed);
+
+    ui->groupBox->setToolTip(tr("Temperatura, wilgotność i status otwarcia drzwi w kurniku."));
 }
 
 ChooseWindow::~ChooseWindow()
