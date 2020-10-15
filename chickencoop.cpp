@@ -6,7 +6,6 @@ Chickencoop::Chickencoop(QWidget *parent) :
     ui(new Ui::Chickencoop)
 {
     ui->setupUi(this);
-    //connect(ui->pushButton,SIGNAL(on_pushButton_clicked()),)
     set_icons();
 
     player= new QMediaPlayer(this);

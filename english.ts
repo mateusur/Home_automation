@@ -37,7 +37,7 @@ p, li { white-space: pre-wrap; }
     <name>Chickencoop</name>
     <message>
         <location filename="chickencoop.ui" line="14"/>
-        <location filename="chickencoop.cpp" line="87"/>
+        <location filename="chickencoop.cpp" line="86"/>
         <source>Kurnik</source>
         <translation>Chcickencoop</translation>
     </message>
@@ -72,12 +72,12 @@ p, li { white-space: pre-wrap; }
         <translation>Change stream</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="92"/>
+        <location filename="chickencoop.cpp" line="91"/>
         <source>Wszystkie pola muszą być uzupełnione.</source>
         <translation>Fill all boxes.</translation>
     </message>
     <message>
-        <location filename="chickencoop.cpp" line="94"/>
+        <location filename="chickencoop.cpp" line="93"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restrt application to update changes.</translation>
     </message>
@@ -86,60 +86,70 @@ p, li { white-space: pre-wrap; }
     <name>ChooseWindow</name>
     <message>
         <location filename="choosewindow.ui" line="14"/>
-        <location filename="choosewindow.cpp" line="125"/>
-        <location filename="choosewindow.cpp" line="136"/>
+        <location filename="choosewindow.cpp" line="126"/>
+        <location filename="choosewindow.cpp" line="137"/>
         <source>Inteligentny dom</source>
         <translation>Smart Home</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="431"/>
+        <location filename="choosewindow.ui" line="80"/>
+        <source>Kurnik</source>
+        <translation>Chcickencoop</translation>
+    </message>
+    <message>
+        <location filename="choosewindow.ui" line="490"/>
         <source>Opcje</source>
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="438"/>
+        <location filename="choosewindow.ui" line="497"/>
         <source>Pomoc</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="444"/>
+        <location filename="choosewindow.ui" line="503"/>
         <source>Język</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="456"/>
-        <location filename="choosewindow.ui" line="461"/>
+        <location filename="choosewindow.ui" line="515"/>
+        <location filename="choosewindow.ui" line="520"/>
         <source>Ustawienia MQTT</source>
         <translation>MQTT settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="466"/>
+        <location filename="choosewindow.ui" line="525"/>
         <source>O autorze</source>
         <translation>About author</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="471"/>
+        <location filename="choosewindow.ui" line="530"/>
         <source>Ustawienia nawadniania</source>
         <translation>Watering settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="476"/>
+        <location filename="choosewindow.ui" line="535"/>
         <source>Ustawienia pogody</source>
         <translation>Weather settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="481"/>
+        <location filename="choosewindow.ui" line="540"/>
         <source>Polski</source>
         <translation>Polish</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="486"/>
+        <location filename="choosewindow.ui" line="545"/>
         <source>Angielski</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="126"/>
-        <location filename="choosewindow.cpp" line="137"/>
+        <location filename="choosewindow.cpp" line="33"/>
+        <source>Temperatura, wilgotność i status otwarcia drzwi w kurniku.</source>
+        <translation>Temperature, humidity and door status in chickencoop.</translation>
+    </message>
+    <message>
+        <location filename="choosewindow.cpp" line="127"/>
+        <location filename="choosewindow.cpp" line="138"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restart application to update changes.</translation>
     </message>
