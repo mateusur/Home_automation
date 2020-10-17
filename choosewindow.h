@@ -12,6 +12,7 @@
 #include "settingsmqtt.h"
 #include "settingsweather.h"
 #include "author.h"
+#include "settingsstream.h"
 #include <QMqttClient>
 #include <QMqttSubscription>
 #include <QThread>
@@ -114,6 +115,12 @@ private slots:
     */
     void on_action_options_weather_triggered();
     /*!
+    * \brief Metoda otwierająca okno z opcjami streamu.
+    *
+    * Metoda otwierająca okno z opcjami streamu.
+    */
+    void on_action_options_stream_triggered();
+    /*!
     * \brief Metoda otwierająca okno z informacjami o autorze i licencji ikon.
     *
     * Metoda otwierająca okno z informacjami o autorze i licencji ikon.
@@ -183,6 +190,12 @@ private:
     * Wskaźnik na klienta MQTT.
     */
     QMqttClient *m_client;
+    /*!
+    * \brief Wskaźnik na okno opcji streamu z kurnika.
+    *
+    * Wskaźnik na okno opcji streamu z kurnika.
+    */
+    SettingsStream *stream_settings;
     /*!
     * \brief Metoda ustawiająca wszystkie ikony.
     *

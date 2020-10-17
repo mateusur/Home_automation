@@ -27,6 +27,7 @@ SOURCES += \
     main.cpp \
     choosewindow.cpp \
     settingsmqtt.cpp \
+    settingsstream.cpp \
     settingsweather.cpp \
     watering.cpp \
     weather.cpp
@@ -37,6 +38,7 @@ HEADERS += \
     choosewindow.h \
     droplet.h \
     settingsmqtt.h \
+    settingsstream.h \
     settingsweather.h \
     watering.h \
     weather.h
@@ -46,6 +48,7 @@ FORMS += \
     chickencoop.ui \
     choosewindow.ui \
     settingsmqtt.ui \
+    settingsstream.ui \
     settingsweather.ui \
     watering.ui \
     weather.ui

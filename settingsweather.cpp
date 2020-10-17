@@ -21,6 +21,7 @@ SettingsWeather::SettingsWeather(QWidget *parent) :
     QRegExp longi("([-]{0,1}[1-9]\\d{0,2}\\.\\d{0,6})");
     QRegExpValidator *validator2 = new QRegExpValidator(longi, this);
     ui->lineEdit_longitude->setValidator(validator2);
+
 }
 
 SettingsWeather::~SettingsWeather()

@@ -71,6 +71,11 @@
          <height>28</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
       </widget>
      </item>
     </layout>
@@ -131,6 +136,11 @@
          <width>153</width>
          <height>28</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
       </widget>
      </item>
@@ -193,6 +203,11 @@
          <height>28</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
       </widget>
      </item>
     </layout>
@@ -218,8 +233,13 @@
        <height>32</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>Zapisz i wyjdź</string>
+      <string>Zapisz</string>
      </property>
     </widget>
    </item>

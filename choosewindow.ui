@@ -491,6 +491,7 @@ background-color: rgb(229, 229, 229);
     </property>
     <addaction name="action_optionsMQTT_2"/>
     <addaction name="action_options_weather"/>
+    <addaction name="action_options_stream"/>
    </widget>
    <widget class="QMenu" name="menu_help">
     <property name="title">
@@ -543,6 +544,11 @@ background-color: rgb(229, 229, 229);
   <action name="action_English">
    <property name="text">
     <string>Angielski</string>
+   </property>
+  </action>
+  <action name="action_options_stream">
+   <property name="text">
+    <string>Ustawienia streamu</string>
    </property>
   </action>
  </widget>
