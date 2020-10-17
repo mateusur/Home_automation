@@ -14,6 +14,8 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     about_author_window = new Author(this);
     weather_settings_window = new SettingsWeather(this);
     m_client = new QMqttClient(this);
+    stream_settings = new SettingsStream(this);
+
     connect(chickencoop_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(weather_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
     connect(watering_window,SIGNAL(change_window()),this,SLOT(show_window())); // Connect to toggle between windows
@@ -30,7 +32,11 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     connect(mqtt_settings_window,&SettingsMQTT::data_changed,this,&ChooseWindow::set_Mqtt);
     connect(weather_settings_window,&SettingsWeather::data_changed,weather_window,&Weather::data_changed);
 
-    ui->groupBox->setToolTip(tr("Temperatura, wilgotność i status otwarcia drzwi w kurniku."));
+    ui->groupBox->setToolTip(tr("Temperatura, wilgotność i status otwarcia drzwi w kurniku"));
+    ui->chickencoop_button->setToolTip(tr("Okno sterowania kurnikiem"));
+    ui->water_button->setToolTip(tr("Okno sterowania nawodnieniem"));
+    ui->weather_button->setToolTip(tr("Okno pogody"));
+    ui->lights_button->setToolTip(tr("Okno sterowania oświetleniem"));
 }
 
 ChooseWindow::~ChooseWindow()
@@ -109,6 +115,11 @@ void ChooseWindow::on_action_optionsMQTT_2_triggered()
 void ChooseWindow::on_action_options_weather_triggered()
 {
     weather_settings_window -> show();
+}
+
+void ChooseWindow::on_action_options_stream_triggered()
+{
+    stream_settings->show();
 }
 
 void ChooseWindow::on_action_about_author_triggered()

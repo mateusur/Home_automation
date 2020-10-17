@@ -31,6 +31,9 @@ Watering::Watering(QWidget *parent) :
 
     ui->timeEdit->hide();
     ui->pushButton_turn_off->hide();
+
+    ui->return_button->setToolTip(tr("Powrót do okna głównego"));
+
 }
 
 Watering::~Watering()

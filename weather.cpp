@@ -22,7 +22,8 @@ Weather::Weather(QWidget *parent) :
     ui->pushButton_refresh->setIcon(ButtonIcon_refresh);
     ui->pushButton_refresh->setIconSize(pixmap_refresh.rect().size());
 
-
+    ui->return_button->setToolTip(tr("Powrót do okna głównego"));
+    ui->pushButton_refresh->setToolTip(tr("Odśwież dane"));
 }
 
 Weather::~Weather()

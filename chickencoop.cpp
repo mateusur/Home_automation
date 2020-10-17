@@ -18,9 +18,15 @@ Chickencoop::Chickencoop(QWidget *parent) :
     QString stream_ip  = settings->value("stream_ip", "").toString();
     QString stream_port = settings->value("stream_port", "").toString();
     QString format = settings->value("format","").toString();
+    if(format=="")
+        format="h264";
     link = "http://"+stream_ip+":"+stream_port+"/stream/video."+format;
     player->setMedia(link);
     player->play();
+    ui->up_button->setToolTip(tr("Otwórz drzwi kurnika"));
+    ui->down_button->setToolTip(tr("Zamknij drzwi kurnika"));
+    ui->return_button->setToolTip(tr("Powrót do okna głównego"));
+    ui->widget->setToolTip(tr("Okno wyświetlania streamu"));
 }
 
 Chickencoop::~Chickencoop()
