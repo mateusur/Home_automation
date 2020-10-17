@@ -52,7 +52,7 @@ private slots:
     *
     * Metoda odpowiedzialna za zaktualizowanie zmiany IP oraz portu z którego jest nadawny stream uv4l.
     */
-    void on_pushButton_stream_clicked();
+
 
 signals:
     /*!
