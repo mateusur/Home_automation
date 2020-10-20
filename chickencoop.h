@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QRegExpValidator>
 #include <QRegExp>
+#include <QMqttClient>
 namespace Ui {
 class Chickencoop;
 }
@@ -52,7 +53,14 @@ private slots:
     *
     * Metoda odpowiedzialna za zaktualizowanie zmiany IP oraz portu z którego jest nadawny stream uv4l.
     */
-
+public slots:
+    /*!
+    * \brief Metoda odpowiedzialna za dezaktywacje odpowiedniego przycisku.
+    *
+    * Metoda odpowiedzialna za dezaktywacje przycisku podnoszącego drzwi jeśli drzwi są już podniesione oraz analogicznie dezaktywująca
+    * przycisk opuszczania jeśli drzwi są opuszczone.
+    */
+    void disable_button(QByteArray message,  QMqttTopicName topic);
 
 signals:
     /*!
