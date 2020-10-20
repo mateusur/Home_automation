@@ -73,3 +73,20 @@ void Chickencoop::on_down_button_clicked()
     emit publish_msg(pub_topic,msg);
 }
 
+void Chickencoop::disable_button(QByteArray message,  QMqttTopicName topic)
+{
+    QString top = "chickencoop/doors/status";
+    if(topic == top)
+    {
+        if(message == "open"){
+            ui->up_button->setDisabled(true);
+            ui->down_button->setDisabled(false);
+        }
+        else if (message == "close"){
+            ui->up_button->setDisabled(false);
+            ui->down_button->setDisabled(true);
+        }
+
+    }
+}
+

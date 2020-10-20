@@ -23,6 +23,7 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     set_Mqtt();
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),this,SLOT(message_handler(QByteArray,  QMqttTopicName)));
     connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),watering_window,SLOT(message_handler(QByteArray,  QMqttTopicName)));
+    connect(m_client,SIGNAL(messageReceived( QByteArray,  QMqttTopicName)),chickencoop_window,SLOT(disable_button(QByteArray,  QMqttTopicName)));
     connect(m_client,&QMqttClient::stateChanged,this,&ChooseWindow::connection_handler);
 
     connect(chickencoop_window,&Chickencoop::publish_msg,this, &ChooseWindow::publish_message);
@@ -66,12 +67,15 @@ void ChooseWindow::publish_message_retain(const QString &topic, const QByteArray
 
 void ChooseWindow::connection_handler(QMqttClient::ClientState state)
 {
-    if(state == QMqttClient::Disconnected)
+    qDebug() << "Connection Handler" << '\n';
+    if(state == QMqttClient::Disconnected){
         QTimer::singleShot(5000, this, &ChooseWindow::set_Mqtt);
-    else if(state == QMqttClient::Connected)
+        qDebug() << "Disconected" << '\n';
+    }else if(state == QMqttClient::Connected){
         QTimer::singleShot(1500, this, &ChooseWindow::set_subscription);
+        qDebug() << "Conected" << '\n';
+    }
 }
-
 void ChooseWindow::on_chickencoop_button_clicked()
 {
     chickencoop_window->show();
@@ -82,8 +86,8 @@ void ChooseWindow::on_chickencoop_button_clicked()
 
 void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
 {
-    const QString doors_opened("opened");
-    const QString doors_closed("closed");
+    const QString doors_opened("open");
+    const QString doors_closed("close");
     int w = ui->label_hum->width();
     int h = ui->label_hum->height();
     const QPixmap pixmap_doors_opened(":/Icons/open_door_96.png");
