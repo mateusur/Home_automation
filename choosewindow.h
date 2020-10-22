@@ -144,6 +144,7 @@ private slots:
     * Metoda konfigurująca klienta MQTT oraz nawiązująca połączenie z serwerem.
     */
     void set_Mqtt();
+
 signals:
 
 private:
@@ -215,5 +216,8 @@ private:
     */
     const std::array<QString,7> sub_topics_watering = {"garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
                                                         , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday"};
+
+    const std::array<QString,2> sub_topics_soil_sensor = {"garden/watering/soil/level","garden/watering/soil/mode"};
+
 };
 #endif // CHOOSEWINDOW_H

@@ -209,6 +209,8 @@ void ChooseWindow::set_subscription()
         m_client->subscribe(sub_topics_chickencoop[i]);
     for(unsigned i=0; i<sub_topics_watering.size();++i)
         m_client->subscribe(sub_topics_watering[i]);
+    for(unsigned i =0; i< sub_topics_soil_sensor.size(); ++i)
+        m_client->subscribe(sub_topics_soil_sensor[i]);
 
 }
 
@@ -225,3 +227,4 @@ void ChooseWindow::on_water_button_clicked()
     this->hide();
     qDebug() << "Otwarto okno watering";
 }
+
