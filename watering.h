@@ -69,6 +69,8 @@ private slots:
     */
     void on_pushButton_turn_off_clicked();
 
+    void on_checkBox_mode_stateChanged(int arg1);
+
 signals:
     /*!
     * \brief Sygnał odpowiedzialny za zmianę okna.
@@ -122,6 +124,8 @@ private:
     */
     const QString topics_watering[8] = { "garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
                                 , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday", "garden/watering/solenoid" };
+    //TODO: Zakomentowac ponizsze tematy
+    const QString topics_soil_sensor[2] = {"garden/watering/soil/level","garden/watering/soil/mode"};
     /*!
     * \brief Timer odświeżający wyświetlany minutnik.
     *

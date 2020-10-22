@@ -33,7 +33,15 @@ Watering::Watering(QWidget *parent) :
     ui->pushButton_turn_off->hide();
 
     ui->return_button->setToolTip(tr("Powrót do okna głównego"));
-
+    ui->checkBox_mode->setToolTip(tr("Jesli tryb ogrodowy jest zaznaczony to nawodnienie będzie uruchamiane automatycznie"));
+    ui->label_hum->setToolTip(tr("Wartość nawodnienia gleby"));
+    ui->lineEdit_hum->setToolTip(tr("Wartość nawodnienia gleby"));
+    ui->label_hum_2->setToolTip(tr("Wartość nawodnienia gleby"));
+    int w = ui->label_hum->width();
+    int h = ui->label_hum->height();
+    QPixmap pixmap_humidity(":/Icons/humidity_80.png");
+    ui->label_hum->setPixmap(pixmap_humidity.scaled(w,h,Qt::KeepAspectRatioByExpanding));
+    ui->label_hum_2->setText(" %");
 }
 
 Watering::~Watering()
@@ -48,6 +56,24 @@ Watering::~Watering()
 
 void Watering::message_handler(QByteArray message, QMqttTopicName topic)
 {
+
+    if (topic == topics_soil_sensor[0]){ //level
+        bool ok;
+        int soil_level = message.toInt(&ok);
+        ui->lineEdit_hum->setText(message);
+        qDebug() << "Soil level: " << soil_level << endl;
+    }
+    else if(topic == topics_soil_sensor[1]){ //mode
+         qDebug() << "Hej, message: " << message << endl;
+         char msg = message[0]-'0';
+         int mode = (int)msg;
+         if(mode) //mode 1 - garden, mode 0 - plants
+             ui->checkBox_mode->setCheckState(Qt::Checked );
+         else
+             ui->checkBox_mode->setCheckState(Qt::Unchecked );
+         qDebug() << "Hej, zmieniles status na: " << mode << endl;
+    }
+
     char msg[5] = "0000";
     for(int i=0; i<message.size(); ++i)
         msg[i]=(char)message[i];
@@ -254,4 +280,19 @@ void Watering::on_pushButton_turn_off_clicked()
         emit publish_message_retain(topics_watering[5],databuf,0,true);
     if(ui->checkBox_saturday->isChecked())
         emit publish_message_retain(topics_watering[6],databuf,0,true);
+}
+
+void Watering::on_checkBox_mode_stateChanged(int arg1)
+{
+    char on[] = "1";
+    char off[] = "0";
+    QByteArray databuf;
+    if(arg1 == Qt::Unchecked){
+         databuf = QByteArray((char*)off, 2);
+        emit(publish_message_retain(topics_soil_sensor[1],databuf,0,true));
+    }
+    else if(arg1 == Qt::Checked){
+        databuf = QByteArray((char*)on, 2);
+        emit(publish_message_retain(topics_soil_sensor[1],databuf,0,true));
+    }
 }
