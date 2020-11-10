@@ -24,5 +24,6 @@
         <file>Icons/Weather/summer_96.png</file>
         <file>Icons/Weather/refresh_30.png</file>
         <file>Icons/Watering/icons8-water-30.png</file>
+        <file>Icons/Watering/hygrometer_80.png</file>
     </qresource>
 </RCC>

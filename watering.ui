@@ -18,6 +18,18 @@
   <property name="windowTitle">
    <string>Nawadnianie</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QSplitter::handle {
+    background: rgb(250, 250, 250);
+	color: rgb(250, 250, 250);
+}
+QTimeEdit {
+background-color: rgb(240, 240, 240);
+}
+QDoubleSpinBox {
+background-color: rgb(240, 240, 240);
+}</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QSplitter" name="splitter">
@@ -54,22 +66,6 @@
       </property>
      </widget>
     </widget>
-   </item>
-   <item row="0" column="1" colspan="2">
-    <spacer name="horizontalSpacer_6">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Maximum</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>245</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="0" column="3" rowspan="2" colspan="2">
     <widget class="QGroupBox" name="groupBox_watering">
@@ -171,12 +167,12 @@ QGroupBox::title {
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLineEdit { 
+       <string notr="true">/*QLineEdit { 
 border: 2px solid grey;
 border-radius: 10px;
 text-align: center;
 background-color: rgb(229, 229, 229);
-}
+}*/
 </string>
       </property>
       <property name="alignment">
@@ -227,7 +223,7 @@ background-color: rgb(229, 229, 229);
        <rect>
         <x>40</x>
         <y>30</y>
-        <width>141</width>
+        <width>171</width>
         <height>31</height>
        </rect>
       </property>
@@ -237,12 +233,12 @@ background-color: rgb(229, 229, 229);
        </font>
       </property>
       <property name="text">
-       <string>Tryb ogrodowy</string>
+       <string>Tryb automatyczny</string>
       </property>
      </widget>
     </widget>
    </item>
-   <item row="1" column="0" rowspan="2">
+   <item row="1" column="1" rowspan="2">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -788,23 +784,23 @@ background-color: rgb(229, 229, 229);
      </item>
     </layout>
    </item>
-   <item row="6" column="0" colspan="2">
+   <item row="6" column="0">
     <spacer name="horizontalSpacer_4">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeType">
-      <enum>QSizePolicy::Minimum</enum>
+      <enum>QSizePolicy::Maximum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>222</width>
+       <width>45</width>
        <height>20</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="6" column="2" colspan="2">
+   <item row="6" column="1" colspan="3">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_3">
@@ -814,7 +810,7 @@ background-color: rgb(229, 229, 229);
         </font>
        </property>
        <property name="text">
-        <string>Pozostały czas:</string>
+        <string>Pozostały czas nawadniania:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -844,11 +840,11 @@ background-color: rgb(229, 229, 229);
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeType">
-      <enum>QSizePolicy::Minimum</enum>
+      <enum>QSizePolicy::Maximum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>221</width>
+       <width>45</width>
        <height>20</height>
       </size>
      </property>
@@ -866,6 +862,22 @@ background-color: rgb(229, 229, 229);
       <size>
        <width>17</width>
        <height>87</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1">
+    <spacer name="horizontalSpacer_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>200</width>
+       <height>20</height>
       </size>
      </property>
     </spacer>

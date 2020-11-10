@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Ustawienia streamu</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="2">
     <spacer name="verticalSpacer_2">
@@ -62,7 +65,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Adres ip:</string>
+        <string>Adres IP:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

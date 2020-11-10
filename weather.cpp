@@ -60,7 +60,7 @@ void Weather::managerFinished(QNetworkReply *reply)
     if (reply->error())
     {
         qDebug() << reply->errorString();
-        ui->label_day00->setText(reply->errorString());
+        //ui->label_day00->setText(reply->errorString());
         return;
     }
     v_feels_like.clear();

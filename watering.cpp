@@ -33,13 +33,13 @@ Watering::Watering(QWidget *parent) :
     ui->pushButton_turn_off->hide();
 
     ui->return_button->setToolTip(tr("Powrót do okna głównego"));
-    ui->checkBox_mode->setToolTip(tr("Jesli tryb ogrodowy jest zaznaczony to nawodnienie będzie uruchamiane automatycznie"));
+    ui->checkBox_mode->setToolTip(tr("Gdy tryb automatyczny jest zaznaczony, nawodnienie bedzie uruchamiane automatycznie"));
     ui->label_hum->setToolTip(tr("Wartość nawodnienia gleby"));
     ui->lineEdit_hum->setToolTip(tr("Wartość nawodnienia gleby"));
     ui->label_hum_2->setToolTip(tr("Wartość nawodnienia gleby"));
     int w = ui->label_hum->width();
     int h = ui->label_hum->height();
-    QPixmap pixmap_humidity(":/Icons/humidity_80.png");
+    QPixmap pixmap_humidity(":/Icons/Watering/hygrometer_80.png");
     ui->label_hum->setPixmap(pixmap_humidity.scaled(w,h,Qt::KeepAspectRatioByExpanding));
     ui->label_hum_2->setText(" %");
 }

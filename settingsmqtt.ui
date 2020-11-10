@@ -56,7 +56,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Adres ip:</string>
+        <string>Adres IP:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
