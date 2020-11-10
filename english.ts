@@ -97,64 +97,64 @@ p, li { white-space: pre-wrap; }
     <name>ChooseWindow</name>
     <message>
         <location filename="choosewindow.ui" line="14"/>
-        <location filename="choosewindow.cpp" line="137"/>
-        <location filename="choosewindow.cpp" line="148"/>
+        <location filename="choosewindow.cpp" line="143"/>
+        <location filename="choosewindow.cpp" line="154"/>
         <source>Inteligentny dom</source>
         <translation>Smart Home</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="80"/>
+        <location filename="choosewindow.ui" line="149"/>
         <source>Kurnik</source>
         <translation>Chcickencoop</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="490"/>
+        <location filename="choosewindow.ui" line="542"/>
         <source>Opcje</source>
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="498"/>
+        <location filename="choosewindow.ui" line="550"/>
         <source>Pomoc</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="504"/>
+        <location filename="choosewindow.ui" line="556"/>
         <source>Język</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="516"/>
-        <location filename="choosewindow.ui" line="521"/>
+        <location filename="choosewindow.ui" line="568"/>
+        <location filename="choosewindow.ui" line="573"/>
         <source>Ustawienia MQTT</source>
         <translation>MQTT settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="526"/>
+        <location filename="choosewindow.ui" line="578"/>
         <source>O autorze</source>
         <translation>About author</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="531"/>
+        <location filename="choosewindow.ui" line="583"/>
         <source>Ustawienia nawadniania</source>
         <translation>Watering settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="536"/>
+        <location filename="choosewindow.ui" line="588"/>
         <source>Ustawienia pogody</source>
         <translation>Weather settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="541"/>
+        <location filename="choosewindow.ui" line="593"/>
         <source>Polski</source>
         <translation>Polish</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="546"/>
+        <location filename="choosewindow.ui" line="598"/>
         <source>Angielski</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="551"/>
+        <location filename="choosewindow.ui" line="603"/>
         <source>Ustawienia streamu</source>
         <translation>Stream settings</translation>
     </message>
@@ -163,33 +163,33 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Temperature, humidity and door status in chickencoop.</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="35"/>
+        <location filename="choosewindow.cpp" line="38"/>
         <source>Temperatura, wilgotność i status otwarcia drzwi w kurniku</source>
         <translation>Temperature, humidity and door status in chickencoop</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="36"/>
+        <location filename="choosewindow.cpp" line="39"/>
         <source>Okno sterowania kurnikiem</source>
         <translation>Chickencoop window</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="37"/>
+        <location filename="choosewindow.cpp" line="40"/>
         <source>Okno sterowania nawodnieniem</source>
         <translation>Watering control window</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="38"/>
+        <location filename="choosewindow.cpp" line="41"/>
         <source>Okno pogody</source>
         <translation>Weather window</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="39"/>
+        <location filename="choosewindow.cpp" line="42"/>
         <source>Okno sterowania oświetleniem</source>
         <translation>Lights control window</translation>
     </message>
     <message>
-        <location filename="choosewindow.cpp" line="138"/>
-        <location filename="choosewindow.cpp" line="149"/>
+        <location filename="choosewindow.cpp" line="144"/>
+        <location filename="choosewindow.cpp" line="155"/>
         <source>Zmiany zostaną wprowadzone po restarcie aplikacji.</source>
         <translation>Restart application to update changes.</translation>
     </message>
@@ -203,7 +203,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="settingsmqtt.ui" line="59"/>
-        <source>Adres ip:</source>
+        <source>Adres IP:</source>
+        <oldsource>Adres ip:</oldsource>
         <translation>IP address:</translation>
     </message>
     <message>
@@ -245,32 +246,36 @@ p, li { white-space: pre-wrap; }
         <translation>Stream settings</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="65"/>
         <source>Adres ip:</source>
+        <translation type="vanished">IP address:</translation>
+    </message>
+    <message>
+        <location filename="settingsstream.ui" line="68"/>
+        <source>Adres IP:</source>
         <translation>IP address:</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="146"/>
+        <location filename="settingsstream.ui" line="149"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="227"/>
+        <location filename="settingsstream.ui" line="230"/>
         <source>Format</source>
         <translation>Format:</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="255"/>
+        <location filename="settingsstream.ui" line="258"/>
         <source>h264</source>
         <translation>h264</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="260"/>
+        <location filename="settingsstream.ui" line="263"/>
         <source>mjpeg</source>
         <translation>mjpeg</translation>
     </message>
     <message>
-        <location filename="settingsstream.ui" line="297"/>
+        <location filename="settingsstream.ui" line="300"/>
         <source>Zapisz</source>
         <translation>Save</translation>
     </message>
@@ -326,84 +331,89 @@ p, li { white-space: pre-wrap; }
     <name>Watering</name>
     <message>
         <location filename="watering.ui" line="19"/>
-        <location filename="watering.cpp" line="150"/>
+        <location filename="watering.ui" line="104"/>
+        <location filename="watering.cpp" line="176"/>
         <source>Nawadnianie</source>
         <translation>Watering</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="82"/>
+        <location filename="watering.ui" line="236"/>
+        <source>Tryb automatyczny</source>
+        <translation>Automatic mode</translation>
+    </message>
+    <message>
+        <location filename="watering.ui" line="281"/>
         <source>Jednorazowo</source>
         <translation>Once</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="106"/>
+        <location filename="watering.ui" line="305"/>
         <source>Poniedziałek</source>
         <translation>Monday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="150"/>
+        <location filename="watering.ui" line="349"/>
         <source>Wtorek</source>
         <translation>Tuesday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="194"/>
+        <location filename="watering.ui" line="393"/>
         <source>Środa</source>
         <translation>Wednesday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="238"/>
+        <location filename="watering.ui" line="437"/>
         <source>Czwartek</source>
         <translation>Thursday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="282"/>
+        <location filename="watering.ui" line="481"/>
         <source>Piątek</source>
         <translation>Friday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="326"/>
+        <location filename="watering.ui" line="525"/>
         <source>Sobota</source>
         <translation>Saturday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="370"/>
+        <location filename="watering.ui" line="569"/>
         <source>Niedziela</source>
         <translation>Sunday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="404"/>
+        <location filename="watering.ui" line="603"/>
         <source>Włącz nawadnianie</source>
         <translation>Turn on watering</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="459"/>
-        <location filename="watering.cpp" line="125"/>
-        <location filename="watering.cpp" line="141"/>
+        <location filename="watering.ui" line="658"/>
+        <location filename="watering.cpp" line="151"/>
+        <location filename="watering.cpp" line="167"/>
         <source>na</source>
         <translation>for</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="489"/>
+        <location filename="watering.ui" line="688"/>
         <source> min</source>
         <translation> min</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="533"/>
+        <location filename="watering.ui" line="737"/>
         <source>Akceptuj</source>
         <translation>Accept</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="559"/>
+        <location filename="watering.ui" line="768"/>
         <source>Wyłącz</source>
         <translation>Turn off</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="601"/>
         <source>Pozostały czas:</source>
-        <translation>Time remaining:</translation>
+        <translation type="vanished">Time remaining:</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="616"/>
+        <location filename="watering.ui" line="828"/>
         <source>-- --</source>
         <translation>-- --</translation>
     </message>
@@ -413,51 +423,64 @@ p, li { white-space: pre-wrap; }
         <translation>Return to main window</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="61"/>
-        <location filename="watering.cpp" line="67"/>
-        <location filename="watering.cpp" line="73"/>
-        <location filename="watering.cpp" line="79"/>
-        <location filename="watering.cpp" line="85"/>
-        <location filename="watering.cpp" line="91"/>
-        <location filename="watering.cpp" line="97"/>
+        <location filename="watering.cpp" line="36"/>
+        <source>Gdy tryb automatyczny jest zaznaczony, nawodnienie bedzie uruchamiane automatycznie</source>
+        <translation>If checked, watering will start automatically</translation>
+    </message>
+    <message>
+        <location filename="watering.cpp" line="37"/>
+        <location filename="watering.cpp" line="38"/>
+        <location filename="watering.cpp" line="39"/>
+        <source>Wartość nawodnienia gleby</source>
+        <translation>Soil moisture</translation>
+    </message>
+    <message>
+        <location filename="watering.cpp" line="87"/>
+        <location filename="watering.cpp" line="93"/>
+        <location filename="watering.cpp" line="99"/>
+        <location filename="watering.cpp" line="105"/>
+        <location filename="watering.cpp" line="111"/>
+        <location filename="watering.cpp" line="117"/>
+        <location filename="watering.cpp" line="123"/>
         <source>Włącz o </source>
         <translation>Turn on at </translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="61"/>
-        <location filename="watering.cpp" line="67"/>
-        <location filename="watering.cpp" line="73"/>
-        <location filename="watering.cpp" line="79"/>
-        <location filename="watering.cpp" line="85"/>
-        <location filename="watering.cpp" line="91"/>
-        <location filename="watering.cpp" line="97"/>
+        <location filename="watering.cpp" line="87"/>
+        <location filename="watering.cpp" line="93"/>
+        <location filename="watering.cpp" line="99"/>
+        <location filename="watering.cpp" line="105"/>
+        <location filename="watering.cpp" line="111"/>
+        <location filename="watering.cpp" line="117"/>
+        <location filename="watering.cpp" line="123"/>
         <source>
 na </source>
         <translation>
 for </translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="124"/>
+        <location filename="watering.cpp" line="150"/>
         <source>Włącz nawodnienie</source>
         <translation>Turn on watering</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="140"/>
+        <location filename="watering.cpp" line="166"/>
         <source>Włącz nawodnienie o</source>
         <translation>Turn on watering at</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="151"/>
+        <location filename="watering.cpp" line="177"/>
         <source>Musisz zaznaczyc regularność nawadniania.</source>
         <translation>Select watering days.</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="208"/>
+        <location filename="watering.ui" line="813"/>
+        <location filename="watering.cpp" line="234"/>
         <source>Pozostały czas nawadniania:</source>
         <translation>Remaing time:</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="226"/>
+        <location filename="watering.cpp" line="252"/>
         <source>Pozostały czas schładzania:</source>
         <translation>Cooldown time:</translation>
     </message>
