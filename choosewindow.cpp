@@ -6,7 +6,9 @@ ChooseWindow::ChooseWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ChooseWindow)
 {
+
     ui->setupUi(this);
+
     chickencoop_window = new Chickencoop(this);
     weather_window = new Weather(this);
     watering_window = new Watering(this);
@@ -188,6 +190,7 @@ void ChooseWindow::set_icons()
 
 void ChooseWindow::set_Mqtt()
 {
+    m_client->disconnectFromHost();
     QSettings settings("PrivateApp", "Home_automation");
     QString server_ip = settings.value("server", "").toString();
     int port = settings.value("port", "").toInt();
