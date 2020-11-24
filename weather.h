@@ -114,6 +114,12 @@ private:
     */
     QVector<QString> v_time;
     /*!
+    * \brief Tablica dni tygodnia.
+    *
+    * Tablica dni tygodnia.
+    */
+    QVector<QString> v_time_days;
+    /*!
     * \brief Tablica zachmurzeń.
     *
     * Tablica zachmurzeń.
@@ -189,6 +195,8 @@ private:
     * Metoda ustawiająca opisy i ikony na wszystkie dni przy użyciu odpowiednich metod.
     */
     void set_all_icons();
+
+    void translate_day(QString &day);
 
 
 signals:

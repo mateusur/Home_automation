@@ -70,6 +70,7 @@ void Weather::managerFinished(QNetworkReply *reply)
     v_description.clear();
     v_icon.clear();
     v_time.clear();
+    v_time_days.clear();
     v_clouds.clear();
     QString answer = reply->readAll();
     QJsonDocument jsonDoc = QJsonDocument::fromJson(answer.toUtf8());
@@ -90,10 +91,20 @@ void Weather::managerFinished(QNetworkReply *reply)
         v_icon.push_back( object["weather"].toArray()[0].toObject()["icon"].toString());
         unixtimestamp = object["dt"].toInt();
         myDateTime.setTime_t(unixtimestamp);
-        if(language == "Polish")
-            v_time.push_back(myDateTime.toString("dd.MM (ddd)"));
-        else
-            v_time.push_back(myDateTime.toString("dd.MM"));
+        if(language == "Polish"){
+            QString tmp = myDateTime.toString("dddd");
+              tmp[0] = tmp[0].toUpper();
+            v_time.push_back(tmp);
+            v_time_days.push_back(myDateTime.toString("dd.MM"));
+        }
+        else{
+            QString tmp = myDateTime.toString("dddd");
+              tmp[0] = tmp[0].toUpper();
+              qDebug() << tmp;
+              translate_day(tmp);
+            v_time.push_back(tmp);
+            v_time_days.push_back(myDateTime.toString("dd.MM"));
+        }
         v_clouds.push_back(object["clouds"].toInt());
     }
     set_all_icons();
@@ -133,28 +144,70 @@ void Weather::set_icon(QLabel *label, QString icon)
 
 void Weather::set_temp(QLabel *label, double temp)
 {
-
-    label->setText(tr("Temp.: ")+ QString::number(temp) + " °C");
+    QString t = tr("Temp.: ").rightJustified(11);
+    QString num = QString::number(temp,'f',1) ;
+    //
+    QString unit = (" °C");
+    QString uf= unit.rightJustified(4);
+    //label->setText(t + num.rightJustified(5) + uf);
+    QString str = QString("%1 %2 %3")
+            .arg(tr("Temp.:"), 11).arg(num,4).arg("°C",2);
+    label->setText(str);
+    //label->setText(tr("Temp.: ")+ QString::number(temp,'g',2) + " °C");
 }
 
 void Weather::set_feels(QLabel *label, double feels_like)
 {
-    label->setText(tr("Odcz.: ")+ QString::number(feels_like) + " °C");
+    QString f_l = tr("Odcz.: ").rightJustified(11);
+    QString num  = QString::number(feels_like,'f',1);
+    QString unit = (" °C");
+    QString uf= unit.rightJustified(4);
+    //label->setText(f_l+ num.rightJustified(5)  + uf);
+    QString str = QString("%1 %2 %3")
+            .arg(tr("Odcz.:"), 11).arg(num,4).arg("°C",2);
+    label->setText(str);
+
+    //label->setText(tr("Odcz.: ")+ QString::number(feels_like,'g',2) + " °C");
 }
 
 void Weather::set_rain(QLabel *label, double rain)
 {
-    label->setText(tr("Opady: ")+ QString::number(rain) + " mm");
+    QString r= tr("Opady: ").rightJustified(11,' ');
+    QString num = QString::number(rain,'f',1);
+    QString unit = (" mm");
+    QString uf= unit.rightJustified(4);
+   // label->setText(r+ num.rightJustified(5) + uf);
+    QString str = QString("%1 %2 %3").arg((tr("Opady:")), 11).arg(num,4).arg("mm",2);
+    label->setText(str);
+    //label->setText(tr("Opady: ")+ QString::number(rain,'g',2) + " mm");
 }
 
 void Weather::set_clouds(QLabel *label, int cloudines)
 {
-    label->setText(tr("Chmury: ")+ QString::number(cloudines) + " %");
+    QString c = tr("Chmury: ").rightJustified(11, ' ');
+    QString num = QString::number(cloudines);
+    QString unit = (" %");
+    QString uf= unit.rightJustified(4);
+    //label->setText(c+ num.rightJustified(5) + uf);
+    QString str = QString("%1 %2 %3")
+            .arg(tr("Chmury:"), 11).arg(num,3).arg("%",1);
+    label->setText(str);
+
+    //label->setText(tr("Zachmurzenie: ")+ QString::number(cloudines) + " %");
 }
 
 void Weather::set_pressure(QLabel *label, int pressure)
 {
-    label->setText(tr("Ciśnienie: ")+ QString::number(pressure) + " hPa");
+    QString p = tr("Ciśnienie: ").rightJustified(11, ' ');
+    QString num = QString::number(pressure);
+    QString unit = (" hPa");
+    QString uf= unit.rightJustified(4,true);
+    //label->setText(p + num.rightJustified(5) + uf);
+
+    QString str = QString("%1 %2 %3")
+            .arg(tr("Ciśnienie:"), 11).arg(num,5).arg("hPa",3);
+    label->setText(str);
+    //label->setText(tr("Ciśnienie: ")+ QString::number(pressure) + " hPa");
 }
 
 void Weather::set_description(QLabel *label, QString description)
@@ -240,6 +293,26 @@ void Weather::set_all_icons()
     set_time(ui->label_day04,v_time[4]);
     set_time(ui->label_day05,v_time[5]);
 
+    set_time(ui->label_day00_2,v_time_days[0]);
+    set_time(ui->label_day01_2,v_time_days[1]);
+    set_time(ui->label_day02_2,v_time_days[2]);
+    set_time(ui->label_day03_2,v_time_days[3]);
+    set_time(ui->label_day04_2,v_time_days[4]);
+    set_time(ui->label_day05_2,v_time_days[5]);
+
+
+}
+
+void Weather::translate_day(QString &day)
+{
+    if(day=="Poniedziałek"){day =tr("Poniedziałek");}
+    else if(day=="Wtorek"){day =tr("Wtorek");}
+    else if(day == "Środa"){day =tr("Środa");}
+    else if(day == "Czwartek"){day =tr("Czwartek");}
+    else if(day == "Piątek"){day =tr("Piątek");}
+    else if(day == "Sobota"){day =tr("Sobota");}
+    else if(day == "Niedziela"){day =tr("Niedziela");}
+    else{day = tr("Błąd");}
 
 }
 

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Pogoda</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -93,6 +96,19 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_day00_2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_icon_day00">
          <property name="minimumSize">
           <size>
@@ -108,6 +124,9 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -140,12 +159,18 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_feels00">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -154,12 +179,18 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_pressure00">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -168,12 +199,18 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description00">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -210,6 +247,25 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_day01_2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_icon_day01">
          <property name="minimumSize">
           <size>
@@ -225,6 +281,9 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -250,12 +309,15 @@
           <widget class="QLabel" name="label_temp01">
            <property name="minimumSize">
             <size>
-             <width>100</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -264,12 +326,18 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_rain01">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -278,6 +346,9 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
@@ -285,12 +356,18 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_description01">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -327,6 +404,25 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label_day02_2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_icon_day02">
          <property name="minimumSize">
           <size>
@@ -342,6 +438,9 @@
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
@@ -367,7 +466,7 @@
           <widget class="QLabel" name="label_temp02">
            <property name="minimumSize">
             <size>
-             <width>100</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -409,6 +508,9 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
         </layout>
@@ -426,6 +528,19 @@
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
         <widget class="QLabel" name="label_day03">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_day03_2">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -478,7 +593,7 @@
           <widget class="QLabel" name="label_temp03">
            <property name="minimumSize">
             <size>
-             <width>100</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -491,7 +606,7 @@
           <widget class="QLabel" name="label_feels03">
            <property name="minimumSize">
             <size>
-             <width>120</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -504,7 +619,7 @@
           <widget class="QLabel" name="label_rain03">
            <property name="minimumSize">
             <size>
-             <width>92</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -517,7 +632,7 @@
           <widget class="QLabel" name="label_pressure03">
            <property name="minimumSize">
             <size>
-             <width>92</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -530,7 +645,7 @@
           <widget class="QLabel" name="label_clouds03">
            <property name="minimumSize">
             <size>
-             <width>92</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -543,12 +658,15 @@
           <widget class="QLabel" name="label_description03">
            <property name="minimumSize">
             <size>
-             <width>92</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -567,6 +685,19 @@
       <layout class="QVBoxLayout" name="verticalLayout_13">
        <item>
         <widget class="QLabel" name="label_day04">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_day04_2">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -619,7 +750,7 @@
           <widget class="QLabel" name="label_temp04">
            <property name="minimumSize">
             <size>
-             <width>100</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -661,6 +792,9 @@
            <property name="text">
             <string>Błąd</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
         </layout>
@@ -678,6 +812,19 @@
       <layout class="QVBoxLayout" name="verticalLayout_16">
        <item>
         <widget class="QLabel" name="label_day05">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>33</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Błąd</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_day05_2">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -730,7 +877,7 @@
           <widget class="QLabel" name="label_temp05">
            <property name="minimumSize">
             <size>
-             <width>100</width>
+             <width>0</width>
              <height>0</height>
             </size>
            </property>
@@ -771,6 +918,9 @@
           <widget class="QLabel" name="label_description05">
            <property name="text">
             <string>Błąd</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>

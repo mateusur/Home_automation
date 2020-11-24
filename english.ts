@@ -103,58 +103,58 @@ p, li { white-space: pre-wrap; }
         <translation>Smart Home</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="149"/>
+        <location filename="choosewindow.ui" line="150"/>
         <source>Kurnik</source>
         <translation>Chcickencoop</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="542"/>
+        <location filename="choosewindow.ui" line="543"/>
         <source>Opcje</source>
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="550"/>
+        <location filename="choosewindow.ui" line="551"/>
         <source>Pomoc</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="556"/>
+        <location filename="choosewindow.ui" line="557"/>
         <source>Język</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="568"/>
-        <location filename="choosewindow.ui" line="573"/>
+        <location filename="choosewindow.ui" line="569"/>
+        <location filename="choosewindow.ui" line="574"/>
         <source>Ustawienia MQTT</source>
         <translation>MQTT settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="578"/>
+        <location filename="choosewindow.ui" line="579"/>
         <source>O autorze</source>
         <translation>About author</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="583"/>
+        <location filename="choosewindow.ui" line="584"/>
         <source>Ustawienia nawadniania</source>
         <translation>Watering settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="588"/>
+        <location filename="choosewindow.ui" line="589"/>
         <source>Ustawienia pogody</source>
         <translation>Weather settings</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="593"/>
+        <location filename="choosewindow.ui" line="594"/>
         <source>Polski</source>
         <translation>Polish</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="598"/>
+        <location filename="choosewindow.ui" line="599"/>
         <source>Angielski</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="choosewindow.ui" line="603"/>
+        <location filename="choosewindow.ui" line="604"/>
         <source>Ustawienia streamu</source>
         <translation>Stream settings</translation>
     </message>
@@ -300,7 +300,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="settingsweather.ui" line="14"/>
         <source>Ustawienia pogody</source>
-        <translation>MQTT settings</translation>
+        <translation>Weather settings</translation>
     </message>
     <message>
         <location filename="settingsweather.ui" line="59"/>
@@ -331,80 +331,86 @@ p, li { white-space: pre-wrap; }
     <name>Watering</name>
     <message>
         <location filename="watering.ui" line="19"/>
-        <location filename="watering.ui" line="104"/>
-        <location filename="watering.cpp" line="176"/>
+        <location filename="watering.ui" line="121"/>
+        <location filename="watering.cpp" line="223"/>
         <source>Nawadnianie</source>
         <translation>Watering</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="236"/>
+        <location filename="watering.ui" line="253"/>
         <source>Tryb automatyczny</source>
         <translation>Automatic mode</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="281"/>
+        <location filename="watering.ui" line="298"/>
         <source>Jednorazowo</source>
         <translation>Once</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="305"/>
+        <location filename="watering.ui" line="322"/>
         <source>Poniedziałek</source>
         <translation>Monday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="349"/>
+        <location filename="watering.ui" line="366"/>
         <source>Wtorek</source>
         <translation>Tuesday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="393"/>
+        <location filename="watering.ui" line="410"/>
         <source>Środa</source>
         <translation>Wednesday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="437"/>
+        <location filename="watering.ui" line="454"/>
         <source>Czwartek</source>
         <translation>Thursday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="481"/>
+        <location filename="watering.ui" line="498"/>
         <source>Piątek</source>
         <translation>Friday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="525"/>
+        <location filename="watering.ui" line="542"/>
         <source>Sobota</source>
         <translation>Saturday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="569"/>
+        <location filename="watering.ui" line="586"/>
         <source>Niedziela</source>
         <translation>Sunday</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="603"/>
+        <location filename="watering.ui" line="655"/>
+        <source>Edycja terminarza</source>
+        <translation>Edit irygation timetable</translation>
+    </message>
+    <message>
+        <location filename="watering.ui" line="688"/>
         <source>Włącz nawadnianie</source>
         <translation>Turn on watering</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="658"/>
-        <location filename="watering.cpp" line="151"/>
-        <location filename="watering.cpp" line="167"/>
+        <location filename="watering.ui" line="743"/>
+        <location filename="watering.cpp" line="163"/>
+        <location filename="watering.cpp" line="197"/>
+        <location filename="watering.cpp" line="392"/>
         <source>na</source>
         <translation>for</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="688"/>
+        <location filename="watering.ui" line="773"/>
         <source> min</source>
         <translation> min</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="737"/>
+        <location filename="watering.ui" line="822"/>
         <source>Akceptuj</source>
         <translation>Accept</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="768"/>
+        <location filename="watering.ui" line="853"/>
         <source>Wyłącz</source>
         <translation>Turn off</translation>
     </message>
@@ -413,7 +419,7 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Time remaining:</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="828"/>
+        <location filename="watering.ui" line="897"/>
         <source>-- --</source>
         <translation>-- --</translation>
     </message>
@@ -435,52 +441,53 @@ p, li { white-space: pre-wrap; }
         <translation>Soil moisture</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="87"/>
-        <location filename="watering.cpp" line="93"/>
-        <location filename="watering.cpp" line="99"/>
-        <location filename="watering.cpp" line="105"/>
-        <location filename="watering.cpp" line="111"/>
-        <location filename="watering.cpp" line="117"/>
-        <location filename="watering.cpp" line="123"/>
+        <location filename="watering.cpp" line="104"/>
+        <location filename="watering.cpp" line="110"/>
+        <location filename="watering.cpp" line="116"/>
+        <location filename="watering.cpp" line="122"/>
+        <location filename="watering.cpp" line="128"/>
+        <location filename="watering.cpp" line="134"/>
+        <location filename="watering.cpp" line="140"/>
         <source>Włącz o </source>
         <translation>Turn on at </translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="87"/>
-        <location filename="watering.cpp" line="93"/>
-        <location filename="watering.cpp" line="99"/>
-        <location filename="watering.cpp" line="105"/>
-        <location filename="watering.cpp" line="111"/>
-        <location filename="watering.cpp" line="117"/>
-        <location filename="watering.cpp" line="123"/>
+        <location filename="watering.cpp" line="104"/>
+        <location filename="watering.cpp" line="110"/>
+        <location filename="watering.cpp" line="116"/>
+        <location filename="watering.cpp" line="122"/>
+        <location filename="watering.cpp" line="128"/>
+        <location filename="watering.cpp" line="134"/>
+        <location filename="watering.cpp" line="140"/>
         <source>
 na </source>
         <translation>
 for </translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="150"/>
+        <location filename="watering.cpp" line="162"/>
         <source>Włącz nawodnienie</source>
         <translation>Turn on watering</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="166"/>
+        <location filename="watering.cpp" line="196"/>
+        <location filename="watering.cpp" line="391"/>
         <source>Włącz nawodnienie o</source>
         <translation>Turn on watering at</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="177"/>
+        <location filename="watering.cpp" line="224"/>
         <source>Musisz zaznaczyc regularność nawadniania.</source>
         <translation>Select watering days.</translation>
     </message>
     <message>
-        <location filename="watering.ui" line="813"/>
-        <location filename="watering.cpp" line="234"/>
+        <location filename="watering.ui" line="882"/>
+        <location filename="watering.cpp" line="288"/>
         <source>Pozostały czas nawadniania:</source>
         <translation>Remaing time:</translation>
     </message>
     <message>
-        <location filename="watering.cpp" line="252"/>
+        <location filename="watering.cpp" line="306"/>
         <source>Pozostały czas schładzania:</source>
         <translation>Cooldown time:</translation>
     </message>
@@ -493,48 +500,55 @@ for </translation>
         <translation>Weather</translation>
     </message>
     <message>
-        <location filename="weather.ui" line="91"/>
-        <location filename="weather.ui" line="141"/>
-        <location filename="weather.ui" line="148"/>
-        <location filename="weather.ui" line="155"/>
-        <location filename="weather.ui" line="162"/>
-        <location filename="weather.ui" line="169"/>
-        <location filename="weather.ui" line="176"/>
-        <location filename="weather.ui" line="208"/>
-        <location filename="weather.ui" line="258"/>
-        <location filename="weather.ui" line="265"/>
-        <location filename="weather.ui" line="272"/>
-        <location filename="weather.ui" line="279"/>
-        <location filename="weather.ui" line="286"/>
-        <location filename="weather.ui" line="293"/>
-        <location filename="weather.ui" line="325"/>
-        <location filename="weather.ui" line="375"/>
-        <location filename="weather.ui" line="382"/>
-        <location filename="weather.ui" line="389"/>
+        <location filename="weather.ui" line="94"/>
+        <location filename="weather.ui" line="107"/>
+        <location filename="weather.ui" line="157"/>
+        <location filename="weather.ui" line="167"/>
+        <location filename="weather.ui" line="177"/>
+        <location filename="weather.ui" line="187"/>
+        <location filename="weather.ui" line="197"/>
+        <location filename="weather.ui" line="207"/>
+        <location filename="weather.ui" line="242"/>
+        <location filename="weather.ui" line="261"/>
+        <location filename="weather.ui" line="311"/>
+        <location filename="weather.ui" line="321"/>
+        <location filename="weather.ui" line="331"/>
+        <location filename="weather.ui" line="341"/>
+        <location filename="weather.ui" line="351"/>
+        <location filename="weather.ui" line="361"/>
         <location filename="weather.ui" line="396"/>
-        <location filename="weather.ui" line="403"/>
-        <location filename="weather.ui" line="410"/>
-        <location filename="weather.ui" line="436"/>
+        <location filename="weather.ui" line="415"/>
+        <location filename="weather.ui" line="465"/>
+        <location filename="weather.ui" line="472"/>
+        <location filename="weather.ui" line="479"/>
         <location filename="weather.ui" line="486"/>
-        <location filename="weather.ui" line="499"/>
-        <location filename="weather.ui" line="512"/>
-        <location filename="weather.ui" line="525"/>
-        <location filename="weather.ui" line="538"/>
-        <location filename="weather.ui" line="551"/>
-        <location filename="weather.ui" line="577"/>
-        <location filename="weather.ui" line="627"/>
-        <location filename="weather.ui" line="634"/>
-        <location filename="weather.ui" line="641"/>
-        <location filename="weather.ui" line="648"/>
-        <location filename="weather.ui" line="655"/>
-        <location filename="weather.ui" line="662"/>
-        <location filename="weather.ui" line="688"/>
-        <location filename="weather.ui" line="738"/>
-        <location filename="weather.ui" line="745"/>
-        <location filename="weather.ui" line="752"/>
-        <location filename="weather.ui" line="759"/>
-        <location filename="weather.ui" line="766"/>
-        <location filename="weather.ui" line="773"/>
+        <location filename="weather.ui" line="493"/>
+        <location filename="weather.ui" line="500"/>
+        <location filename="weather.ui" line="529"/>
+        <location filename="weather.ui" line="542"/>
+        <location filename="weather.ui" line="592"/>
+        <location filename="weather.ui" line="605"/>
+        <location filename="weather.ui" line="618"/>
+        <location filename="weather.ui" line="631"/>
+        <location filename="weather.ui" line="644"/>
+        <location filename="weather.ui" line="657"/>
+        <location filename="weather.ui" line="686"/>
+        <location filename="weather.ui" line="699"/>
+        <location filename="weather.ui" line="749"/>
+        <location filename="weather.ui" line="756"/>
+        <location filename="weather.ui" line="763"/>
+        <location filename="weather.ui" line="770"/>
+        <location filename="weather.ui" line="777"/>
+        <location filename="weather.ui" line="784"/>
+        <location filename="weather.ui" line="813"/>
+        <location filename="weather.ui" line="826"/>
+        <location filename="weather.ui" line="876"/>
+        <location filename="weather.ui" line="883"/>
+        <location filename="weather.ui" line="890"/>
+        <location filename="weather.ui" line="897"/>
+        <location filename="weather.ui" line="904"/>
+        <location filename="weather.ui" line="911"/>
+        <location filename="weather.cpp" line="316"/>
         <source>Błąd</source>
         <translation>Error</translation>
     </message>
@@ -553,37 +567,101 @@ for </translation>
         <translation>Refresh</translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="137"/>
+        <location filename="weather.cpp" line="148"/>
         <source>Temp.: </source>
         <translation>Temp.: </translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="142"/>
+        <location filename="weather.cpp" line="155"/>
+        <source>Temp.:</source>
+        <translation>Temp.:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="162"/>
         <source>Odcz.: </source>
         <translation>Feels: </translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="147"/>
+        <location filename="weather.cpp" line="168"/>
+        <source>Odcz.:</source>
+        <translation>Feels:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="176"/>
         <source>Opady: </source>
         <translation>Rain: </translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="152"/>
+        <location filename="weather.cpp" line="181"/>
+        <source>Opady:</source>
+        <translation>Rain:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="309"/>
+        <source>Poniedziałek</source>
+        <translation>Monday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="310"/>
+        <source>Wtorek</source>
+        <translation>Tuesday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="311"/>
+        <source>Środa</source>
+        <translation>Wednesday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="312"/>
+        <source>Czwartek</source>
+        <translation>Thursday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="313"/>
+        <source>Piątek</source>
+        <translation>Friday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="314"/>
+        <source>Sobota</source>
+        <translation>Saturday</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="315"/>
+        <source>Niedziela</source>
+        <translation>Sunday</translation>
+    </message>
+    <message>
+        <source>Zachmurzenie: </source>
+        <translation type="vanished">Clouds:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="188"/>
         <source>Chmury: </source>
         <translation>Clouds: </translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="157"/>
+        <location filename="weather.cpp" line="194"/>
+        <source>Chmury:</source>
+        <translation>Clouds:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="202"/>
         <source>Ciśnienie: </source>
         <translation>Preasure: </translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="236"/>
+        <location filename="weather.cpp" line="209"/>
+        <source>Ciśnienie:</source>
+        <translation>Preasure:</translation>
+    </message>
+    <message>
+        <location filename="weather.cpp" line="290"/>
         <source>Dzisiaj</source>
         <translation>Today</translation>
     </message>
     <message>
-        <location filename="weather.cpp" line="237"/>
+        <location filename="weather.cpp" line="291"/>
         <source>Jutro</source>
         <translation>Tomorrow</translation>
     </message>
