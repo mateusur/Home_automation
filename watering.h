@@ -71,6 +71,8 @@ private slots:
 
     void on_checkBox_mode_stateChanged(int arg1);
 
+    void on_pushButton_edit_clicked();
+
 signals:
     /*!
     * \brief Sygnał odpowiedzialny za zmianę okna.
@@ -149,7 +151,7 @@ private:
     *
     * Czas schładzania elektrozaworu.
     */
-    const unsigned short cooldown_time = 15;
+    const unsigned short cooldown_time = 1;
 
 };
 

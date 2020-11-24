@@ -42,6 +42,23 @@ Watering::Watering(QWidget *parent) :
     QPixmap pixmap_humidity(":/Icons/Watering/hygrometer_80.png");
     ui->label_hum->setPixmap(pixmap_humidity.scaled(w,h,Qt::KeepAspectRatioByExpanding));
     ui->label_hum_2->setText(" %");
+
+    ui->checkBox_monday->setEnabled(false);
+    ui->checkBox_tuesday->setEnabled(false);
+    ui->checkBox_wednesday->setEnabled(false);
+    ui->checkBox_thursday->setEnabled(false);
+    ui->checkBox_friday->setEnabled(false);
+    ui->checkBox_saturday->setEnabled(false);
+    ui->checkBox_sunday->setEnabled(false);
+    ui->timeEdit->hide();
+    ui->doubleSpinBox_interval->hide();
+    ui->pushButton_turn_off->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->label_countdown->hide();
+    ui->pushButton_accept->hide();
+
 }
 
 Watering::~Watering()
@@ -142,29 +159,59 @@ void Watering::on_radioButton_once_clicked()
         ui->checkBox_friday->setEnabled(false);
         ui->checkBox_saturday->setEnabled(false);
         ui->checkBox_sunday->setEnabled(false);
-        ui->timeEdit->hide();
-        ui->pushButton_turn_off->hide();
-        ui->label_3->show();
-        //ui->label_countdown->show();
-        ui->label_countdown->setText("--:--");
         ui->label->setText(tr("Włącz nawodnienie"));
         ui->label_2->setText(tr("na"));
+        ui->timeEdit->hide();
+        ui->pushButton_turn_off->hide();
+        if(ui->pushButton_edit->isChecked()){
+            ui->label->show();
+            ui->label_2->show();
+            ui->pushButton_accept->show();
+            ui->doubleSpinBox_interval->show();
+        }
+        else{
+            ui->label->hide();
+            ui->label_2->hide();
+            ui->pushButton_accept->hide();
+            ui->doubleSpinBox_interval->hide();
+        }
+
+
     }
     else{
-        ui->checkBox_monday->setEnabled(true);
-        ui->checkBox_tuesday->setEnabled(true);
-        ui->checkBox_wednesday->setEnabled(true);
-        ui->checkBox_thursday->setEnabled(true);
-        ui->checkBox_friday->setEnabled(true);
-        ui->checkBox_saturday->setEnabled(true);
-        ui->checkBox_sunday->setEnabled(true);
-        ui->timeEdit->show();
-        ui->pushButton_turn_off->show();
-        ui->label_3->hide();
-        //ui->label_countdown->hide();
-        ui->label_countdown->setText("");
-        ui->label->setText(tr("Włącz nawodnienie o"));
-        ui->label_2->setText(tr("na"));
+        if(ui->pushButton_edit->isChecked()){
+            ui->checkBox_monday->setEnabled(true);
+            ui->checkBox_tuesday->setEnabled(true);
+            ui->checkBox_wednesday->setEnabled(true);
+            ui->checkBox_thursday->setEnabled(true);
+            ui->checkBox_friday->setEnabled(true);
+            ui->checkBox_saturday->setEnabled(true);
+            ui->checkBox_sunday->setEnabled(true);
+            ui->timeEdit->show();
+            ui->doubleSpinBox_interval->show();
+            ui->pushButton_accept->show();
+            ui->pushButton_turn_off->show();
+            ui->label->show();
+            ui->label_2->show();
+            ui->label->setText(tr("Włącz nawodnienie o"));
+            ui->label_2->setText(tr("na"));
+        }
+        else{
+            ui->checkBox_monday->setEnabled(false);
+            ui->checkBox_tuesday->setEnabled(false);
+            ui->checkBox_wednesday->setEnabled(false);
+            ui->checkBox_thursday->setEnabled(false);
+            ui->checkBox_friday->setEnabled(false);
+            ui->checkBox_saturday->setEnabled(false);
+            ui->checkBox_sunday->setEnabled(false);
+            ui->label->hide();
+            ui->label_2->hide();
+            ui->timeEdit->hide();
+            ui->doubleSpinBox_interval->hide();
+            ui->pushButton_accept->hide();
+            ui->pushButton_turn_off->hide();
+        }
+
     }
 
 }
@@ -177,20 +224,27 @@ void Watering::on_pushButton_accept_clicked()
     msgBox.setText(tr("Musisz zaznaczyc regularność nawadniania."));
 
     if(ui->radioButton_once->isChecked()){
+        ui->label_3->show();
+        ui->label_countdown->show();
+        ui->radioButton_once->click();
+        ui->radioButton_once->setEnabled(false);
+        ui->pushButton_edit->click();
+        ui->pushButton_edit->setEnabled(false);
+
         //qDebug() << ui->doubleSpinBox_interval->value();
         double minutes = ui->doubleSpinBox_interval->value();
         QByteArray databuf = QByteArray::number(minutes, 'f', 0);
         emit publish_msg(topics_watering[7],databuf);
         timer->start(1000);
         countdown.setHMS(0,minutes,0);
-        ui->pushButton_accept->setEnabled(false);
+
         for(auto i=0; i<drop_count; i++){
             droplets[i]->resume();
         }
         for(auto i=0; i<drop_count; i++){
             labels[i]->show();
         }
-        ui->radioButton_once->setEnabled(false);
+
 
     }else if( ui->checkBox_monday->isChecked() || ui->checkBox_tuesday->isChecked() || ui->checkBox_wednesday->isChecked()
               || ui->checkBox_thursday->isChecked() || ui->checkBox_friday->isChecked() || ui->checkBox_saturday->isChecked() || ui->checkBox_sunday->isChecked()){
@@ -254,8 +308,12 @@ void Watering::updateCountdown()
         if(countdown <= QTime(0,0,0,0)){
             timer2->stop();
             ui->label_countdown->setText("-- --");
-            ui->pushButton_accept->setEnabled(true);
-
+            //ui->pushButton_accept->setEnabled(true);
+            //ui->radioButton_once->setEnabled(true);
+            ui->label_3->hide();
+            ui->label_countdown->hide();
+            //ui->radioButton_once->setEnabled(true);
+            ui->pushButton_edit->setEnabled(true);
         }
     }
 
@@ -294,5 +352,61 @@ void Watering::on_checkBox_mode_stateChanged(int arg1)
     else if(arg1 == Qt::Checked){
         databuf = QByteArray((char*)on, 2);
         emit(publish_message_retain(topics_soil_sensor[1],databuf,0,true));
+    }
+}
+
+void Watering::on_pushButton_edit_clicked()
+{
+    if(ui->pushButton_edit->isChecked()){
+        ui->radioButton_once->setEnabled(true);
+        if(ui->radioButton_once->isChecked()){
+            ui->checkBox_monday->setEnabled(false);
+            ui->checkBox_tuesday->setEnabled(false);
+            ui->checkBox_wednesday->setEnabled(false);
+            ui->checkBox_thursday->setEnabled(false);
+            ui->checkBox_friday->setEnabled(false);
+            ui->checkBox_saturday->setEnabled(false);
+            ui->checkBox_sunday->setEnabled(false);
+            ui->timeEdit->hide();
+            ui->pushButton_turn_off->hide();
+            ui->label->show();
+            ui->label_2->show();
+            ui->doubleSpinBox_interval->show();
+            ui->pushButton_accept->show();
+        }
+        else{
+            ui->checkBox_monday->setEnabled(true);
+            ui->checkBox_tuesday->setEnabled(true);
+            ui->checkBox_wednesday->setEnabled(true);
+            ui->checkBox_thursday->setEnabled(true);
+            ui->checkBox_friday->setEnabled(true);
+            ui->checkBox_saturday->setEnabled(true);
+            ui->checkBox_sunday->setEnabled(true);
+            ui->timeEdit->show();
+            ui->doubleSpinBox_interval->show();
+            ui->pushButton_accept->show();
+            ui->pushButton_turn_off->show();
+            ui->label->show();
+            ui->label_2->show();
+            ui->label->setText(tr("Włącz nawodnienie o"));
+            ui->label_2->setText(tr("na"));
+        }
+    }
+    else{
+        ui->checkBox_monday->setEnabled(false);
+        ui->checkBox_tuesday->setEnabled(false);
+        ui->checkBox_wednesday->setEnabled(false);
+        ui->checkBox_thursday->setEnabled(false);
+        ui->checkBox_friday->setEnabled(false);
+        ui->checkBox_saturday->setEnabled(false);
+        ui->checkBox_sunday->setEnabled(false);
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->timeEdit->hide();
+        ui->doubleSpinBox_interval->hide();
+        ui->pushButton_accept->hide();
+        ui->pushButton_turn_off->hide();
+        ui->radioButton_once->setEnabled(false);
+
     }
 }
