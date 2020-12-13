@@ -44,7 +44,7 @@ void Weather::data_changed()
         if(language == "Polish")
             request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
         else
-            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=en")));
+            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
     }else{
         if(language == "Polish")
             request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
@@ -227,63 +227,63 @@ void Weather::set_all_icons()
     set_icon(ui->label_icon_day02,v_icon[2]);
     set_icon(ui->label_icon_day03,v_icon[3]);
     set_icon(ui->label_icon_day04,v_icon[4]);
-    set_icon(ui->label_icon_day05,v_icon[5]);
+    //set_icon(ui->label_icon_day05,v_icon[5]);
 
     set_temp(ui->label_temp00,v_temp[0]);
     set_temp(ui->label_temp01,v_temp[1]);
     set_temp(ui->label_temp02,v_temp[2]);
     set_temp(ui->label_temp03,v_temp[3]);
     set_temp(ui->label_temp04,v_temp[4]);
-    set_temp(ui->label_temp05,v_temp[5]);
+    //set_temp(ui->label_temp05,v_temp[5]);
 
     set_feels(ui->label_feels00,v_feels_like[0]);
     set_feels(ui->label_feels01,v_feels_like[1]);
     set_feels(ui->label_feels02,v_feels_like[2]);
     set_feels(ui->label_feels03,v_feels_like[3]);
     set_feels(ui->label_feels04,v_feels_like[4]);
-    set_feels(ui->label_feels05,v_feels_like[5]);
+    //set_feels(ui->label_feels05,v_feels_like[5]);
 
     set_rain(ui->label_rain00,v_rain[0]);
     set_rain(ui->label_rain01,v_rain[1]);
     set_rain(ui->label_rain02,v_rain[2]);
     set_rain(ui->label_rain03,v_rain[3]);
     set_rain(ui->label_rain04,v_rain[4]);
-    set_rain(ui->label_rain05,v_rain[5]);
+   // set_rain(ui->label_rain05,v_rain[5]);
 
     set_pressure(ui->label_pressure00,v_pressure[0]);
     set_pressure(ui->label_pressure01,v_pressure[1]);
     set_pressure(ui->label_pressure02,v_pressure[2]);
     set_pressure(ui->label_pressure03,v_pressure[3]);
     set_pressure(ui->label_pressure04,v_pressure[4]);
-    set_pressure(ui->label_pressure05,v_pressure[5]);
+    //set_pressure(ui->label_pressure05,v_pressure[5]);
 
     set_description(ui->label_description00,v_description[0]);
     set_description(ui->label_description01,v_description[1]);
     set_description(ui->label_description02,v_description[2]);
     set_description(ui->label_description03,v_description[3]);
     set_description(ui->label_description04,v_description[4]);
-    set_description(ui->label_description05,v_description[5]);
+    //set_description(ui->label_description05,v_description[5]);
 
     set_clouds(ui->label_clouds00,v_clouds[0]);
     set_clouds(ui->label_clouds01,v_clouds[1]);
     set_clouds(ui->label_clouds02,v_clouds[2]);
     set_clouds(ui->label_clouds03,v_clouds[3]);
     set_clouds(ui->label_clouds04,v_clouds[4]);
-    set_clouds(ui->label_clouds05,v_clouds[5]);
+    //set_clouds(ui->label_clouds05,v_clouds[5]);
 
     set_time(ui->label_day00,tr("Dzisiaj"));
     set_time(ui->label_day01,tr("Jutro"));
     set_time(ui->label_day02,v_time[2]);
     set_time(ui->label_day03,v_time[3]);
     set_time(ui->label_day04,v_time[4]);
-    set_time(ui->label_day05,v_time[5]);
+    //set_time(ui->label_day05,v_time[5]);
 
     set_time(ui->label_day00_2,v_time_days[0]);
     set_time(ui->label_day01_2,v_time_days[1]);
     set_time(ui->label_day02_2,v_time_days[2]);
     set_time(ui->label_day03_2,v_time_days[3]);
     set_time(ui->label_day04_2,v_time_days[4]);
-    set_time(ui->label_day05_2,v_time_days[5]);
+    //set_time(ui->label_day05_2,v_time_days[5]);
 }
 
 void Weather::translate_day(QString &day)
