@@ -132,7 +132,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] icon - nazwa ikony.
     */
-    void set_icon(QLabel *label, QString icon);
+    void set_icon(QLabel *label,const QString& icon);
     /*!
     * \brief Metoda ustawiająca temperature na etykietę.
     *
@@ -140,7 +140,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] temp - temperatura.
     */
-    void set_temp(QLabel *label, double temp);
+    void set_temp(QLabel *label,const double& temp);
     /*!
     * \brief Metoda ustawiająca temperature odczuwalną na etykietę.
     *
@@ -148,7 +148,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] feels_like - temperatura odczuwalna.
     */
-    void set_feels(QLabel *label, double feels_like);
+    void set_feels(QLabel *label, const double& feels_like);
     /*!
     * \brief Metoda ustawiająca opady na etykietę.
     *
@@ -156,7 +156,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] rain - wartość opadów.
     */
-    void set_rain(QLabel *label, double rain);
+    void set_rain(QLabel *label, const double& rain);
     /*!
     * \brief Metoda ustawiająca zachmurzenie na etykietę.
     *
@@ -164,7 +164,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] cloudines - wartość zachmurzenia.
     */
-    void set_clouds(QLabel *label,int cloudines);
+    void set_clouds(QLabel *label,const int& cloudines);
     /*!
     * \brief Metoda ustawiająca wartość ciśnienia na etykietę.
     *
@@ -172,7 +172,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] pressure - wartość ciśnienia.
     */
-    void set_pressure(QLabel *label,int pressure);
+    void set_pressure(QLabel *label,const int& pressure);
     /*!
     * \brief Metoda ustawiająca opis pogody na etykietę.
     *
@@ -180,7 +180,7 @@ private:
     * \param[in] label - etykieta.
     * \param[in] description - opis pogody.
     */
-    void set_description(QLabel *label, QString description);
+    void set_description(QLabel *label,const QString& description);
     /*!
     * \brief Metoda ustawiająca datę na etykietę.
     *
@@ -188,14 +188,18 @@ private:
     * \param[in] label - etykieta.
     * \param[in] time - data.
     */
-    void set_time(QLabel *label, QString time);
+    void set_time(QLabel *label, const QString& time);
     /*!
     * \brief Metoda ustawiająca opisy i ikony.
     *
     * Metoda ustawiająca opisy i ikony na wszystkie dni przy użyciu odpowiednich metod.
     */
     void set_all_icons();
-
+    /*!
+    * \brief Metoda tłumacząca na język angielski nazwę dnia.
+    *
+    * Metoda tłumacząca na język angielski nazwę dnia. Używana w przypadku gdy wybrany język interfejsu to język angielski.
+    */
     void translate_day(QString &day);
 
 

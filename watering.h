@@ -35,7 +35,7 @@ public slots:
     * \param[in] message -  wiadomość jaka została opublikowana.
     * \param[in] topic - temat do, którego wiadomość została opublikowana.
     */
-    void message_handler(QByteArray message,  QMqttTopicName topic);
+    void message_handler(const QByteArray& message,const QMqttTopicName& topic);
 private slots:
     /*!
     * \brief Metoda odpowiedzialna za powrót do głównego okna.
@@ -68,9 +68,17 @@ private slots:
     * Metoda odpowiedzialna wyłączenie nawadniania w wybranym dniu.
     */
     void on_pushButton_turn_off_clicked();
-
+    /*!
+    * \brief Metoda odpowiedzialna włączenie/wyłączenie automatycznego nawadniania.
+    *
+    * Metoda odpowiedzialna włączenie/wyłączenie automatycznego nawadniania.
+    */
     void on_checkBox_mode_stateChanged(int arg1);
-
+    /*!
+    * \brief Metoda odpowiedzialna ukrycie/pokzanie ustawień nawadniania.
+    *
+    * Metoda odpowiedzialna ukrycie/pokzanie ustawień nawadniania.
+    */
     void on_pushButton_edit_clicked();
 
 signals:
@@ -151,7 +159,7 @@ private:
     *
     * Czas schładzania elektrozaworu.
     */
-    const unsigned short cooldown_time = 1;
+    const unsigned short cooldown_time = 15;
 
 };
 

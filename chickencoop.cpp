@@ -61,19 +61,17 @@ void Chickencoop::set_icons()
 
 void Chickencoop::on_up_button_clicked()
 {
-    //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "UP";
     emit publish_msg(pub_topic,msg);
 }
 
 void Chickencoop::on_down_button_clicked()
 {
-    //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "DOWN";
     emit publish_msg(pub_topic,msg);
 }
 
-void Chickencoop::disable_button(QByteArray message,  QMqttTopicName topic)
+void Chickencoop::disable_button(const QByteArray& message,const QMqttTopicName& topic)
 {
     QString top = "chickencoop/doors/status";
     if(topic == top)

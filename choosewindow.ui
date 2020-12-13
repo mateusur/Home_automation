@@ -18,7 +18,8 @@
     <normaloff>:/Icons/home_64.png</normaloff>:/Icons/home_64.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton { 
+   <string notr="true">
+QPushButton { 
 border: 2px solid grey;
 border-radius: 10px;
 text-align: center;
@@ -63,15 +64,16 @@ QPushButton#weather_button:hover{
 */
 	background-color: rgb(205, 243, 255);
 }
-
-QPushButton#lights_button:hover{
-	/*background-color: rgb(105, 215, 255);
+/*
+QPushButton#lights_button:checked{
+*/	
+/*background-color: rgb(105, 215, 255);
 	background-color: rgb(242, 255, 155);
 	*/
-	
+/*
 	background-color: rgb(250, 255, 205);
-	
 }
+*/
 QPushButton:pressed {
     
 	background-color: rgb(214, 214, 214);
@@ -374,38 +376,6 @@ background-color: rgb(229, 229, 229);
       </layout>
      </widget>
     </item>
-    <item row="1" column="0" rowspan="2">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Preferred</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>80</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="2">
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Maximum</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>33</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="3" column="0" colspan="3">
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="1">
@@ -481,6 +451,9 @@ background-color: rgb(229, 229, 229);
         <property name="text">
          <string/>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="0" column="2">
@@ -522,6 +495,38 @@ background-color: rgb(229, 229, 229);
        <size>
         <width>20</width>
         <height>120</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0" rowspan="2">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>80</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="2">
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Maximum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>33</height>
        </size>
       </property>
      </spacer>

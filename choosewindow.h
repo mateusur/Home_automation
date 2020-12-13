@@ -101,7 +101,7 @@ private slots:
     *
     * Metoda obsługująca odebrane wiadomości - ustawiająca odebraną temperature, wilgotność oraz status drzwi (otwarte/zamknięte).
     */
-    void message_handler(QByteArray message,  QMqttTopicName topic);
+    void message_handler(const QByteArray& message,const QMqttTopicName& topic);
     /*!
     * \brief Metoda otwierająca okno z opcjami serwera MQTT.
     *
@@ -144,6 +144,8 @@ private slots:
     * Metoda konfigurująca klienta MQTT oraz nawiązująca połączenie z serwerem.
     */
     void set_Mqtt();
+    //TODO:Komentarz
+    void on_lights_button_clicked();
 
 signals:
 
@@ -216,8 +218,14 @@ private:
     */
     const std::array<QString,7> sub_topics_watering = {"garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
                                                         , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday"};
-
+    /*!
+    * \brief Tablica przechowująca subskrybowane tematy związane z wilgotnością gleby.
+    *
+    * Tablica przechowująca subskrybowane tematy związane z wilgotnością gleby.
+    */
     const std::array<QString,2> sub_topics_soil_sensor = {"garden/watering/soil/level","garden/watering/soil/mode"};
+    //TODO: Komentarz
+    const QString sub_topics_driveway_lights = "driveway/lights/status";
 
 };
 #endif // CHOOSEWINDOW_H
