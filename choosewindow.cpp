@@ -110,6 +110,29 @@ void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
             ui->label_doors->setPixmap(pixmap_doors_closed.scaled(w,h,Qt::KeepAspectRatioByExpanding));
         }
     }
+    else if(topic == sub_topics_driveway_lights){
+        qDebug() << "sub_topics_driveway_lights message : " << message << endl;
+        char msg = message[0]-'0';
+        int mode = (int)msg;
+        QPixmap pixmap_lights;
+        if(mode == 1){ //mode 1 - lights on, mode 0 - lights off
+            ui->lights_button->setChecked(true);
+            if(ui->lights_button->isChecked()){
+                pixmap_lights.load(":/Icons/light_on_80.png");
+            }
+        }
+        else{
+            ui->lights_button->setChecked(false);
+            if(!ui->lights_button->isChecked()){
+            pixmap_lights.load(":/Icons/light_off2_80.png");
+            }
+        }
+        QIcon ButtonIcon_lights(pixmap_lights);
+        ui->lights_button->setIcon(ButtonIcon_lights);
+        ui->lights_button->setIconSize(pixmap_lights.rect().size());
+        qDebug() << "Hej, zmieniles status na: " << mode << endl;
+    }
+    ui->lights_button->setStyleSheet("QPushButton:checked{background-color: rgb(250, 255, 205);}");
 
 }
 
@@ -173,7 +196,7 @@ void ChooseWindow::set_icons()
     ui->weather_button->setIcon(ButtonIcon_weather);
     ui->weather_button->setIconSize(pixmap_weather.rect().size());
 
-    QPixmap pixmap_lights(":/Icons/automation_96.png");
+    QPixmap pixmap_lights(":/Icons/light_off2_80.png");
     QIcon ButtonIcon_lights(pixmap_lights);
     ui->lights_button->setIcon(ButtonIcon_lights);
     ui->lights_button->setIconSize(pixmap_lights.rect().size());
@@ -208,13 +231,16 @@ void ChooseWindow::set_Mqtt()
 
 void ChooseWindow::set_subscription()
 {
-    for(unsigned i=0; i < sub_topics_chickencoop.size();++i)
+    for(unsigned i=0; i < sub_topics_chickencoop.size();++i){
         m_client->subscribe(sub_topics_chickencoop[i]);
-    for(unsigned i=0; i<sub_topics_watering.size();++i)
+    }
+    for(unsigned i=0; i<sub_topics_watering.size();++i){
         m_client->subscribe(sub_topics_watering[i]);
-    for(unsigned i =0; i< sub_topics_soil_sensor.size(); ++i)
+    }
+    for(unsigned i =0; i< sub_topics_soil_sensor.size(); ++i){
         m_client->subscribe(sub_topics_soil_sensor[i]);
-
+    }
+    m_client->subscribe(sub_topics_driveway_lights);
 }
 
 void ChooseWindow::on_weather_button_clicked()
@@ -231,3 +257,18 @@ void ChooseWindow::on_water_button_clicked()
     qDebug() << "Otwarto okno watering";
 }
 
+
+void ChooseWindow::on_lights_button_clicked()
+{
+    char on[] = "1";
+    char off[] = "0";
+    QByteArray databuf;
+    if(ui->lights_button->isChecked()){
+         databuf = QByteArray((char*)on, 2);
+        publish_message_retain(sub_topics_driveway_lights,databuf,0,true);
+    }
+     else{
+           databuf = QByteArray((char*)off, 2);
+         publish_message_retain(sub_topics_driveway_lights,databuf,0,true);
+    }
+}

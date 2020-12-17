@@ -144,6 +144,8 @@ private slots:
     * Metoda konfigurująca klienta MQTT oraz nawiązująca połączenie z serwerem.
     */
     void set_Mqtt();
+    //TODO: Komentarz
+    void on_lights_button_clicked();
 
 signals:
 
@@ -219,5 +221,7 @@ private:
 
     const std::array<QString,2> sub_topics_soil_sensor = {"garden/watering/soil/level","garden/watering/soil/mode"};
 
+    //TODO: Komentarz
+    const QString sub_topics_driveway_lights = "driveway/lights/status";
 };
 #endif // CHOOSEWINDOW_H

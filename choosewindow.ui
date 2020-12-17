@@ -61,15 +61,18 @@ QPushButton#weather_button:hover{
 	background-color: rgb(155, 230, 255);
 	background-color: rgb(185, 237, 255);
 */
+/*
 	background-color: rgb(205, 243, 255);
+*/
 }
 
 QPushButton#lights_button:hover{
 	/*background-color: rgb(105, 215, 255);
 	background-color: rgb(242, 255, 155);
 	*/
-	
+	/*
 	background-color: rgb(250, 255, 205);
+*/
 	
 }
 QPushButton:pressed {
@@ -480,6 +483,9 @@ background-color: rgb(229, 229, 229);
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
