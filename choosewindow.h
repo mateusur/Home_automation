@@ -144,7 +144,11 @@ private slots:
     * Metoda konfigurująca klienta MQTT oraz nawiązująca połączenie z serwerem.
     */
     void set_Mqtt();
-    //TODO: Komentarz
+    /*!
+    * \brief Metoda włączająca/wyłączająca światła podjazdu.
+    *
+    * Metoda włączająca/wyłączająca światła podjazdu (wymagane połączenie z serwerem MQTT).
+    */
     void on_lights_button_clicked();
 
 signals:
