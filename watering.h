@@ -155,7 +155,7 @@ private:
     *
     * Czas schładzania elektrozaworu.
     */
-    const unsigned short cooldown_time = 1;
+    const unsigned short cooldown_time = 15;
 
 };
 

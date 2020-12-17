@@ -61,14 +61,12 @@ void Chickencoop::set_icons()
 
 void Chickencoop::on_up_button_clicked()
 {
-    //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "UP";
     emit publish_msg(pub_topic,msg);
 }
 
 void Chickencoop::on_down_button_clicked()
 {
-    //const QMqttTopicName topic(QString::fromLatin1("chickencoop/door"));
     const QByteArray msg = "DOWN";
     emit publish_msg(pub_topic,msg);
 }

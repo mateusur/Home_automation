@@ -39,19 +39,13 @@ void Weather::data_changed()
     QString longitude = settings.value("longitude", "").toString();
     QString API_key = settings.value("API_key","").toString();
     QString language = settings.value("language","").toString();
-    //qDebug() << "jezyk: " << language;
-    if(longitude=="" || latitude==""|| API_key==""){
-    //NOTE: W koncowej wersji usun to i zamien na jakas informacje, ze nie podano danych
-        if(language == "Polish")
-            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=pl")));
-        else
-            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat=50.907066&lon=16.653226&%20exclude=current,minutely,hourly&appid=66a44116b5639646b420fff27e0fb57b&units=metric&lang=en")));
-    }else{
-        if(language == "Polish")
-            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
-        else
-            request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=en")));
-    }manager->get(request);
+    if(language == "Polish"){
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=pl")));
+    }
+    else{
+        request.setUrl(QUrl(QString("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&%20exclude=current,minutely,hourly&appid="+API_key+"&units=metric&lang=en")));
+    }
+    manager->get(request);
 }
 
 void Weather::managerFinished(QNetworkReply *reply)
@@ -60,7 +54,6 @@ void Weather::managerFinished(QNetworkReply *reply)
     if (reply->error())
     {
         qDebug() << reply->errorString();
-        //ui->label_day00->setText(reply->errorString());
         return;
     }
     v_feels_like.clear();
@@ -144,70 +137,45 @@ void Weather::set_icon(QLabel *label,const QString& icon)
 
 void Weather::set_temp(QLabel *label, const double& temp)
 {
-    QString t = tr("Temp.: ").rightJustified(11);
+//    QString t = tr("Temp.: ").rightJustified(11);
     QString num = QString::number(temp,'f',1) ;
     //
-    QString unit = (" °C");
-    QString uf= unit.rightJustified(4);
-    //label->setText(t + num.rightJustified(5) + uf);
+//    QString unit = (" °C");
+//    QString uf= unit.rightJustified(4);
     QString str = QString("%1 %2 %3")
             .arg(tr("Temp.:"), 11).arg(num,4).arg("°C",2);
     label->setText(str);
-    //label->setText(tr("Temp.: ")+ QString::number(temp,'g',2) + " °C");
 }
 
 void Weather::set_feels(QLabel *label, const double& feels_like)
 {
-    QString f_l = tr("Odcz.: ").rightJustified(11);
     QString num  = QString::number(feels_like,'f',1);
-    QString unit = (" °C");
-    QString uf= unit.rightJustified(4);
-    //label->setText(f_l+ num.rightJustified(5)  + uf);
     QString str = QString("%1 %2 %3")
             .arg(tr("Odcz.:"), 11).arg(num,4).arg("°C",2);
     label->setText(str);
-
-    //label->setText(tr("Odcz.: ")+ QString::number(feels_like,'g',2) + " °C");
 }
 
 void Weather::set_rain(QLabel *label, const double& rain)
 {
-    QString r= tr("Opady: ").rightJustified(11,' ');
     QString num = QString::number(rain,'f',1);
-    QString unit = (" mm");
-    QString uf= unit.rightJustified(4);
-   // label->setText(r+ num.rightJustified(5) + uf);
     QString str = QString("%1 %2 %3").arg((tr("Opady:")), 11).arg(num,4).arg("mm",2);
     label->setText(str);
-    //label->setText(tr("Opady: ")+ QString::number(rain,'g',2) + " mm");
 }
 
 void Weather::set_clouds(QLabel *label, const int& cloudines)
 {
-    QString c = tr("Chmury: ").rightJustified(11, ' ');
     QString num = QString::number(cloudines);
-    QString unit = (" %");
-    QString uf= unit.rightJustified(4);
-    //label->setText(c+ num.rightJustified(5) + uf);
     QString str = QString("%1 %2 %3")
             .arg(tr("Chmury:"), 11).arg(num,3).arg("%",1);
     label->setText(str);
-
-    //label->setText(tr("Zachmurzenie: ")+ QString::number(cloudines) + " %");
 }
 
 void Weather::set_pressure(QLabel *label, const int& pressure)
 {
-    QString p = tr("Ciśnienie: ").rightJustified(11, ' ');
     QString num = QString::number(pressure);
-    QString unit = (" hPa");
-    QString uf= unit.rightJustified(4,true);
-    //label->setText(p + num.rightJustified(5) + uf);
-
     QString str = QString("%1 %2 %3")
             .arg(tr("Ciśnienie:"), 11).arg(num,5).arg("hPa",3);
     label->setText(str);
-    //label->setText(tr("Ciśnienie: ")+ QString::number(pressure) + " hPa");
 }
 
 void Weather::set_description(QLabel *label, const QString& description)
@@ -231,8 +199,6 @@ void Weather::set_all_icons()
     set_icon(ui->label_icon_day03,v_icon[3]);
     set_icon(ui->label_icon_day04,v_icon[4]);
     set_icon(ui->label_icon_day05,v_icon[5]);
-    //set_icon(ui->label_day06,v_icon[6]);
-    //set_icon(ui->label_day07,v_icon[7]);
 
     set_temp(ui->label_temp00,v_temp[0]);
     set_temp(ui->label_temp01,v_temp[1]);
@@ -240,8 +206,6 @@ void Weather::set_all_icons()
     set_temp(ui->label_temp03,v_temp[3]);
     set_temp(ui->label_temp04,v_temp[4]);
     set_temp(ui->label_temp05,v_temp[5]);
-    //set_temp(ui->label_temp06,v_temp[6]);
-    //set_temp(ui->label_temp07,v_temp[7]);
 
     set_feels(ui->label_feels00,v_feels_like[0]);
     set_feels(ui->label_feels01,v_feels_like[1]);
@@ -249,8 +213,6 @@ void Weather::set_all_icons()
     set_feels(ui->label_feels03,v_feels_like[3]);
     set_feels(ui->label_feels04,v_feels_like[4]);
     set_feels(ui->label_feels05,v_feels_like[5]);
-    //set_feels(ui->label_feels06,v_feels_like[6]);
-    //set_feels(ui->label_feels07,v_feels_like[7]);
 
     set_rain(ui->label_rain00,v_rain[0]);
     set_rain(ui->label_rain01,v_rain[1]);
@@ -258,8 +220,6 @@ void Weather::set_all_icons()
     set_rain(ui->label_rain03,v_rain[3]);
     set_rain(ui->label_rain04,v_rain[4]);
     set_rain(ui->label_rain05,v_rain[5]);
-    //set_rain(ui->label_rain06,v_rain[6]);
-    //set_rain(ui->label_rain07,v_rain[7]);
 
     set_pressure(ui->label_pressure00,v_pressure[0]);
     set_pressure(ui->label_pressure01,v_pressure[1]);
@@ -267,8 +227,6 @@ void Weather::set_all_icons()
     set_pressure(ui->label_pressure03,v_pressure[3]);
     set_pressure(ui->label_pressure04,v_pressure[4]);
     set_pressure(ui->label_pressure05,v_pressure[5]);
-    //set_pressure(ui->label_pressure06,v_pressure[6]);
-    //set_pressure(ui->label_pressure07,v_pressure[7]);
 
     set_description(ui->label_description00,v_description[0]);
     set_description(ui->label_description01,v_description[1]);
@@ -276,8 +234,6 @@ void Weather::set_all_icons()
     set_description(ui->label_description03,v_description[3]);
     set_description(ui->label_description04,v_description[4]);
     set_description(ui->label_description05,v_description[5]);
-    //set_description(ui->label_description06,v_description[6]);
-    //set_description(ui->label_description07,v_description[7]);
 
     set_clouds(ui->label_clouds00,v_clouds[0]);
     set_clouds(ui->label_clouds01,v_clouds[1]);

@@ -1,7 +1,7 @@
 #include "choosewindow.h"
 #include "ui_choosewindow.h"
 
-//TODO:poczyscic z qDebug
+
 ChooseWindow::ChooseWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ChooseWindow)
@@ -95,8 +95,6 @@ void ChooseWindow::message_handler(const QByteArray& message, const QMqttTopicNa
     const QPixmap pixmap_doors_opened(":/Icons/open_door_96.png");
     const QPixmap pixmap_doors_closed(":/Icons/door_closed_96.png");
 
-    qDebug() <<"Odebrana wiadomosc: "<< message << " ,topic: "<< topic;
-
     if(topic ==sub_topics_chickencoop[0])
         ui->lineEdit_temp->setText(message);
     else if (topic ==sub_topics_chickencoop[1]) {
@@ -111,7 +109,6 @@ void ChooseWindow::message_handler(const QByteArray& message, const QMqttTopicNa
         }
     }
     else if(topic == sub_topics_driveway_lights){
-        qDebug() << "sub_topics_driveway_lights message : " << message << endl;
         char msg = message[0]-'0';
         int mode = (int)msg;
         QPixmap pixmap_lights;
@@ -130,7 +127,6 @@ void ChooseWindow::message_handler(const QByteArray& message, const QMqttTopicNa
         QIcon ButtonIcon_lights(pixmap_lights);
         ui->lights_button->setIcon(ButtonIcon_lights);
         ui->lights_button->setIconSize(pixmap_lights.rect().size());
-        qDebug() << "Hej, zmieniles status na: " << mode << endl;
     }
     ui->lights_button->setStyleSheet("QPushButton:checked{background-color: rgb(250, 255, 205);}");
 
@@ -247,14 +243,12 @@ void ChooseWindow::on_weather_button_clicked()
 {
     weather_window->show();
     this->hide();
-    qDebug() << "Otwarto okno weather";
 }
 
 void ChooseWindow::on_water_button_clicked()
 {
     watering_window->show();
     this->hide();
-    qDebug() << "Otwarto okno watering";
 }
 
 
