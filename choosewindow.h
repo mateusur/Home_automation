@@ -101,7 +101,7 @@ private slots:
     *
     * Metoda obsługująca odebrane wiadomości - ustawiająca odebraną temperature, wilgotność oraz status drzwi (otwarte/zamknięte).
     */
-    void message_handler(QByteArray message,  QMqttTopicName topic);
+    void message_handler(const QByteArray& message, const QMqttTopicName& topic);
     /*!
     * \brief Metoda otwierająca okno z opcjami serwera MQTT.
     *

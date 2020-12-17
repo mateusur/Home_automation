@@ -71,7 +71,7 @@ Watering::~Watering()
     delete ui;
 }
 
-void Watering::message_handler(QByteArray message, QMqttTopicName topic)
+void Watering::message_handler(const QByteArray& message, const QMqttTopicName& topic)
 {
 
     if (topic == topics_soil_sensor[0]){ //level

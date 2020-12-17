@@ -86,7 +86,7 @@ void ChooseWindow::on_chickencoop_button_clicked()
 
 }
 
-void ChooseWindow::message_handler(QByteArray message,  QMqttTopicName topic)
+void ChooseWindow::message_handler(const QByteArray& message, const QMqttTopicName& topic)
 {
     const QString doors_opened("open");
     const QString doors_closed("close");

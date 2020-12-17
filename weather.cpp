@@ -116,7 +116,7 @@ void Weather::on_return_button_clicked()
     emit change_window();
 }
 
-void Weather::set_icon(QLabel *label, QString icon)
+void Weather::set_icon(QLabel *label,const QString& icon)
 {
     QPixmap weather_pixmap;
     if(icon == "01d"  || icon == "01n")
@@ -142,7 +142,7 @@ void Weather::set_icon(QLabel *label, QString icon)
     label->setPixmap(weather_pixmap.scaled(w,h,Qt::KeepAspectRatioByExpanding));
 }
 
-void Weather::set_temp(QLabel *label, double temp)
+void Weather::set_temp(QLabel *label, const double& temp)
 {
     QString t = tr("Temp.: ").rightJustified(11);
     QString num = QString::number(temp,'f',1) ;
@@ -156,7 +156,7 @@ void Weather::set_temp(QLabel *label, double temp)
     //label->setText(tr("Temp.: ")+ QString::number(temp,'g',2) + " °C");
 }
 
-void Weather::set_feels(QLabel *label, double feels_like)
+void Weather::set_feels(QLabel *label, const double& feels_like)
 {
     QString f_l = tr("Odcz.: ").rightJustified(11);
     QString num  = QString::number(feels_like,'f',1);
@@ -170,7 +170,7 @@ void Weather::set_feels(QLabel *label, double feels_like)
     //label->setText(tr("Odcz.: ")+ QString::number(feels_like,'g',2) + " °C");
 }
 
-void Weather::set_rain(QLabel *label, double rain)
+void Weather::set_rain(QLabel *label, const double& rain)
 {
     QString r= tr("Opady: ").rightJustified(11,' ');
     QString num = QString::number(rain,'f',1);
@@ -182,7 +182,7 @@ void Weather::set_rain(QLabel *label, double rain)
     //label->setText(tr("Opady: ")+ QString::number(rain,'g',2) + " mm");
 }
 
-void Weather::set_clouds(QLabel *label, int cloudines)
+void Weather::set_clouds(QLabel *label, const int& cloudines)
 {
     QString c = tr("Chmury: ").rightJustified(11, ' ');
     QString num = QString::number(cloudines);
@@ -196,7 +196,7 @@ void Weather::set_clouds(QLabel *label, int cloudines)
     //label->setText(tr("Zachmurzenie: ")+ QString::number(cloudines) + " %");
 }
 
-void Weather::set_pressure(QLabel *label, int pressure)
+void Weather::set_pressure(QLabel *label, const int& pressure)
 {
     QString p = tr("Ciśnienie: ").rightJustified(11, ' ');
     QString num = QString::number(pressure);
@@ -210,13 +210,13 @@ void Weather::set_pressure(QLabel *label, int pressure)
     //label->setText(tr("Ciśnienie: ")+ QString::number(pressure) + " hPa");
 }
 
-void Weather::set_description(QLabel *label, QString description)
+void Weather::set_description(QLabel *label, const QString& description)
 {
     label->setText(description);
     label->setWordWrap(true);
 }
 
-void Weather::set_time(QLabel *label, QString time)
+void Weather::set_time(QLabel *label, const QString& time)
 {
     label->setStyleSheet("font-weight: bold; font: 12pt");
     label->setAlignment(Qt::AlignCenter);

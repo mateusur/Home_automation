@@ -35,7 +35,7 @@ public slots:
     * \param[in] message -  wiadomość jaka została opublikowana.
     * \param[in] topic - temat do, którego wiadomość została opublikowana.
     */
-    void message_handler(QByteArray message,  QMqttTopicName topic);
+    void message_handler(const QByteArray& message, const QMqttTopicName& topic);
 private slots:
     /*!
     * \brief Metoda odpowiedzialna za powrót do głównego okna.
