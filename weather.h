@@ -195,7 +195,11 @@ private:
     * Metoda ustawiająca opisy i ikony na wszystkie dni przy użyciu odpowiednich metod.
     */
     void set_all_icons();
-
+    /*!
+    * \brief Metoda tłumacząca na język angielski nazwę dnia.
+    *
+    * Metoda tłumacząca na język angielski nazwę dnia. Używana w przypadku gdy wybrany język interfejsu to język angielski.
+    */
     void translate_day(QString &day);
 
 
