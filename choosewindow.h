@@ -218,10 +218,18 @@ private:
     */
     const std::array<QString,7> sub_topics_watering = {"garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
                                                         , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday"};
-
+    /*!
+    * \brief Tablica przechowująca subskrybowane tematy związane z wilgotnością gleby.
+    *
+    * Tablica przechowująca subskrybowane tematy związane z wilgotnością gleby.
+    */
     const std::array<QString,2> sub_topics_soil_sensor = {"garden/watering/soil/level","garden/watering/soil/mode"};
 
-    //TODO: Komentarz
+    /*!
+    * \brief Temat MQTT do obslugi oswietlenia.
+    *
+    * Temat MQTT do obslugi oswietlenia.
+    */
     const QString sub_topics_driveway_lights = "driveway/lights/status";
 };
 #endif // CHOOSEWINDOW_H

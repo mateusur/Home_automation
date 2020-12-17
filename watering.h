@@ -126,7 +126,11 @@ private:
     */
     const QString topics_watering[8] = { "garden/watering/solenoid/sunday", "garden/watering/solenoid/monday", "garden/watering/solenoid/tuesday", "garden/watering/solenoid/wednesday"
                                 , "garden/watering/solenoid/thursday", "garden/watering/solenoid/friday", "garden/watering/solenoid/saturday", "garden/watering/solenoid" };
-    //TODO: Zakomentowac ponizsze tematy
+    /*!
+    * \brief Tablica przechowująca tematy związane z wilgotnością gleby.
+    *
+    * Tablica przechowująca tematy związane z wilgotnością gleby.
+    */
     const QString topics_soil_sensor[2] = {"garden/watering/soil/level","garden/watering/soil/mode"};
     /*!
     * \brief Timer odświeżający wyświetlany minutnik.
@@ -139,7 +143,7 @@ private:
     *
     * Timer do odświeżający minutnik ochładzania.
     */
-    QTimer *timer2; //NOTE Sa dwa poniewaz musze wiedziec, ktory wyslal informacje (slot itd)
+    QTimer *timer2; //Sa dwa poniewaz musze wiedziec, ktory wyslal informacje (slot itd)
     /*!
     * \brief Minutnik do wyświetlania pozostałego czasu nawadniania/schładzania.
     *
