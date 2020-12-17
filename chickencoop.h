@@ -60,7 +60,7 @@ public slots:
     * Metoda odpowiedzialna za dezaktywacje przycisku podnoszącego drzwi jeśli drzwi są już podniesione oraz analogicznie dezaktywująca
     * przycisk opuszczania jeśli drzwi są opuszczone.
     */
-    void disable_button(const QByteArray& message,const QMqttTopicName& topic);
+    void disable_button(QByteArray message,  QMqttTopicName topic);
 
 signals:
     /*!

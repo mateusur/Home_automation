@@ -71,7 +71,7 @@ Watering::~Watering()
     delete ui;
 }
 
-void Watering::message_handler(const QByteArray& message,const QMqttTopicName& topic)
+void Watering::message_handler(QByteArray message, QMqttTopicName topic)
 {
 
     if (topic == topics_soil_sensor[0]){ //level
@@ -81,7 +81,7 @@ void Watering::message_handler(const QByteArray& message,const QMqttTopicName& t
         qDebug() << "Soil level: " << soil_level << endl;
     }
     else if(topic == topics_soil_sensor[1]){ //mode
-         qDebug() << "Soil_sensor_mode message : " << message << endl;
+         qDebug() << "Hej, message: " << message << endl;
          char msg = message[0]-'0';
          int mode = (int)msg;
          if(mode) //mode 1 - garden, mode 0 - plants
